@@ -59,9 +59,14 @@ class MainView extends View {
                   text: 'table.html',
                 },
                 {
-                  tag: 'p',
+                  tag: 'pre',
                   className: ['html-viewer__document'],
-                  text: '',
+                  children: [
+                    {
+                      tag: 'code',
+                      className: ['html'],
+                    },
+                  ],
                 },
               ],
             },
