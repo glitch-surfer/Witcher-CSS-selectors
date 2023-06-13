@@ -44,11 +44,18 @@ class App implements IApp {
     const table = this.header.viewElement.element.lastElementChild;
     table?.append(this.level.getHtmlElement());
     const levelContent = table?.outerHTML;
-    const htmlViewer = this.main.viewElement.element.children[0].lastElementChild?.lastElementChild;
-    if (htmlViewer !== null && htmlViewer !== undefined && levelContent !== undefined) {
-      htmlViewer.textContent = levelContent;
+    const normalizedContent = levelContent?.toString().split('><').join('>\n<');
+    const htmlViewer = this.main.viewElement.element
+      .children[0]
+      .lastElementChild
+      ?.lastElementChild
+      ?.firstChild;
+    if (htmlViewer !== null
+      && htmlViewer !== undefined
+      && normalizedContent !== undefined) {
+      htmlViewer.textContent = normalizedContent;
     }
-    // console.log(htmlViewer);
+    // console.log(normalizedContent);
   }
 }
 
