@@ -33,6 +33,7 @@ class MainView extends View {
                   className: ['editor__input'],
                   attributes: {
                     type: 'text',
+                    autofocus: '',
                   },
                 },
                 {
