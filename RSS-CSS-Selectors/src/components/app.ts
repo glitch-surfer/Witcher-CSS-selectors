@@ -5,17 +5,18 @@ import { MainView } from './main/main-view';
 import { AsideView } from './aside/aside-view';
 import { FooterView } from './footer/footer-view';
 import type { View } from './util/view';
-import type { IParams } from '../types/types';
+import type { IApp, Level, LevelParams } from '../types/types';
 
-const level: IParams = {
+const level: LevelParams = {
+  id: 1,
   tag: 'div',
   className: ['level1'],
 };
 
-class App {
+class App implements IApp {
   header: View;
 
-  level: View;
+  level: Level;
 
   main: View;
 
@@ -40,8 +41,14 @@ class App {
   }
 
   startGame(): void {
-    // console.log(this.header.viewElement.element.lastElementChild);
-    this.header.viewElement.element.lastElementChild?.append(this.level.getHtmlElement());
+    const table = this.header.viewElement.element.lastElementChild;
+    table?.append(this.level.getHtmlElement());
+    const levelContent = table?.outerHTML;
+    const htmlViewer = this.main.viewElement.element.children[0].lastElementChild?.lastElementChild;
+    if (htmlViewer !== null && htmlViewer !== undefined && levelContent !== undefined) {
+      htmlViewer.textContent = levelContent;
+    }
+    // console.log(htmlViewer);
   }
 }
 

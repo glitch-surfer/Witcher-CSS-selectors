@@ -22,8 +22,27 @@ interface IView {
   getHtmlElement: () => HTMLElement
 }
 
+type Level = IView & {
+  id: number
+};
+
+type LevelParams = IParams & {
+  id: number
+};
+
+interface IApp {
+  header: IView
+  level: Level
+  main: IView
+  aside: IView
+  footer: IView
+}
+
 export type {
   IParams,
   IElementGenerator,
   IView,
+  IApp,
+  Level,
+  LevelParams,
 };

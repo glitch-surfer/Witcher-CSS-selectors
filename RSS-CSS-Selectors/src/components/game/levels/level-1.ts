@@ -1,13 +1,13 @@
 import './level-1.scss';
-import type { IParams } from '../../../types/types';
+import type { LevelParams } from '../../../types/types';
 import { View } from '../../util/view';
 
 class LevelView extends View {
-  id: string;
+  id: number;
 
-  constructor(level: IParams) {
+  constructor(level: LevelParams) {
     super(level);
-    this.id = level.tag;
+    this.id = level.id;
   }
 }
 
