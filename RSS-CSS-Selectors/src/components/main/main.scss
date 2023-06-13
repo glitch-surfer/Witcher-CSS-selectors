@@ -1,0 +1,13 @@
+.main {
+  grid-area: main;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.workspace {
+  flex: 2 1 60%;
+}
+
+.story {
+  flex: 1 1 40%;
+}

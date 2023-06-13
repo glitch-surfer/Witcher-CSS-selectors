@@ -1,3 +1,4 @@
+import './base.scss';
 import { HeaderView } from './header/header-view';
 import { LevelView } from './game/levels/level-1';
 import { MainView } from './main/main-view';

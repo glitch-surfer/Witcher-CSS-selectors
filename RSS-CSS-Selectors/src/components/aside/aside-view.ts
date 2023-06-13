@@ -1,3 +1,4 @@
+import './aside.scss';
 import type { IParams } from '../../types/types';
 import { View } from '../util/view';
 

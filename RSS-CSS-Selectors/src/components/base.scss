@@ -1,0 +1,13 @@
+body {
+  display: grid;
+  grid-template:
+    "header header header header header levels" fit-content(100%)
+    "main main main main main levels" fit-content(100%)
+    "main main main main main levels" fit-content(100%)
+    "footer footer footer footer footer footer" 1fr
+    / 1fr 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  // background: url(../../img/2387540.jpg) center no-repeat;
+  background-size: 100% 120%;
+  color: rgb(4, 66, 120);
+}

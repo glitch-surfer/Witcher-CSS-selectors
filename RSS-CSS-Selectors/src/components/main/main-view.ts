@@ -1,3 +1,4 @@
+import './main.scss';
 import { View } from '../util/view';
 import type { IParams } from '../../types/types';
 
