@@ -34,6 +34,16 @@ class AsideView extends View {
             },
           ],
         },
+        {
+          tag: 'button',
+          className: ['levels__button'],
+          text: 'reset',
+        },
+        {
+          tag: 'button',
+          className: ['levels__button'],
+          text: 'help',
+        },
       ],
     };
     super(asideParams);
