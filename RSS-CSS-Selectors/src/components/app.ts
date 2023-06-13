@@ -8,7 +8,9 @@ import type { View } from './util/view';
 import type { IApp, Level, LevelParams } from '../types/types';
 
 const level: LevelParams = {
-  id: 1,
+  id: `<div class="header__table">
+  <div class="level1"></div>
+</div>`,
   tag: 'div',
   className: ['level1'],
 };
@@ -43,19 +45,22 @@ class App implements IApp {
   startGame(): void {
     const table = this.header.viewElement.element.lastElementChild;
     table?.append(this.level.getHtmlElement());
-    const levelContent = table?.outerHTML;
-    const normalizedContent = levelContent?.toString().split('><').join('>\n<');
-    const htmlViewer = this.main.viewElement.element
+    // const levelContent = table?.outerHTML;
+    // const normalizedContent = levelContent?.toString().replace(/></g, '>.<').split('.');
+    // console.log(normalizedContent);
+    const htmlViewer = this.main.viewElement.getElement()
       .children[0]
       .lastElementChild
       ?.lastElementChild
       ?.firstChild;
-    if (htmlViewer !== null
-      && htmlViewer !== undefined
-      && normalizedContent !== undefined) {
-      htmlViewer.textContent = normalizedContent;
-    }
-    // console.log(normalizedContent);
+    // if (htmlViewer !== null
+    //   && htmlViewer !== undefined
+    //   && normalizedContent !== undefined) {
+    //   normalizedContent.forEach((el) => {
+    //     (htmlViewer as HTMLElement).append(el);
+    //   });
+    // }
+    (htmlViewer as HTMLElement).append(this.level.id);
   }
 }
 

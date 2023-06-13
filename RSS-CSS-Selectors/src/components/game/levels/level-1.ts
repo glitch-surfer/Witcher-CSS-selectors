@@ -3,7 +3,7 @@ import type { LevelParams } from '../../../types/types';
 import { View } from '../../util/view';
 
 class LevelView extends View {
-  id: number;
+  id: string;
 
   constructor(level: LevelParams) {
     super(level);
