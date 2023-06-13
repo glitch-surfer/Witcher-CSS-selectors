@@ -6,7 +6,79 @@ class MainView extends View {
     const MainParams: IParams = {
       tag: 'main',
       className: ['main'],
-      text: 'main',
+      children: [
+        {
+          tag: 'section',
+          className: ['workspace'],
+          children: [
+            {
+              tag: 'div',
+              className: ['editor'],
+              children: [
+                {
+                  tag: 'h2',
+                  className: ['editor__title'],
+                  text: 'CSS Editor',
+                },
+                {
+                  tag: 'span',
+                  className: ['editor__description'],
+                  text: 'style.css',
+                },
+                {
+                  tag: 'input',
+                  className: ['editor__input'],
+                  attributes: {
+                    type: 'text',
+                  },
+                },
+                {
+                  tag: 'button',
+                  className: ['editor__button'],
+                  text: 'enter',
+                },
+              ],
+            },
+            {
+              tag: 'div',
+              className: ['html-viewer'],
+              children: [
+                {
+                  tag: 'h2',
+                  className: ['html-viewer__title'],
+                  text: 'HTML Viewer',
+                },
+                {
+                  tag: 'span',
+                  className: ['html-viewer__description'],
+                  text: 'table.html',
+                },
+                {
+                  tag: 'p',
+                  className: ['html-viewer__document'],
+                  text: '',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          tag: 'section',
+          className: ['story'],
+          children: [
+            {
+              tag: 'h2',
+              className: ['story__title'],
+              text: 'Story',
+            },
+            {
+              tag: 'p',
+              className: ['story__text'],
+              text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident iste ratione, tempore, corporis delenitLorem ipsum dolor sit amet consectetur adipisicing elit. Provident iste ratione, tempore, corporis delenitLorem ipsum dolor sit amet consectetur adipisicing elit. Provident iste ratione, tempore, corporis delenitLorem ipsum dolor sit amet consectetur adipisicing elit. Provident iste ratione, tempore, corporis delenit',
+            },
+          ],
+        },
+      ],
     };
     super(MainParams);
   }
