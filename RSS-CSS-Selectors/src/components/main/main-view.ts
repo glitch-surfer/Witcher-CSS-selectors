@@ -3,7 +3,7 @@ import type { IParams } from '../../types/types';
 
 class MainView extends View {
   constructor() {
-    const MainParams: IParams = {
+    const mainParams: IParams = {
       tag: 'main',
       className: ['main'],
       children: [
@@ -80,7 +80,7 @@ class MainView extends View {
         },
       ],
     };
-    super(MainParams);
+    super(mainParams);
   }
 }
 

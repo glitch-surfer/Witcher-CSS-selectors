@@ -4,7 +4,7 @@ import type { IParams } from '../../types/types';
 
 class HeaderView extends View {
   constructor() {
-    const HeaderParams: IParams = {
+    const headerParams: IParams = {
       tag: 'header',
       className: ['header'],
       children: [
@@ -19,7 +19,7 @@ class HeaderView extends View {
         },
       ],
     };
-    super(HeaderParams);
+    super(headerParams);
   }
 }
 
