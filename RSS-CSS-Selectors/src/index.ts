@@ -8,3 +8,4 @@ app.createView();
 // }
 
 // console.log(app.footer.viewElement.getElement().firstElementChild?.textContent);
+export { app };

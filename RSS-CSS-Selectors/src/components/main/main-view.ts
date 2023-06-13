@@ -1,6 +1,8 @@
+/* eslint import/no-cycle: [2, { maxDepth: 1 }] */
 import './main.scss';
 import { View } from '../util/view';
 import type { IParams } from '../../types/types';
+import { removeElement } from '../game/remove-element';
 
 class MainView extends View {
   constructor() {
@@ -37,6 +39,7 @@ class MainView extends View {
                   tag: 'button',
                   className: ['editor__button'],
                   text: 'enter',
+                  callback: removeElement,
                 },
               ],
             },
