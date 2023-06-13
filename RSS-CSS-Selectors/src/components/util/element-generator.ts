@@ -6,8 +6,10 @@ class ElementGenerator implements IElementGenerator {
   constructor(params: IParams) {
     this.element = this.createElement(params.tag);
     if (params.className !== undefined) this.setStyles(params.className);
+    if (params.attributes !== undefined) this.setAttributes(params.attributes);
     if (params.text !== undefined) this.setText(params.text);
     if (params.callback !== undefined) this.setCallback(params.callback);
+    if (params.children !== undefined) this.addChild(params.children);
   }
 
   createElement(tag: string): HTMLElement {
@@ -16,23 +18,29 @@ class ElementGenerator implements IElementGenerator {
   }
 
   setStyles(className: string[]): void {
-    if (className !== undefined) {
-      this.element?.classList.add(...className);
-    }
+    this.element?.classList.add(...className);
+  }
+
+  setAttributes(attributes: Record<string, string>): void {
+    Object.entries(attributes).forEach(([key, value]) => {
+      this.element.setAttribute(key, value);
+    });
   }
 
   setText(text: string): void {
-    if (text !== undefined
-      && this.element !== null) {
-      this.element.textContent = text;
-    }
+    this.element.textContent = text;
   }
 
   setCallback(callback: () => void): void {
-    if (callback !== undefined
-      && this.element !== null) {
+    if (typeof callback === 'function') {
       this.element.addEventListener('click', callback);
     }
+  }
+
+  addChild(children: IParams[]): void {
+    children.forEach((child) => {
+      this.element.append(new ElementGenerator(child).getElement());
+    });
   }
 
   getElement(): HTMLElement {
