@@ -2,14 +2,14 @@ body {
   display: grid;
   grid-template:
     "header header header header header levels" fit-content(100%)
-    "main main main main main levels"  fit-content(100%)
+    "main main main main main levels" fit-content(100%)
     "main main main main main levels" fit-content(100%)
     "footer footer footer footer footer footer" 1fr
     / 1fr 1fr 1fr 1fr 1fr 1fr;
-    justify-items: center;
-    // background: url(../../img/2387540.jpg) center no-repeat;
-    background-size: 100% 120%;
-    color: rgb(4, 66, 120);
+  justify-items: center;
+  // background: url(../../img/2387540.jpg) center no-repeat;
+  background-size: 100% 120%;
+  color: rgb(4, 66, 120);
 }
 
 .header {
@@ -65,4 +65,34 @@ body {
 
 .footer {
   grid-area: footer;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.github-link {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url(../../img/github-img.png) no-repeat center;
+  background-size: contain;
+  border-radius: 50%;
+  transition: 0.25s;
+}
+
+.school-link {
+  display: block;
+  width: 36px;
+  height: 36px;
+  background: url(../../img/school-img.svg) center no-repeat;
+  background-size: contain;
+  border: 2px solid #032836;
+  border-radius: 50%;
+  transition: 0.25s;
+}
+
+.github-link:hover,
+.school-link:hover {
+  background-color: orange;
+  transform: scale(1.1);
+  box-shadow: 0 0 4px 1px orange;
 }
