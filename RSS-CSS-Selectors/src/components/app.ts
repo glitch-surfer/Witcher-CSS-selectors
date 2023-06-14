@@ -6,9 +6,10 @@ import { AsideView } from './aside/aside-view';
 import { FooterView } from './footer/footer-view';
 import type { View } from './util/view';
 import type { IApp, Level, LevelParams } from '../types/types';
+import { removeElement } from './game/remove-element';
 
 const level: LevelParams = {
-  htmlView: `<div class="header__table">
+  htmlView: `<div class="table">
   <div class="level1"></div>
 </div>`,
   tag: 'div',
@@ -26,6 +27,10 @@ class App implements IApp {
 
   footer: View;
 
+  table: HTMLElement | null = null;
+
+  htmlViewer: HTMLElement | null = null;
+
   constructor() {
     this.header = new HeaderView();
     this.level = new LevelView(level);
@@ -33,6 +38,7 @@ class App implements IApp {
     this.aside = new AsideView();
     this.footer = new FooterView();
     this.startGame();
+    App.addKeydownHandler();
   }
 
   createView(): void {
@@ -44,23 +50,28 @@ class App implements IApp {
 
   startGame(): void {
     const table = this.header.viewElement.element.lastElementChild;
-    table?.append(this.level.getHtmlElement());
-    // const levelContent = table?.outerHTML;
-    // const normalizedContent = levelContent?.toString().replace(/></g, '>.<').split('.');
-    // console.log(normalizedContent);
+    if (!(table instanceof HTMLElement)) throw new Error('table not found');
+
+    this.table = table;
+    table.append(this.level.getHtmlElement());
     const htmlViewer = this.main.viewElement.getElement()
       .children[0]
       .lastElementChild
-      ?.lastElementChild
-      ?.firstChild;
-    // if (htmlViewer !== null
-    //   && htmlViewer !== undefined
-    //   && normalizedContent !== undefined) {
-    //   normalizedContent.forEach((el) => {
-    //     (htmlViewer as HTMLElement).append(el);
-    //   });
-    // }
-    (htmlViewer as HTMLElement).append(this.level.htmlView);
+      ?.lastElementChild;
+    if (!(htmlViewer instanceof HTMLElement)) throw new Error('table not found');
+
+    this.htmlViewer = htmlViewer;
+    htmlViewer.append(this.level.htmlView);
+  }
+
+  static addKeydownHandler(): void {
+    const keydownHandler = (event: KeyboardEvent): void => {
+      if (event.code === 'Enter') {
+        event.preventDefault();
+        removeElement();
+      }
+    };
+    document.addEventListener('keydown', keydownHandler);
   }
 }
 
