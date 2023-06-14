@@ -8,7 +8,7 @@ import type { View } from './util/view';
 import type { IApp, Level, LevelParams } from '../types/types';
 
 const level: LevelParams = {
-  id: `<div class="header__table">
+  htmlView: `<div class="header__table">
   <div class="level1"></div>
 </div>`,
   tag: 'div',
@@ -60,7 +60,7 @@ class App implements IApp {
     //     (htmlViewer as HTMLElement).append(el);
     //   });
     // }
-    (htmlViewer as HTMLElement).append(this.level.id);
+    (htmlViewer as HTMLElement).append(this.level.htmlView);
   }
 }
 

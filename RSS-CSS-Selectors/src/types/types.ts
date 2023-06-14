@@ -23,11 +23,11 @@ interface IView {
 }
 
 type Level = IView & {
-  id: number
+  htmlView: string
 };
 
 type LevelParams = IParams & {
-  id: number
+  htmlView: string
 };
 
 interface IApp {

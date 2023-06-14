@@ -3,11 +3,11 @@ import type { LevelParams } from '../../../types/types';
 import { View } from '../../util/view';
 
 class LevelView extends View {
-  id: string;
+  htmlView: string;
 
   constructor(level: LevelParams) {
     super(level);
-    this.id = level.id;
+    this.htmlView = level.htmlView;
   }
 }
 
