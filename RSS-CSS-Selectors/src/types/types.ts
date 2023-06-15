@@ -2,6 +2,7 @@ interface IParams {
   tag: string
   className?: string[]
   attributes?: Record<string, string>
+  id?: string
   text?: string
   callback?: () => void
   children?: IParams[]
