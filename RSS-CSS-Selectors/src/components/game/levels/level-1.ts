@@ -21,24 +21,6 @@ export const level: LevelParams = [{
           attributes: {
             'data-id': '3',
           },
-          children: [
-            {
-              tag: 'sword',
-              className: ['level1_3'],
-              attributes: {
-                'data-id': '4',
-              },
-              children: [
-                {
-                  tag: 'sword',
-                  className: ['level1_4'],
-                  attributes: {
-                    'data-id': '5',
-                  },
-                },
-              ],
-            },
-          ],
         },
       ],
     },
@@ -47,6 +29,24 @@ export const level: LevelParams = [{
   tag: 'plate',
   className: ['level1'],
   attributes: {
-    'data-id': '6',
+    'data-id': '4',
   },
+  children: [
+    {
+      tag: 'sword',
+      className: ['level1_3'],
+      attributes: {
+        'data-id': '5',
+      },
+      children: [
+        {
+          tag: 'sword',
+          className: ['level1_4'],
+          attributes: {
+            'data-id': '6',
+          },
+        },
+      ],
+    },
+  ],
 }];
