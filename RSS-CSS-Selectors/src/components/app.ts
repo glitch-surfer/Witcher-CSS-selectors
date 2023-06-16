@@ -29,6 +29,7 @@ export class App implements IApp {
     App.startGame();
     App.addKeydownHandler();
     App.addClickHandler();
+    App.addToolTips(elementLinks[Elements.TABLE]);
   }
 
   createView(): void {
@@ -76,6 +77,21 @@ export class App implements IApp {
 
     submitButton.addEventListener('click', () => {
       App.removeElement(table, selectorsInput.value);
+    });
+  }
+
+  static addToolTips(parentNode: Element): void {
+    [...parentNode.children].forEach((child) => {
+      if (child.children.length !== 0) {
+        App.addToolTips(child);
+      }
+      const tooltip = document.createElement('span');
+      if (!(child instanceof HTMLElement)) throw new Error('Element is not HTMLElement');
+      const dataId = child.dataset.id;
+      if (dataId !== undefined) {
+        tooltip.dataset.id = dataId;
+      }
+      child.append(tooltip);
     });
   }
 }
