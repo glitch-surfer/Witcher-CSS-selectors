@@ -9,7 +9,7 @@ import type {
   IApp, Level, LevelParams,
 } from '../types/types';
 import { parseLevelObjToHtmlViewer } from './util/parce-level-obj-to-html-viewer';
-import { addHightlightedTag } from './util/add-highlighted-tag';
+import { addHighlightedTag } from './util/add-highlighted-tag';
 
 const level: LevelParams = {
   htmlView: 'table.html',
@@ -90,7 +90,7 @@ export class App implements IApp {
     this.htmlViewer = htmlViewer;
 
     htmlViewer.append(parseLevelObjToHtmlViewer(level));
-    addHightlightedTag(this.htmlViewer, 'table');
+    addHighlightedTag(this.htmlViewer, 'table');
   }
 
   static removeElement(area: HTMLElement, selector: string): void {

@@ -4,7 +4,7 @@ import xml from 'highlight.js/lib/languages/xml';
 
 hljs.registerLanguage('xml', xml);
 
-export const addHightlightedTag = (area: HTMLElement, tag: string): void => {
+export const addHighlightedTag = (area: HTMLElement, tag: string): void => {
   const coloredOpenTagAsString = hljs.highlight(`<${tag}>`, { language: 'xml' }).value;
   const coloredCloseTagAsString = hljs.highlight(`</${tag}>`, { language: 'xml' }).value;
 
