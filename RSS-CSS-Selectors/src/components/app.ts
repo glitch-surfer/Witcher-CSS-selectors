@@ -8,27 +8,29 @@ import type { View } from './util/view';
 import type {
   IApp, Level, LevelParams,
 } from '../types/types';
-import { parceLevelObjToHtmlViewer } from './util/parceLevelObjToHtmlViewer';
+import { parseLevelObjToHtmlViewer } from './util/parce-level-obj-to-html-viewer';
+import { addHightlightedTag } from './util/add-highlighted-tag';
 
 const level: LevelParams = {
   htmlView: 'table.html',
-  tag: 'table',
+  tag: 'plate',
+  className: ['level1'],
   attributes: {
-    'data-id': '0',
+    'data-id': '1',
   },
   children: [
     {
       tag: 'bento',
-      className: ['level1'],
+      className: ['level1_1'],
       attributes: {
-        'data-id': '1',
+        'data-id': '2',
       },
       children: [
         {
           tag: 'sword',
-          className: ['level1_1'],
+          className: ['level1_2'],
           attributes: {
-            'data-id': '2',
+            'data-id': '3',
           },
         },
       ],
@@ -74,7 +76,7 @@ export class App implements IApp {
   }
 
   private startGame(): void {
-    const table = this.header.viewElement.element;
+    const table = this.header.viewElement.element.lastElementChild;
     if (!(table instanceof HTMLElement)) throw new Error('table not found');
     this.table = table;
 
@@ -82,11 +84,13 @@ export class App implements IApp {
 
     const htmlViewer = this.main.viewElement.getElement()
       .firstElementChild
+      ?.lastElementChild
       ?.lastElementChild;
     if (!(htmlViewer instanceof HTMLElement)) throw new Error('table not found');
     this.htmlViewer = htmlViewer;
 
-    htmlViewer.append(parceLevelObjToHtmlViewer(level));
+    htmlViewer.append(parseLevelObjToHtmlViewer(level));
+    addHightlightedTag(this.htmlViewer, 'table');
   }
 
   static removeElement(area: HTMLElement, selector: string): void {
@@ -106,7 +110,6 @@ export class App implements IApp {
     const keydownHandler = (event: KeyboardEvent): void => {
       if (event.code === 'Enter') {
         if (this.table === null) throw new Error('table not found');
-        console.log(this.table)
         App.removeElement(this.table, selectorsInput.value);
       }
     };
