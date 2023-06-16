@@ -1,4 +1,4 @@
-interface IParams {
+export interface IParams {
   tag: string
   className?: string[]
   attributes?: Record<string, string>
@@ -9,24 +9,24 @@ interface IParams {
   link?: boolean
 }
 
-interface IElementGenerator {
+export interface IElementGenerator {
   element: HTMLElement
   getElement: () => HTMLElement
 }
 
-interface IView {
+export interface IView {
   getHtmlElement: () => HTMLElement
 }
 
-type Level = IView & {
+export type Level = IView & {
   htmlView: string
 };
 
-type LevelParams = IParams & {
+export type LevelParams = IParams & {
   htmlView: string
 };
 
-interface IApp {
+export interface IApp {
   header: IElementGenerator
   level: IElementGenerator
   main: IElementGenerator
@@ -34,11 +34,9 @@ interface IApp {
   footer: IElementGenerator
 }
 
-export type {
-  IParams,
-  IElementGenerator,
-  IView,
-  IApp,
-  Level,
-  LevelParams,
-};
+export enum Elements {
+  TABLE = 'DIV.header__table',
+  HTML_VIEWER = 'DIV.html-viewer__content',
+  INPUT = 'INPUT.editor__input',
+  BUTTON = 'BUTTON.editor__button',
+}
