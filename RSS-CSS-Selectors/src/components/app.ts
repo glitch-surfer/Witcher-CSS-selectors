@@ -1,53 +1,24 @@
 import './base.scss';
-import { HeaderView } from './header/header-view';
-import { LevelView } from './game/levels/level-1';
-import { MainView } from './main/main-view';
-import { AsideView } from './aside/aside-view';
-import { FooterView } from './footer/footer-view';
-import type { View } from './util/view';
-import type {
-  IApp, Level, LevelParams,
-} from '../types/types';
+import { headerParams } from './header/header-view';
+import { mainParams } from './main/main-view';
+import { asideParams } from './aside/aside-view';
+import { footerParams } from './footer/footer-view';
+import { level } from './game/levels/level-1';
+import type { IApp } from '../types/types';
 import { parseLevelObjToHtmlViewer } from './util/parce-level-obj-to-html-viewer';
 import { addHighlightedTag } from './util/add-highlighted-tag';
-
-const level: LevelParams = {
-  htmlView: 'table.html',
-  tag: 'plate',
-  className: ['level1'],
-  attributes: {
-    'data-id': '1',
-  },
-  children: [
-    {
-      tag: 'bento',
-      className: ['level1_1'],
-      attributes: {
-        'data-id': '2',
-      },
-      children: [
-        {
-          tag: 'sword',
-          className: ['level1_2'],
-          attributes: {
-            'data-id': '3',
-          },
-        },
-      ],
-    },
-  ],
-};
+import { ElementGenerator } from './util/element-generator';
 
 export class App implements IApp {
-  header: View;
+  header: ElementGenerator;
 
-  level: Level;
+  level: ElementGenerator;
 
-  main: View;
+  main: ElementGenerator;
 
-  aside: View;
+  aside: ElementGenerator;
 
-  footer: View;
+  footer: ElementGenerator;
 
   table: HTMLElement | null = null;
 
@@ -58,31 +29,32 @@ export class App implements IApp {
   submitButton: HTMLButtonElement | null = null;
 
   constructor() {
-    this.header = new HeaderView();
-    this.level = new LevelView(level);
-    this.main = new MainView();
-    this.aside = new AsideView();
-    this.footer = new FooterView();
+    this.header = new ElementGenerator(headerParams);
+    this.level = new ElementGenerator(level);
+    this.main = new ElementGenerator(mainParams);
+    this.aside = new ElementGenerator(asideParams);
+    this.footer = new ElementGenerator(footerParams);
     this.startGame();
     this.addKeydownHandler();
     this.addClickHandler();
   }
 
   createView(): void {
-    document.body.append(this.header.getHtmlElement());
-    document.body.append(this.main.getHtmlElement());
-    document.body.append(this.aside.getHtmlElement());
-    document.body.append(this.footer.getHtmlElement());
+    document.body.append(this.header.getElement());
+    document.body.append(this.main.getElement());
+    document.body.append(this.aside.getElement());
+    document.body.append(this.footer.getElement());
   }
 
   private startGame(): void {
-    const table = this.header.viewElement.element.lastElementChild;
+    const table = this.header.getElement().lastElementChild;
     if (!(table instanceof HTMLElement)) throw new Error('table not found');
     this.table = table;
 
-    table.append(this.level.getHtmlElement());
+    table.append(this.level.getElement());
+    console.log(this.level.getElement());
 
-    const htmlViewer = this.main.viewElement.getElement()
+    const htmlViewer = this.main.getElement()
       .firstElementChild
       ?.lastElementChild
       ?.lastElementChild;
@@ -102,7 +74,7 @@ export class App implements IApp {
   }
 
   private addKeydownHandler(): void {
-    const selectorsInput = this.main.getHtmlElement()
+    const selectorsInput = this.main.getElement()
       .firstElementChild
       ?.firstElementChild
       ?.children[2] as HTMLInputElement;
@@ -117,7 +89,7 @@ export class App implements IApp {
   }
 
   private addClickHandler(): void {
-    const submitButton = this.main.getHtmlElement()
+    const submitButton = this.main.getElement()
       .firstElementChild
       ?.firstElementChild
       ?.lastElementChild;

@@ -32,11 +32,11 @@ type LevelParams = IParams & {
 };
 
 interface IApp {
-  header: IView
-  level: Level
-  main: IView
-  aside: IView
-  footer: IView
+  header: IElementGenerator
+  level: IElementGenerator
+  main: IElementGenerator
+  aside: IElementGenerator
+  footer: IElementGenerator
 }
 
 export type {
