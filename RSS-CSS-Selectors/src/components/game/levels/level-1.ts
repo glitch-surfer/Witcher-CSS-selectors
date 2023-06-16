@@ -1,8 +1,7 @@
 import './level-1.scss';
 import type { LevelParams } from '../../../types/types';
 
-export const level: LevelParams = {
-  htmlView: 'table.html',
+export const level: LevelParams = [{
   tag: 'plate',
   className: ['level1'],
   attributes: {
@@ -44,4 +43,10 @@ export const level: LevelParams = {
       ],
     },
   ],
-};
+}, {
+  tag: 'plate',
+  className: ['level1'],
+  attributes: {
+    'data-id': '6',
+  },
+}];

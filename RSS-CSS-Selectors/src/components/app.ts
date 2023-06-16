@@ -13,7 +13,7 @@ import { ElementGenerator, elementLinks } from './util/element-generator';
 export class App implements IApp {
   header: ElementGenerator;
 
-  level: ElementGenerator;
+  // level: ElementGenerator | null = null;
 
   main: ElementGenerator;
 
@@ -23,11 +23,10 @@ export class App implements IApp {
 
   constructor() {
     this.header = new ElementGenerator(headerParams);
-    this.level = new ElementGenerator(level);
     this.main = new ElementGenerator(mainParams);
     this.aside = new ElementGenerator(asideParams);
     this.footer = new ElementGenerator(footerParams);
-    this.startGame();
+    App.startGame();
     App.addKeydownHandler();
     App.addClickHandler();
   }
@@ -39,12 +38,15 @@ export class App implements IApp {
     document.body.append(this.footer.getElement());
   }
 
-  private startGame(): void {
+  static startGame(): void {
     const table = elementLinks[Elements.TABLE];
     const htmlViewer = elementLinks[Elements.HTML_VIEWER];
 
-    table.append(this.level.getElement());
-    htmlViewer.append(parseLevelObjToHtmlViewer(level));
+    level.forEach((element) => {
+      table.append(new ElementGenerator(element).getElement());
+      htmlViewer.append(parseLevelObjToHtmlViewer(element));
+    });
+
     addHighlightedTag(htmlViewer, 'table');
   }
 

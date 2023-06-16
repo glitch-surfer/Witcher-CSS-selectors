@@ -22,13 +22,11 @@ export type Level = IView & {
   htmlView: string
 };
 
-export type LevelParams = IParams & {
-  htmlView: string
-};
+export type LevelParams = IParams[];
 
 export interface IApp {
   header: IElementGenerator
-  level: IElementGenerator
+  // level: IElementGenerator
   main: IElementGenerator
   aside: IElementGenerator
   footer: IElementGenerator
