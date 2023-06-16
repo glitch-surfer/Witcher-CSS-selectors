@@ -11,3 +11,43 @@ body {
   background-size: 100% 120%;
   color: rgb(4, 66, 120);
 }
+
+body:has([data-id="1"]:hover) [data-id="1"] {
+  box-shadow: 0px 0px 11px 2px orange;
+}
+
+body:has([data-id="2"]:hover) [data-id="2"] {
+  box-shadow: 0px 0px 11px 2px orange;
+}
+
+body:has([data-id="2"]:hover) [data-id="1"] {
+  box-shadow: none;
+}
+
+body:has([data-id="3"]:hover) [data-id="3"] {
+  box-shadow: 0px 0px 11px 2px orange;
+}
+
+body:has([data-id="3"]:hover) [data-id="2"] {
+  box-shadow: none;
+}
+
+body:has([data-id="4"]:hover) [data-id="4"] {
+  box-shadow: 0px 0px 11px 2px orange;
+}
+
+body:has([data-id="4"]:hover) [data-id="3"] {
+  box-shadow: none;
+}
+
+body:has([data-id="5"]:hover) [data-id="5"] {
+  box-shadow: 0px 0px 11px 2px orange;
+}
+
+body:has([data-id="5"]:hover) [data-id="4"] {
+  box-shadow: none;
+}
+
+.html-viewer div {
+  padding-left: 20px;
+}
