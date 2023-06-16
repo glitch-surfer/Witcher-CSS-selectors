@@ -5,9 +5,10 @@ import { asideParams } from './aside/aside-view';
 import { footerParams } from './footer/footer-view';
 import { level } from './game/levels/level-1';
 import type { IApp } from '../types/types';
+import { Elements } from '../types/types';
 import { parseLevelObjToHtmlViewer } from './util/parce-level-obj-to-html-viewer';
 import { addHighlightedTag } from './util/add-highlighted-tag';
-import { ElementGenerator } from './util/element-generator';
+import { ElementGenerator, elementLinks } from './util/element-generator';
 
 export class App implements IApp {
   header: ElementGenerator;
@@ -20,14 +21,6 @@ export class App implements IApp {
 
   footer: ElementGenerator;
 
-  table: HTMLElement | null = null;
-
-  htmlViewer: HTMLElement | null = null;
-
-  selectorsInput: HTMLInputElement | null = null;
-
-  submitButton: HTMLButtonElement | null = null;
-
   constructor() {
     this.header = new ElementGenerator(headerParams);
     this.level = new ElementGenerator(level);
@@ -35,8 +28,8 @@ export class App implements IApp {
     this.aside = new ElementGenerator(asideParams);
     this.footer = new ElementGenerator(footerParams);
     this.startGame();
-    this.addKeydownHandler();
-    this.addClickHandler();
+    App.addKeydownHandler();
+    App.addClickHandler();
   }
 
   createView(): void {
@@ -47,22 +40,12 @@ export class App implements IApp {
   }
 
   private startGame(): void {
-    const table = this.header.getElement().lastElementChild;
-    if (!(table instanceof HTMLElement)) throw new Error('table not found');
-    this.table = table;
+    const table = elementLinks[Elements.TABLE];
+    const htmlViewer = elementLinks[Elements.HTML_VIEWER];
 
     table.append(this.level.getElement());
-    console.log(this.level.getElement());
-
-    const htmlViewer = this.main.getElement()
-      .firstElementChild
-      ?.lastElementChild
-      ?.lastElementChild;
-    if (!(htmlViewer instanceof HTMLElement)) throw new Error('table not found');
-    this.htmlViewer = htmlViewer;
-
     htmlViewer.append(parseLevelObjToHtmlViewer(level));
-    addHighlightedTag(this.htmlViewer, 'table');
+    addHighlightedTag(htmlViewer, 'table');
   }
 
   static removeElement(area: HTMLElement, selector: string): void {
@@ -73,31 +56,24 @@ export class App implements IApp {
     }
   }
 
-  private addKeydownHandler(): void {
-    const selectorsInput = this.main.getElement()
-      .firstElementChild
-      ?.firstElementChild
-      ?.children[2] as HTMLInputElement;
-    this.selectorsInput = selectorsInput;
+  static addKeydownHandler(): void {
+    const table = elementLinks[Elements.TABLE];
+    const selectorsInput = elementLinks[Elements.INPUT] as HTMLInputElement;
     const keydownHandler = (event: KeyboardEvent): void => {
       if (event.code === 'Enter') {
-        if (this.table === null) throw new Error('table not found');
-        App.removeElement(this.table, selectorsInput.value);
+        App.removeElement(table, selectorsInput.value);
       }
     };
     document.addEventListener('keydown', keydownHandler);
   }
 
-  private addClickHandler(): void {
-    const submitButton = this.main.getElement()
-      .firstElementChild
-      ?.firstElementChild
-      ?.lastElementChild;
-    if (!(submitButton instanceof HTMLButtonElement)) throw new Error('table not found');
-    this.submitButton = submitButton;
+  static addClickHandler(): void {
+    const table = elementLinks[Elements.TABLE];
+    const submitButton = elementLinks[Elements.BUTTON];
+    const selectorsInput = elementLinks[Elements.INPUT] as HTMLInputElement;
+
     submitButton.addEventListener('click', () => {
-      if (this.table === null || this.selectorsInput === null) throw new Error('table not found');
-      App.removeElement(this.table, this.selectorsInput.value);
+      App.removeElement(table, selectorsInput.value);
     });
   }
 }

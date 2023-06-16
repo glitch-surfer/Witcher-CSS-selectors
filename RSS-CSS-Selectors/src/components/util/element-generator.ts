@@ -1,6 +1,8 @@
 import type { IParams, IElementGenerator } from '../../types/types';
 
-class ElementGenerator implements IElementGenerator {
+export const elementLinks: Record<string, HTMLElement> = {};
+
+export class ElementGenerator implements IElementGenerator {
   element: HTMLElement;
 
   constructor(params: IParams) {
@@ -10,42 +12,46 @@ class ElementGenerator implements IElementGenerator {
     if (params.text !== undefined) this.setText(params.text);
     if (params.callback !== undefined) this.setCallback(params.callback);
     if (params.children !== undefined) this.addChild(params.children);
+    if (params.link !== undefined) this.setElementLink();
   }
 
-  createElement(tag: string): HTMLElement {
+  private createElement(tag: string): HTMLElement {
     this.element = document.createElement(tag);
     return this.element;
   }
 
-  setStyles(className: string[]): void {
+  private setStyles(className: string[]): void {
     this.element?.classList.add(...className);
   }
 
-  setAttributes(attributes: Record<string, string>): void {
+  private setAttributes(attributes: Record<string, string>): void {
     Object.entries(attributes).forEach(([key, value]) => {
       this.element.setAttribute(key, value);
     });
   }
 
-  setText(text: string): void {
+  private setText(text: string): void {
     this.element.textContent = text;
   }
 
-  setCallback(callback: () => void): void {
+  private setCallback(callback: () => void): void {
     if (typeof callback === 'function') {
       this.element.addEventListener('click', callback);
     }
   }
 
-  addChild(children: IParams[]): void {
+  private addChild(children: IParams[]): void {
     children.forEach((child) => {
-      this.element.append(new ElementGenerator(child).getElement());
+      const childElement = new ElementGenerator(child).getElement();
+      this.element.append(childElement);
     });
   }
 
   getElement(): HTMLElement {
     return this.element;
   }
-}
 
-export { ElementGenerator };
+  private setElementLink(): void {
+    elementLinks[`${this.element.tagName}.${this.element.className}`] = this.element;
+  }
+}

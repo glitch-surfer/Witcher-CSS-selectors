@@ -13,6 +13,7 @@ export const headerParams: IParams = {
     {
       tag: 'div',
       className: ['header__table'],
+      link: true,
     },
   ],
 };
