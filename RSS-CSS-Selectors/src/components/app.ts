@@ -5,18 +5,38 @@ import { MainView } from './main/main-view';
 import { AsideView } from './aside/aside-view';
 import { FooterView } from './footer/footer-view';
 import type { View } from './util/view';
-import type { IApp, Level, LevelParams } from '../types/types';
-import { removeElement } from './game/remove-element';
+import type {
+  IApp, Level, LevelParams,
+} from '../types/types';
+import { parceLevelObjToHtmlViewer } from './util/parceLevelObjToHtmlViewer';
 
 const level: LevelParams = {
-  htmlView: `<div class="table">
-  <div class="level1"></div>
-</div>`,
-  tag: 'div',
-  className: ['level1'],
+  htmlView: 'table.html',
+  tag: 'table',
+  attributes: {
+    'data-id': '0',
+  },
+  children: [
+    {
+      tag: 'bento',
+      className: ['level1'],
+      attributes: {
+        'data-id': '1',
+      },
+      children: [
+        {
+          tag: 'sword',
+          className: ['level1_1'],
+          attributes: {
+            'data-id': '2',
+          },
+        },
+      ],
+    },
+  ],
 };
 
-class App implements IApp {
+export class App implements IApp {
   header: View;
 
   level: Level;
@@ -31,6 +51,10 @@ class App implements IApp {
 
   htmlViewer: HTMLElement | null = null;
 
+  selectorsInput: HTMLInputElement | null = null;
+
+  submitButton: HTMLButtonElement | null = null;
+
   constructor() {
     this.header = new HeaderView();
     this.level = new LevelView(level);
@@ -38,7 +62,8 @@ class App implements IApp {
     this.aside = new AsideView();
     this.footer = new FooterView();
     this.startGame();
-    App.addKeydownHandler();
+    this.addKeydownHandler();
+    this.addClickHandler();
   }
 
   createView(): void {
@@ -48,31 +73,56 @@ class App implements IApp {
     document.body.append(this.footer.getHtmlElement());
   }
 
-  startGame(): void {
-    const table = this.header.viewElement.element.lastElementChild;
+  private startGame(): void {
+    const table = this.header.viewElement.element;
     if (!(table instanceof HTMLElement)) throw new Error('table not found');
-
     this.table = table;
+
     table.append(this.level.getHtmlElement());
+
     const htmlViewer = this.main.viewElement.getElement()
-      .children[0]
-      .lastElementChild
+      .firstElementChild
       ?.lastElementChild;
     if (!(htmlViewer instanceof HTMLElement)) throw new Error('table not found');
-
     this.htmlViewer = htmlViewer;
-    htmlViewer.append(this.level.htmlView);
+
+    htmlViewer.append(parceLevelObjToHtmlViewer(level));
   }
 
-  static addKeydownHandler(): void {
+  static removeElement(area: HTMLElement, selector: string): void {
+    if (selector !== '') {
+      area.querySelectorAll(selector)?.forEach((element) => {
+        element.remove();
+      });
+    }
+  }
+
+  private addKeydownHandler(): void {
+    const selectorsInput = this.main.getHtmlElement()
+      .firstElementChild
+      ?.firstElementChild
+      ?.children[2] as HTMLInputElement;
+    this.selectorsInput = selectorsInput;
     const keydownHandler = (event: KeyboardEvent): void => {
       if (event.code === 'Enter') {
-        event.preventDefault();
-        removeElement();
+        if (this.table === null) throw new Error('table not found');
+        console.log(this.table)
+        App.removeElement(this.table, selectorsInput.value);
       }
     };
     document.addEventListener('keydown', keydownHandler);
   }
-}
 
-export { App };
+  private addClickHandler(): void {
+    const submitButton = this.main.getHtmlElement()
+      .firstElementChild
+      ?.firstElementChild
+      ?.lastElementChild;
+    if (!(submitButton instanceof HTMLButtonElement)) throw new Error('table not found');
+    this.submitButton = submitButton;
+    submitButton.addEventListener('click', () => {
+      if (this.table === null || this.selectorsInput === null) throw new Error('table not found');
+      App.removeElement(this.table, this.selectorsInput.value);
+    });
+  }
+}
