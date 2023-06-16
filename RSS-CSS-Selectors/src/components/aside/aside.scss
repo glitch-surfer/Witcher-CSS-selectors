@@ -13,8 +13,12 @@
 }
 
 .levels__item::before {
-  content: url(../../img/gray-check-mark.svg);
+  content: '';
+  background: url(../../img/mark-grey.png) no-repeat center transparent;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
   position: absolute;
   left: -1.5rem;
-  bottom: -0.3rem;
+  bottom: 0;
 }
