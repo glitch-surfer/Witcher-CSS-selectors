@@ -11,6 +11,17 @@ export const asideParams: IParams = {
       text: 'Level',
     },
     {
+      tag: 'button',
+      className: ['levels__button', 'levels__button_prev'],
+      text: '❮',
+    },
+    {
+      tag: 'button',
+      className: ['levels__button', 'levels__button_next'],
+      text: '❯',
+    },
+
+    {
       tag: 'ul',
       className: ['levels__list'],
       children: [
