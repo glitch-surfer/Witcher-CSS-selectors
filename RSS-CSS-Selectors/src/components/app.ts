@@ -3,7 +3,7 @@ import { headerParams } from './header/header-view';
 import { mainParams } from './main/main-view';
 import { asideParams } from './aside/aside-view';
 import { footerParams } from './footer/footer-view';
-import { level } from './game/levels/level-1';
+import { levels } from './game/levels/level-1';
 import type { IApp } from '../types/types';
 import { Elements } from '../types/types';
 import { parseLevelObjToHtmlViewer } from './util/parce-level-obj-to-html-viewer';
@@ -44,7 +44,7 @@ export class App implements IApp {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
     const htmlViewer = ElementGenerator.elementLinks[Elements.HTML_VIEWER];
 
-    level.forEach((element) => {
+    levels[1].forEach((element) => {
       const parsedLevelData = parseLevelObjToHtmlViewer(element);
       htmlViewer.append(parsedLevelData);
 
