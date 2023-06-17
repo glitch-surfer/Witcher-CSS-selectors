@@ -8,7 +8,7 @@ import type { IApp } from '../types/types';
 import { Elements } from '../types/types';
 import { parseLevelObjToHtmlViewer, parsedNodeHtml } from './util/parce-level-obj-to-html-viewer';
 import { addHighlightedTag } from './util/add-highlighted-tag';
-import { ElementGenerator, elementLinks } from './util/element-generator';
+import { ElementGenerator } from './util/element-generator';
 
 export class App implements IApp {
   header: ElementGenerator;
@@ -26,7 +26,6 @@ export class App implements IApp {
     this.main = new ElementGenerator(mainParams);
     this.aside = new ElementGenerator(asideParams);
     this.footer = new ElementGenerator(footerParams);
-    // App.addToolTips(elementLinks[Elements.TABLE]);
     App.startGame();
     App.addKeydownHandler();
     App.addClickHandler();
@@ -40,8 +39,8 @@ export class App implements IApp {
   }
 
   static startGame(): void {
-    const table = elementLinks[Elements.TABLE];
-    const htmlViewer = elementLinks[Elements.HTML_VIEWER];
+    const table = ElementGenerator.elementLinks[Elements.TABLE];
+    const htmlViewer = ElementGenerator.elementLinks[Elements.HTML_VIEWER];
 
     level.forEach((element) => {
       const parsedLevelData = parseLevelObjToHtmlViewer(element);
@@ -63,8 +62,8 @@ export class App implements IApp {
   }
 
   static addKeydownHandler(): void {
-    const table = elementLinks[Elements.TABLE];
-    const selectorsInput = elementLinks[Elements.INPUT] as HTMLInputElement;
+    const table = ElementGenerator.elementLinks[Elements.TABLE];
+    const selectorsInput = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
     const keydownHandler = (event: KeyboardEvent): void => {
       if (event.code === 'Enter') {
         App.removeElement(table, selectorsInput.value);
@@ -74,9 +73,9 @@ export class App implements IApp {
   }
 
   static addClickHandler(): void {
-    const table = elementLinks[Elements.TABLE];
-    const submitButton = elementLinks[Elements.BUTTON];
-    const selectorsInput = elementLinks[Elements.INPUT] as HTMLInputElement;
+    const table = ElementGenerator.elementLinks[Elements.TABLE];
+    const submitButton = ElementGenerator.elementLinks[Elements.BUTTON];
+    const selectorsInput = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
 
     submitButton.addEventListener('click', () => {
       App.removeElement(table, selectorsInput.value);

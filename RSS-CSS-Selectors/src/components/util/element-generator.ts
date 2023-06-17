@@ -1,9 +1,9 @@
 import type { IParams, IElementGenerator } from '../../types/types';
 
-export const elementLinks: Record<string, HTMLElement> = {};
-
 export class ElementGenerator implements IElementGenerator {
   element: HTMLElement;
+
+  static elementLinks: Record<string, HTMLElement> = {};
 
   constructor(params: IParams) {
     this.element = this.createElement(params.tag);
@@ -47,11 +47,11 @@ export class ElementGenerator implements IElementGenerator {
     });
   }
 
-  getElement(): HTMLElement {
+  public getElement(): HTMLElement {
     return this.element;
   }
 
   private setElementLink(): void {
-    elementLinks[`${this.element.tagName}.${this.element.className}`] = this.element;
+    ElementGenerator.elementLinks[`${this.element.tagName}.${this.element.className}`] = this.element;
   }
 }
