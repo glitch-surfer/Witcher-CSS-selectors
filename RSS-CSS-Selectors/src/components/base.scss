@@ -109,8 +109,8 @@ body:has([data-id="6"]:hover) [data-id="5"] {
 
 [data-id].tooltip {
   position: absolute;
-  right: -100%;
-  bottom: -50%;
+  right: -40%;
+  top: 110%;
   z-index: 2;
   background-color: rgb(162, 190, 215);
   opacity: 0;
