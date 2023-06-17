@@ -33,4 +33,5 @@ export enum Elements {
   HTML_VIEWER = 'DIV.html-viewer__content',
   INPUT = 'INPUT.editor__input',
   BUTTON = 'BUTTON.editor__button',
+  STORY = 'P.story__text',
 }

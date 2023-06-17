@@ -76,7 +76,6 @@ export const mainParams: IParams = {
         {
           tag: 'p',
           className: ['story__text'],
-          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident iste ratione, tempore, corporis delenitLorem ipsum dolor sit amet consectetur adipisicing elit. Provident iste ratione, tempore, corporis delenitLorem ipsum dolor sit amet consectetur adipisicing elit. Provident iste ratione, tempore, corporis delenitLorem ipsum dolor sit amet consectetur adipisicing elit. Provident iste ratione, tempore, corporis delenit',
           link: true,
         },
       ],

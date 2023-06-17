@@ -11,6 +11,7 @@ import { addToolTips } from './util/add-tooltip';
 import { addHighlightedTag } from './util/add-highlighted-tag';
 import { ElementGenerator } from './util/element-generator';
 import { removeElement } from './util/remove-element';
+import { cleanElement } from './util/clean-element';
 
 export class App implements IApp {
   header: ElementGenerator;
@@ -43,6 +44,10 @@ export class App implements IApp {
   static startGame(): void {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
     const htmlViewer = ElementGenerator.elementLinks[Elements.HTML_VIEWER];
+    const story = ElementGenerator.elementLinks[Elements.STORY];
+    cleanElement(table);
+    cleanElement(htmlViewer);
+    cleanElement(story);
 
     levels[1].forEach((element) => {
       const parsedLevelData = parseLevelObjToHtmlViewer(element);
@@ -51,6 +56,10 @@ export class App implements IApp {
       const elementOnTable = new ElementGenerator(element).getElement();
       addToolTips(elementOnTable);
       table.append(elementOnTable);
+
+      if (element.story !== undefined) {
+        story.append(element.story);
+      }
     });
     addHighlightedTag(htmlViewer, 'table');
   }
