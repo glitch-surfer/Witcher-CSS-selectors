@@ -26,6 +26,7 @@ export interface IApp {
   main: IElementGenerator
   aside: IElementGenerator
   footer: IElementGenerator
+  currentLevel: number
 }
 
 export enum Elements {
@@ -34,4 +35,6 @@ export enum Elements {
   INPUT = 'INPUT.editor__input',
   BUTTON = 'BUTTON.editor__button',
   STORY = 'P.story__text',
+  BTN_NEXT = 'BUTTON.levels__button_next',
+  BTN_PREV = 'BUTTON.levels__button_prev',
 }

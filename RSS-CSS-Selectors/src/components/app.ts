@@ -24,14 +24,17 @@ export class App implements IApp {
 
   footer: ElementGenerator;
 
+  public currentLevel: number = 0;
+
   constructor() {
     this.header = new ElementGenerator(headerParams);
     this.main = new ElementGenerator(mainParams);
     this.aside = new ElementGenerator(asideParams);
     this.footer = new ElementGenerator(footerParams);
-    App.startGame();
+    this.startGame();
     App.addKeydownHandler();
     App.addClickHandler();
+    this.addLevelHandler();
   }
 
   createView(): void {
@@ -41,7 +44,7 @@ export class App implements IApp {
     document.body.append(this.footer.getElement());
   }
 
-  static startGame(): void {
+  private startGame(): void {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
     const htmlViewer = ElementGenerator.elementLinks[Elements.HTML_VIEWER];
     const story = ElementGenerator.elementLinks[Elements.STORY];
@@ -49,7 +52,7 @@ export class App implements IApp {
     cleanElement(htmlViewer);
     cleanElement(story);
 
-    levels[1].forEach((element) => {
+    levels[this.currentLevel].forEach((element) => {
       const parsedLevelData = parseLevelObjToHtmlViewer(element);
       htmlViewer.append(parsedLevelData);
 
@@ -82,6 +85,24 @@ export class App implements IApp {
 
     submitButton.addEventListener('click', () => {
       removeElement(table, selectorsInput.value);
+    });
+  }
+
+  private addLevelHandler(): void {
+    const btnNext = ElementGenerator.elementLinks[Elements.BTN_NEXT];
+    const btnPrev = ElementGenerator.elementLinks[Elements.BTN_PREV];
+
+    btnNext.addEventListener('click', () => {
+      if (this.currentLevel < levels.length - 1) {
+        this.currentLevel += 1;
+        this.startGame();
+      }
+    });
+    btnPrev.addEventListener('click', () => {
+      if (this.currentLevel > 0) {
+        this.currentLevel -= 1;
+        this.startGame();
+      }
     });
   }
 }

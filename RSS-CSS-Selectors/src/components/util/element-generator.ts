@@ -52,6 +52,6 @@ export class ElementGenerator implements IElementGenerator {
   }
 
   private setElementLink(): void {
-    ElementGenerator.elementLinks[`${this.element.tagName}.${this.element.className}`] = this.element;
+    ElementGenerator.elementLinks[`${this.element.tagName}.${this.element.classList[this.element.classList.length - 1]}`] = this.element;
   }
 }

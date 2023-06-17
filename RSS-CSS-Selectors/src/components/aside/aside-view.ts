@@ -14,11 +14,13 @@ export const asideParams: IParams = {
       tag: 'button',
       className: ['levels__button', 'levels__button_prev'],
       text: '❮',
+      link: true,
     },
     {
       tag: 'button',
       className: ['levels__button', 'levels__button_next'],
       text: '❯',
+      link: true,
     },
 
     {
