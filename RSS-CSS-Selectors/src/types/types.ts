@@ -18,11 +18,7 @@ export interface IView {
   getHtmlElement: () => HTMLElement
 }
 
-export type Level = IView & {
-  htmlView: string
-};
-
-export type LevelParams = IParams[];
+export type LevelParams = Array<Array<IParams & { story?: string }>>;
 
 export interface IApp {
   header: IElementGenerator
