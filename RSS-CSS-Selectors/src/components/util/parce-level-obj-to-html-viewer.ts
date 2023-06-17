@@ -4,6 +4,9 @@ import xml from 'highlight.js/lib/languages/xml';
 import type { IParams } from '../../types/types';
 
 hljs.registerLanguage('xml', xml);
+
+export const parsedNodeHtml: HTMLElement[] = [];
+
 export const parseLevelObjToHtmlViewer = (level: IParams): HTMLElement => {
   const result = document.createElement('div');
   let start;
@@ -11,7 +14,7 @@ export const parseLevelObjToHtmlViewer = (level: IParams): HTMLElement => {
 
   if (level.attributes === undefined) throw new Error('no data-id');
   const { attributes } = level;
-  result.setAttribute('data-id', attributes['data-id']);
+  result.dataset.id = attributes['data-id'];
 
   if (level.className !== undefined) {
     [start, end] = [`<${level.tag} class="${level.className.toString()}">`, `</${level.tag}>`];
@@ -30,8 +33,7 @@ export const parseLevelObjToHtmlViewer = (level: IParams): HTMLElement => {
 
   if (level.children !== undefined) {
     level.children.forEach((child) => {
-      const children = parseLevelObjToHtmlViewer(child);
-      result.append(children);
+      result.append(parseLevelObjToHtmlViewer(child));
     });
   }
 
@@ -39,6 +41,11 @@ export const parseLevelObjToHtmlViewer = (level: IParams): HTMLElement => {
   result.append(endElement);
   const coloredEndHtmlAsString = hljs.highlight(end, { language: 'xml' }).value;
   endElement.outerHTML = coloredEndHtmlAsString;
+
+  const clone = result.cloneNode(true);
+  if (clone instanceof HTMLElement) {
+    parsedNodeHtml.push(clone);
+  }
 
   return result;
 };

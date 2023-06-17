@@ -6,7 +6,7 @@ import { footerParams } from './footer/footer-view';
 import { level } from './game/levels/level-1';
 import type { IApp } from '../types/types';
 import { Elements } from '../types/types';
-import { parseLevelObjToHtmlViewer } from './util/parce-level-obj-to-html-viewer';
+import { parseLevelObjToHtmlViewer, parsedNodeHtml } from './util/parce-level-obj-to-html-viewer';
 import { addHighlightedTag } from './util/add-highlighted-tag';
 import { ElementGenerator, elementLinks } from './util/element-generator';
 
@@ -26,10 +26,10 @@ export class App implements IApp {
     this.main = new ElementGenerator(mainParams);
     this.aside = new ElementGenerator(asideParams);
     this.footer = new ElementGenerator(footerParams);
+    // App.addToolTips(elementLinks[Elements.TABLE]);
     App.startGame();
     App.addKeydownHandler();
     App.addClickHandler();
-    App.addToolTips(elementLinks[Elements.TABLE]);
   }
 
   createView(): void {
@@ -44,10 +44,13 @@ export class App implements IApp {
     const htmlViewer = elementLinks[Elements.HTML_VIEWER];
 
     level.forEach((element) => {
-      table.append(new ElementGenerator(element).getElement());
-      htmlViewer.append(parseLevelObjToHtmlViewer(element));
-    });
+      const parsedLevelData = parseLevelObjToHtmlViewer(element);
+      htmlViewer.append(parsedLevelData);
 
+      const elementOnTable = new ElementGenerator(element).getElement();
+      App.addToolTips(elementOnTable);
+      table.append(elementOnTable);
+    });
     addHighlightedTag(htmlViewer, 'table');
   }
 
@@ -80,18 +83,22 @@ export class App implements IApp {
     });
   }
 
-  static addToolTips(parentNode: Element): void {
-    [...parentNode.children].forEach((child) => {
-      if (child.children.length !== 0) {
-        App.addToolTips(child);
-      }
-      const tooltip = document.createElement('span');
-      if (!(child instanceof HTMLElement)) throw new Error('Element is not HTMLElement');
-      const dataId = child.dataset.id;
-      if (dataId !== undefined) {
-        tooltip.dataset.id = dataId;
-      }
-      child.append(tooltip);
-    });
+  static addToolTips(node: Element): void {
+    if (node.children.length !== 0) {
+      [...node.children].forEach((elem) => {
+        App.addToolTips(elem);
+      });
+    }
+    const tooltip = document.createElement('div');
+    tooltip.classList.add('tooltip');
+    if (!(node instanceof HTMLElement)) throw new Error('Element is not HTMLElement');
+    const dataId = node.dataset.id;
+    if (dataId !== undefined) {
+      tooltip.dataset.id = dataId;
+      const tooltipContent = parsedNodeHtml
+        .find((parsedTextNode) => parsedTextNode.dataset.id === dataId);
+      if (tooltipContent !== undefined) tooltip.append(tooltipContent);
+    }
+    node.append(tooltip);
   }
 }
