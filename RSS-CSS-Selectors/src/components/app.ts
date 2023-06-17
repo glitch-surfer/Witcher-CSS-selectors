@@ -6,7 +6,7 @@ import { footerParams } from './footer/footer-view';
 import { levels } from './game/levels/level-1';
 import type { IApp } from '../types/types';
 import { Elements } from '../types/types';
-import { parseLevelObjToHtmlViewer } from './util/parce-level-obj-to-html-viewer';
+import { parseLevelObjToHtmlViewer, parsedNodeHtml } from './util/parce-level-obj-to-html-viewer';
 import { addToolTips } from './util/add-tooltip';
 import { addHighlightedTag } from './util/add-highlighted-tag';
 import { ElementGenerator } from './util/element-generator';
@@ -51,6 +51,7 @@ export class App implements IApp {
     cleanElement(table);
     cleanElement(htmlViewer);
     cleanElement(story);
+    parsedNodeHtml.length = 0;
 
     levels[levelNumber].forEach((element) => {
       const parsedLevelData = parseLevelObjToHtmlViewer(element);
