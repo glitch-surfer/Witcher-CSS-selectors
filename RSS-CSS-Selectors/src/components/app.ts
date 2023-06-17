@@ -6,9 +6,11 @@ import { footerParams } from './footer/footer-view';
 import { level } from './game/levels/level-1';
 import type { IApp } from '../types/types';
 import { Elements } from '../types/types';
-import { parseLevelObjToHtmlViewer, parsedNodeHtml } from './util/parce-level-obj-to-html-viewer';
+import { parseLevelObjToHtmlViewer } from './util/parce-level-obj-to-html-viewer';
+import { addToolTips } from './util/add-tooltip';
 import { addHighlightedTag } from './util/add-highlighted-tag';
 import { ElementGenerator } from './util/element-generator';
+import { removeElement } from './util/remove-element';
 
 export class App implements IApp {
   header: ElementGenerator;
@@ -47,18 +49,10 @@ export class App implements IApp {
       htmlViewer.append(parsedLevelData);
 
       const elementOnTable = new ElementGenerator(element).getElement();
-      App.addToolTips(elementOnTable);
+      addToolTips(elementOnTable);
       table.append(elementOnTable);
     });
     addHighlightedTag(htmlViewer, 'table');
-  }
-
-  static removeElement(area: HTMLElement, selector: string): void {
-    if (selector !== '') {
-      area.querySelectorAll(selector)?.forEach((element) => {
-        element.remove();
-      });
-    }
   }
 
   static addKeydownHandler(): void {
@@ -66,7 +60,7 @@ export class App implements IApp {
     const selectorsInput = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
     const keydownHandler = (event: KeyboardEvent): void => {
       if (event.code === 'Enter') {
-        App.removeElement(table, selectorsInput.value);
+        removeElement(table, selectorsInput.value);
       }
     };
     document.addEventListener('keydown', keydownHandler);
@@ -78,26 +72,7 @@ export class App implements IApp {
     const selectorsInput = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
 
     submitButton.addEventListener('click', () => {
-      App.removeElement(table, selectorsInput.value);
+      removeElement(table, selectorsInput.value);
     });
-  }
-
-  static addToolTips(node: Element): void {
-    if (node.children.length !== 0) {
-      [...node.children].forEach((elem) => {
-        App.addToolTips(elem);
-      });
-    }
-    const tooltip = document.createElement('div');
-    tooltip.classList.add('tooltip');
-    if (!(node instanceof HTMLElement)) throw new Error('Element is not HTMLElement');
-    const dataId = node.dataset.id;
-    if (dataId !== undefined) {
-      tooltip.dataset.id = dataId;
-      const tooltipContent = parsedNodeHtml
-        .find((parsedTextNode) => parsedTextNode.dataset.id === dataId);
-      if (tooltipContent !== undefined) tooltip.append(tooltipContent);
-    }
-    node.append(tooltip);
   }
 }
