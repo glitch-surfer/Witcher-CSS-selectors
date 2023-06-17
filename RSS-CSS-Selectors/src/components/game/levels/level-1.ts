@@ -50,7 +50,8 @@ export const levels: LevelParams = [[{
       ],
     },
   ],
-}], [{
+}],
+[{
   tag: 'plate',
   className: ['level1'],
   attributes: {
@@ -75,4 +76,47 @@ export const levels: LevelParams = [[{
     },
   ],
   story: 'level222222222222222222',
+}],
+[{
+  tag: 'plate',
+  className: ['level1'],
+  attributes: {
+    'data-id': '1',
+  },
+  children: [
+    {
+      tag: 'bento',
+      className: ['level1_1'],
+      attributes: {
+        'data-id': '2',
+      },
+      children: [
+        {
+          tag: 'sword',
+          className: ['level1_2'],
+          attributes: {
+            'data-id': '3',
+          },
+        },
+      ],
+    },
+  ],
+  story: 'level33333333333',
+}],
+[{
+  tag: 'plate',
+  className: ['level1'],
+  attributes: {
+    'data-id': '1',
+  },
+  children: [
+    {
+      tag: 'bento',
+      className: ['level1_1'],
+      attributes: {
+        'data-id': '2',
+      },
+    },
+  ],
+  story: 'level4444444444444',
 }]];
