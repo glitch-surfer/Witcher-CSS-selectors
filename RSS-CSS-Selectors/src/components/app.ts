@@ -32,7 +32,7 @@ export class App implements IApp {
     this.getState();
     App.startGame(this.currentLevel);
     this.addKeydownHandler();
-    App.addClickHandler();
+    this.addClickHandler();
     this.addLevelHandler();
   }
 
@@ -69,7 +69,7 @@ export class App implements IApp {
 
   private addKeydownHandler(): void {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
-    const selectorsInput = (ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement);
+    const selectorsInput = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
     const keydownHandler = (event: KeyboardEvent): void => {
       if (event.code === 'Enter') {
         const isRightSelector = removeElement(table, selectorsInput.value);
@@ -81,13 +81,16 @@ export class App implements IApp {
     document.addEventListener('keydown', keydownHandler);
   }
 
-  static addClickHandler(): void {
+  private addClickHandler(): void {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
     const submitButton = ElementGenerator.elementLinks[Elements.BUTTON];
     const selectorsInput = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
 
     submitButton.addEventListener('click', () => {
-      removeElement(table, selectorsInput.value);
+      const isRightSelector = removeElement(table, selectorsInput.value);
+      if (isRightSelector) {
+        this.nextLevel();
+      }
     });
   }
 
