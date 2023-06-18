@@ -118,9 +118,9 @@ export class App implements IApp {
 
     this.aside.getElement().addEventListener('click', (event) => {
       const levelBtn = event.target;
-      if (levelBtn instanceof HTMLElement) {
-        const id = levelBtn.getAttribute('id');
-        if (id !== null) this.currentLevel = Number(id);
+      if (levelBtn instanceof HTMLElement && levelBtn.classList.contains('levels__item')) {
+        const levelBtnIndex = levelBtn.classList[levelBtn.classList.length - 1];
+        this.currentLevel = Number(levelBtnIndex);
         App.startGame(this.currentLevel);
         this.setState();
       }

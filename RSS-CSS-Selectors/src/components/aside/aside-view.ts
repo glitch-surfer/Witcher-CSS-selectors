@@ -28,27 +28,27 @@ export const asideParams: IParams = {
       children: [
         {
           tag: 'li',
-          className: ['levels__item', '1'],
+          className: ['levels__item', '0'],
           text: '1',
-          attributes: {
-            id: '0',
-          },
+          link: true,
+        },
+        {
+          tag: 'li',
+          className: ['levels__item', '1'],
+          text: '2',
+          link: true,
         },
         {
           tag: 'li',
           className: ['levels__item', '2'],
-          text: '2',
-          attributes: {
-            id: '1',
-          },
+          text: '3',
+          link: true,
         },
         {
           tag: 'li',
           className: ['levels__item', '3'],
-          text: '3',
-          attributes: {
-            id: '2',
-          },
+          text: '4',
+          link: true,
         },
       ],
     },
@@ -59,8 +59,9 @@ export const asideParams: IParams = {
     },
     {
       tag: 'button',
-      className: ['levels__button'],
+      className: ['levels__button', 'levels__button_help'],
       text: 'help',
+      link: true,
     },
   ],
 };
