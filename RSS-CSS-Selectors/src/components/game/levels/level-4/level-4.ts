@@ -1,4 +1,6 @@
-export const level4 = [
+import type { IParams } from '../../../../types/types';
+
+export const level4: IParams[] = [
   {
     story: 'level4444444444444',
     tag: 'plate',
@@ -12,6 +14,7 @@ export const level4 = [
         className: ['level1_1'],
         attributes: {
           'data-id': '2',
+          'data-target': 'true',
         },
       },
     ],

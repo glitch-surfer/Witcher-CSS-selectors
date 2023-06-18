@@ -31,7 +31,7 @@ export class App implements IApp {
     this.footer = new ElementGenerator(footerParams);
     this.getState();
     App.startGame(this.currentLevel);
-    App.addKeydownHandler();
+    this.addKeydownHandler();
     App.addClickHandler();
     this.addLevelHandler();
   }
@@ -67,12 +67,15 @@ export class App implements IApp {
     addHighlightedTag(htmlViewer, 'table');
   }
 
-  static addKeydownHandler(): void {
+  private addKeydownHandler(): void {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
-    const selectorsInput = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
+    const selectorsInput = (ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement);
     const keydownHandler = (event: KeyboardEvent): void => {
       if (event.code === 'Enter') {
-        removeElement(table, selectorsInput.value);
+        const isRightSelector = removeElement(table, selectorsInput.value);
+        if (isRightSelector) {
+          this.nextLevel();
+        }
       }
     };
     document.addEventListener('keydown', keydownHandler);
@@ -88,17 +91,19 @@ export class App implements IApp {
     });
   }
 
+  private nextLevel(): void {
+    if (this.currentLevel < levels.length - 1) {
+      this.currentLevel += 1;
+      App.startGame(this.currentLevel);
+      this.setState();
+    }
+  }
+
   private addLevelHandler(): void {
     const btnNext = ElementGenerator.elementLinks[Elements.BTN_NEXT];
     const btnPrev = ElementGenerator.elementLinks[Elements.BTN_PREV];
 
-    btnNext.addEventListener('click', () => {
-      if (this.currentLevel < levels.length - 1) {
-        this.currentLevel += 1;
-        App.startGame(this.currentLevel);
-        this.setState();
-      }
-    });
+    btnNext.addEventListener('click', this.nextLevel);
 
     btnPrev.addEventListener('click', () => {
       if (this.currentLevel > 0) {

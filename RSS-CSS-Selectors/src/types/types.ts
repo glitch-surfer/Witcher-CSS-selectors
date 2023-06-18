@@ -7,6 +7,7 @@ export interface IParams {
   callback?: () => void
   children?: IParams[]
   link?: boolean
+  story?: string
 }
 
 export interface IElementGenerator {

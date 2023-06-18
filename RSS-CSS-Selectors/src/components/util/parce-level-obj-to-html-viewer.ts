@@ -19,7 +19,7 @@ export const parseLevelObjToHtmlViewer = (level: IParams): HTMLElement => {
   if (level.className !== undefined) {
     [start, end] = [`<${level.tag} class="${level.className.toString()}">`, `</${level.tag}>`];
   } else if (level.attributes.attr !== undefined) {
-    [start, end] = [`<${level.tag} attribute="${level.attributes.attr}">`, `</${level.tag}>`];
+    [start, end] = [`<${level.tag} attribute="${level.attributes.attr}">`, `</${level.tag}>`]; // TODO: fix
   } else if (level.id !== undefined) {
     [start, end] = [`<${level.tag} id="${level.id}">`, `</${level.tag}>`];
   } else {

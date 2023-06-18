@@ -1,6 +1,7 @@
+import type { IParams } from '../../../../types/types';
 import './level-3.scss';
 
-export const level3 = [
+export const level3: IParams[] = [
   {
     story: 'level33333333333',
     tag: 'plate',
@@ -14,6 +15,7 @@ export const level3 = [
         className: ['level1_1'],
         attributes: {
           'data-id': '2',
+          'data-target': 'true',
         },
         children: [
           {
