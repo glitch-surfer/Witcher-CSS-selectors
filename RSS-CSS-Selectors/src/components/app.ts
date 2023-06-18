@@ -75,6 +75,10 @@ export class App implements IApp {
       if (event.code === 'Enter') {
         const isRightSelector = removeElement(table, selectorsInput.value);
         if (isRightSelector) {
+          const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
+          if (!currentLevelBtn.classList.contains('helped')) {
+            currentLevelBtn.className = `levels__item done ${this.currentLevel}`;
+          }
           this.nextLevel();
         }
       }
@@ -90,6 +94,10 @@ export class App implements IApp {
     submitButton.addEventListener('click', () => {
       const isRightSelector = removeElement(table, selectorsInput.value);
       if (isRightSelector) {
+        const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
+        if (!currentLevelBtn.classList.contains('helped')) {
+          currentLevelBtn.className = `levels__item done ${this.currentLevel}`;
+        }
         this.nextLevel();
       }
     });
@@ -131,9 +139,9 @@ export class App implements IApp {
   private markAsHelped(): void {
     const helpBtn = ElementGenerator.elementLinks[Elements.BTN_HELP];
 
-    helpBtn.addEventListener('click', (event) => {
-      if (event.target instanceof HTMLElement && event.target.classList.contains('levels__button_help')) {
-        const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
+    helpBtn.addEventListener('click', () => {
+      const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
+      if (!currentLevelBtn.classList.contains('done')) {
         currentLevelBtn.className = `levels__item helped ${this.currentLevel}`;
       }
     });
