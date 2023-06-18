@@ -103,7 +103,7 @@ export class App implements IApp {
     const btnNext = ElementGenerator.elementLinks[Elements.BTN_NEXT];
     const btnPrev = ElementGenerator.elementLinks[Elements.BTN_PREV];
 
-    btnNext.addEventListener('click', this.nextLevel);
+    btnNext.addEventListener('click', this.nextLevel.bind(this));
 
     btnPrev.addEventListener('click', () => {
       if (this.currentLevel > 0) {
