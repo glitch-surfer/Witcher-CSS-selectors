@@ -13,6 +13,14 @@ import { ElementGenerator } from './util/element-generator';
 import { removeElement } from './util/remove-element';
 import { cleanElement } from './util/clean-element';
 
+const getAsideState = (): Record<string, string> => {
+  const asideState = localStorage.getItem('asideState');
+  if (asideState !== null) {
+    return JSON.parse(asideState);
+  }
+  return {};
+};
+
 export class App implements IApp {
   header: ElementGenerator;
 
@@ -24,17 +32,20 @@ export class App implements IApp {
 
   public currentLevel: number = 0;
 
+  private asideState: Record<string, string> = getAsideState();
+
   constructor() {
     this.header = new ElementGenerator(headerParams);
     this.main = new ElementGenerator(mainParams);
-    this.aside = new ElementGenerator(asideParams);
     this.footer = new ElementGenerator(footerParams);
+    this.aside = new ElementGenerator(asideParams);
     this.getState();
     App.startGame(this.currentLevel);
     this.addKeydownHandler();
     this.addClickHandler();
     this.addLevelHandler();
-    this.markAsHelped();
+    this.addMarkAsHelpedHandler();
+    this.addAsideStateHandler();
   }
 
   createView(): void {
@@ -66,6 +77,18 @@ export class App implements IApp {
       }
     });
     addHighlightedTag(htmlViewer, 'table');
+
+    const setAsideState = (): void => {
+      const asideStateJson = localStorage.getItem('asideState');
+      if (asideStateJson !== null) {
+        const asideState = JSON.parse(asideStateJson);
+        Object.entries(asideState).forEach(([selector, stateClass]) => {
+          const levelBtn = ElementGenerator.elementLinks[selector];
+          levelBtn.className = stateClass as string;
+        });
+      }
+    };
+    setAsideState();
   }
 
   private addKeydownHandler(): void {
@@ -78,6 +101,7 @@ export class App implements IApp {
           const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
           if (!currentLevelBtn.classList.contains('helped')) {
             currentLevelBtn.className = `levels__item done ${this.currentLevel}`;
+            this.asideState[`LI.${this.currentLevel}`] = currentLevelBtn.className;
           }
           this.nextLevel();
         }
@@ -97,6 +121,7 @@ export class App implements IApp {
         const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
         if (!currentLevelBtn.classList.contains('helped')) {
           currentLevelBtn.className = `levels__item done ${this.currentLevel}`;
+          this.asideState[`LI.${this.currentLevel}`] = currentLevelBtn.className;
         }
         this.nextLevel();
       }
@@ -136,13 +161,14 @@ export class App implements IApp {
     });
   }
 
-  private markAsHelped(): void {
+  private addMarkAsHelpedHandler(): void {
     const helpBtn = ElementGenerator.elementLinks[Elements.BTN_HELP];
 
     helpBtn.addEventListener('click', () => {
       const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
       if (!currentLevelBtn.classList.contains('done')) {
         currentLevelBtn.className = `levels__item helped ${this.currentLevel}`;
+        this.asideState[`LI.${this.currentLevel}`] = currentLevelBtn.className;
       }
     });
   }
@@ -154,5 +180,12 @@ export class App implements IApp {
   private getState(): void {
     const currentLevel = localStorage.getItem('currentLevel');
     this.currentLevel = Number(currentLevel);
+  }
+
+  private addAsideStateHandler(): void {
+    window.addEventListener('beforeunload', () => {
+      const sereilizedAside = JSON.stringify(this.asideState);
+      localStorage.setItem('asideState', sereilizedAside);
+    });
   }
 }
