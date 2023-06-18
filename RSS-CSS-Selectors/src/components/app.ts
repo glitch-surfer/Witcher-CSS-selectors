@@ -3,7 +3,7 @@ import { headerParams } from './header/header-view';
 import { mainParams } from './main/main-view';
 import { asideParams } from './aside/aside-view';
 import { footerParams } from './footer/footer-view';
-import { levels } from './game/levels/level-1';
+import { levels } from './game/levels';
 import type { IApp } from '../types/types';
 import { Elements } from '../types/types';
 import { parseLevelObjToHtmlViewer, parsedNodeHtml } from './util/parce-level-obj-to-html-viewer';
@@ -15,8 +15,6 @@ import { cleanElement } from './util/clean-element';
 
 export class App implements IApp {
   header: ElementGenerator;
-
-  // level: ElementGenerator | null = null;
 
   main: ElementGenerator;
 
@@ -31,6 +29,7 @@ export class App implements IApp {
     this.main = new ElementGenerator(mainParams);
     this.aside = new ElementGenerator(asideParams);
     this.footer = new ElementGenerator(footerParams);
+    this.getState();
     App.startGame(this.currentLevel);
     App.addKeydownHandler();
     App.addClickHandler();
@@ -97,6 +96,7 @@ export class App implements IApp {
       if (this.currentLevel < levels.length - 1) {
         this.currentLevel += 1;
         App.startGame(this.currentLevel);
+        this.setState();
       }
     });
 
@@ -104,6 +104,7 @@ export class App implements IApp {
       if (this.currentLevel > 0) {
         this.currentLevel -= 1;
         App.startGame(this.currentLevel);
+        this.setState();
       }
     });
 
@@ -113,7 +114,17 @@ export class App implements IApp {
         const id = levelBtn.getAttribute('id');
         if (id !== null) this.currentLevel = Number(id);
         App.startGame(this.currentLevel);
+        this.setState();
       }
     });
+  }
+
+  private setState(): void {
+    localStorage.setItem('currentLevel', this.currentLevel.toString());
+  }
+
+  private getState(): void {
+    const currentLevel = localStorage.getItem('currentLevel');
+    this.currentLevel = Number(currentLevel);
   }
 }
