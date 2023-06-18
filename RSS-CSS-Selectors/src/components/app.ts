@@ -48,7 +48,7 @@ export class App implements IApp {
     this.addAsideStateHandler();
   }
 
-  createView(): void {
+  public createView(): void {
     document.body.append(this.header.getElement());
     document.body.append(this.main.getElement());
     document.body.append(this.aside.getElement());

@@ -54,8 +54,9 @@ export const asideParams: IParams = {
     },
     {
       tag: 'button',
-      className: ['levels__button'],
+      className: ['levels__button', 'levels__button_reset'],
       text: 'reset',
+      link: true,
     },
     {
       tag: 'button',
