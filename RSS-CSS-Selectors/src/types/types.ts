@@ -39,8 +39,4 @@ export enum Elements {
   BTN_NEXT = 'BUTTON.levels__button_next',
   BTN_PREV = 'BUTTON.levels__button_prev',
   BTN_HELP = 'BUTTON.levels__button_help',
-  LEVEL_BTN_0 = 'LI.0',
-  LEVEL_BTN_1 = 'LI.1',
-  LEVEL_BTN_2 = 'LI.2',
-  LEVEL_BTN_3 = 'LI.3',
 }

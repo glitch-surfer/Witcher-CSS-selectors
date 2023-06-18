@@ -22,3 +22,13 @@
   left: -1.5rem;
   bottom: 0;
 }
+
+.helped.levels__item::before {
+  background: url(../../img/mark-yellow.png) no-repeat center transparent;
+  background-size: contain;
+}
+
+.done.levels__item::before {
+  background: url(../../img/mark-green.png) no-repeat center transparent;
+  background-size: contain;
+}

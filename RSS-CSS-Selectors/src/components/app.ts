@@ -34,6 +34,7 @@ export class App implements IApp {
     this.addKeydownHandler();
     this.addClickHandler();
     this.addLevelHandler();
+    this.markAsHelped();
   }
 
   createView(): void {
@@ -123,6 +124,17 @@ export class App implements IApp {
         this.currentLevel = Number(levelBtnIndex);
         App.startGame(this.currentLevel);
         this.setState();
+      }
+    });
+  }
+
+  private markAsHelped(): void {
+    const helpBtn = ElementGenerator.elementLinks[Elements.BTN_HELP];
+
+    helpBtn.addEventListener('click', (event) => {
+      if (event.target instanceof HTMLElement && event.target.classList.contains('levels__button_help')) {
+        const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
+        currentLevelBtn.className = `levels__item helped ${this.currentLevel}`;
       }
     });
   }
