@@ -40,7 +40,7 @@ export class App implements IApp {
     this.footer = new ElementGenerator(footerParams);
     this.aside = new ElementGenerator(asideParams);
     this.getState();
-    App.startGame(this.currentLevel);
+    this.startGame(this.currentLevel);
     this.addKeydownHandler();
     this.addClickHandler();
     this.addLevelHandler();
@@ -55,10 +55,11 @@ export class App implements IApp {
     document.body.append(this.footer.getElement());
   }
 
-  static startGame(levelNumber: number = 0): void {
+  private startGame(levelNumber: number = 0): void {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
     const htmlViewer = ElementGenerator.elementLinks[Elements.HTML_VIEWER];
     const story = ElementGenerator.elementLinks[Elements.STORY];
+    const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
     cleanElement(table);
     cleanElement(htmlViewer);
     cleanElement(story);
@@ -77,6 +78,8 @@ export class App implements IApp {
       }
     });
     addHighlightedTag(htmlViewer, 'table');
+
+    currentLevelBtn.classList.toggle('active');
 
     const setAsideState = (): void => {
       const asideStateJson = localStorage.getItem('asideState');
@@ -129,6 +132,7 @@ export class App implements IApp {
   }
 
   private nextLevel(): void {
+    const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
     const notCompletedLevels: Array<{ levelBtn: Node, level: IParams[] }> = [];
 
     levels.forEach((level, index) => {
@@ -144,8 +148,9 @@ export class App implements IApp {
         alert('Вы прошли игру!');
         return;
       }
+      currentLevelBtn.classList.toggle('active');
       this.currentLevel += 1;
-      App.startGame(this.currentLevel);
+      this.startGame(this.currentLevel);
       this.setState();
       const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
       input.value = '';
@@ -168,8 +173,9 @@ export class App implements IApp {
 
     btnPrev.addEventListener('click', () => {
       if (this.currentLevel > 0) {
+        ElementGenerator.elementLinks[`LI.${this.currentLevel}`].classList.toggle('active');
         this.currentLevel -= 1;
-        App.startGame(this.currentLevel);
+        this.startGame(this.currentLevel);
         this.setState();
       }
     });
@@ -177,9 +183,10 @@ export class App implements IApp {
     this.aside.getElement().addEventListener('click', (event) => {
       const levelBtn = event.target;
       if (levelBtn instanceof HTMLElement && levelBtn.classList.contains('levels__item')) {
+        ElementGenerator.elementLinks[`LI.${this.currentLevel}`].classList.toggle('active');
         const levelBtnIndex = levelBtn.classList[levelBtn.classList.length - 1];
         this.currentLevel = Number(levelBtnIndex);
-        App.startGame(this.currentLevel);
+        this.startGame(this.currentLevel);
         this.setState();
       }
     });
