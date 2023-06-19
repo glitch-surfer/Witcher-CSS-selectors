@@ -31,7 +31,7 @@ export class App {
 
   public asideState: Record<string, string> = getAsideState();
 
-  public isWin: boolean = false;
+  public isWin: boolean;
 
   constructor() {
     this.eventHandler = new EventHandler(this);
@@ -46,6 +46,7 @@ export class App {
     this.eventHandler.addLevelHandler();
     this.eventHandler.addHelpHandler();
     this.eventHandler.addAsideStateHandler();
+    this.isWin = Boolean(Number(localStorage.getItem('isWin')));
   }
 
   public createView(): void {

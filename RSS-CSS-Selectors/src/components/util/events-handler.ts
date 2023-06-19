@@ -106,6 +106,9 @@ export class EventHandler {
     window.addEventListener('beforeunload', () => {
       const sereilizedAside = JSON.stringify(this.this.asideState);
       localStorage.setItem('asideState', sereilizedAside);
+
+      if (this.this.isWin) localStorage.setItem('isWin', '1');
+      else localStorage.setItem('isWin', '0');
     });
   }
 }
