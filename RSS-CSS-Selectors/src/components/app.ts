@@ -4,7 +4,6 @@ import { mainParams } from './main/main-view';
 import { asideParams } from './aside/aside-view';
 import { footerParams } from './footer/footer-view';
 import { levels } from './game/levels';
-import type { IApp } from '../types/types';
 import { Elements } from '../types/types';
 import { parsedNodeHtml } from './util/parce-level-obj-to-html-viewer';
 import { addHighlightedTag } from './util/add-highlighted-tag';
@@ -16,14 +15,14 @@ import { setAsideState } from './util/set-aside-state';
 import { getNotCompletedLevelsList } from './util/get-not-completed-levels-list';
 import { buildLevel } from './util/build-level';
 
-export class App implements IApp {
-  header: ElementGenerator;
+export class App {
+  private readonly header: ElementGenerator;
 
-  main: ElementGenerator;
+  private readonly main: ElementGenerator;
 
-  aside: ElementGenerator;
+  private readonly aside: ElementGenerator;
 
-  footer: ElementGenerator;
+  private readonly footer: ElementGenerator;
 
   private currentLevel: number = 0;
 

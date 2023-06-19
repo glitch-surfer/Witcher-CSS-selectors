@@ -21,13 +21,6 @@ export interface IView {
 
 export type LevelParams = Array<Array<IParams & { story?: string }>>;
 
-export interface IApp {
-  header: IElementGenerator
-  main: IElementGenerator
-  aside: IElementGenerator
-  footer: IElementGenerator
-}
-
 export enum Elements {
   TABLE = 'DIV.header__table',
   HTML_VIEWER = 'DIV.html-viewer__content',
