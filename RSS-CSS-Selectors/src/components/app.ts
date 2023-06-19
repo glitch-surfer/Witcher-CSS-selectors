@@ -133,6 +133,8 @@ export class App implements IApp {
       this.currentLevel += 1;
       App.startGame(this.currentLevel);
       this.setState();
+      const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
+      input.value = '';
     }
   }
 
