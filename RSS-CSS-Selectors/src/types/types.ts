@@ -23,11 +23,9 @@ export type LevelParams = Array<Array<IParams & { story?: string }>>;
 
 export interface IApp {
   header: IElementGenerator
-  // level: IElementGenerator
   main: IElementGenerator
   aside: IElementGenerator
   footer: IElementGenerator
-  currentLevel: number
 }
 
 export enum Elements {

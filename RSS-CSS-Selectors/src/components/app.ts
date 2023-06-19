@@ -25,7 +25,7 @@ export class App implements IApp {
 
   footer: ElementGenerator;
 
-  public currentLevel: number = 0;
+  private currentLevel: number = 0;
 
   private asideState: Record<string, string> = getAsideState();
 
