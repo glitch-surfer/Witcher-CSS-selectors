@@ -34,6 +34,8 @@ export class App implements IApp {
 
   private asideState: Record<string, string> = getAsideState();
 
+  private isWin: boolean = false;
+
   constructor() {
     this.header = new ElementGenerator(headerParams);
     this.main = new ElementGenerator(mainParams);
@@ -59,7 +61,6 @@ export class App implements IApp {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
     const htmlViewer = ElementGenerator.elementLinks[Elements.HTML_VIEWER];
     const story = ElementGenerator.elementLinks[Elements.STORY];
-    const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
     cleanElement(table);
     cleanElement(htmlViewer);
     cleanElement(story);
@@ -132,7 +133,6 @@ export class App implements IApp {
   }
 
   private nextLevel(): void {
-    const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
     const notCompletedLevels: Array<{ levelBtn: Node, level: IParams[] }> = [];
 
     levels.forEach((level, index) => {
@@ -144,8 +144,9 @@ export class App implements IApp {
     });
 
     if (this.currentLevel < levels.length - 1) {
-      if (notCompletedLevels.length === 0) {
+      if (notCompletedLevels.length === 0 && !this.isWin) {
         alert('Вы прошли игру!');
+        this.isWin = true;
         return;
       }
       this.toggleBtnDataActiveStatus();
@@ -155,9 +156,10 @@ export class App implements IApp {
       const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
       input.value = '';
     } else if (this.currentLevel === levels.length - 1) { // TODO: msg for finished game
-      if (notCompletedLevels.length === 0) {
+      if (notCompletedLevels.length === 0 && !this.isWin) {
         alert('Вы прошли игру!');
-      } else {
+        this.isWin = true;
+      } else if (notCompletedLevels.length > 0) {
         alert('Остались эти уровни, попробуй!');
         console.log(notCompletedLevels);
         // TODO: add modal with btns for notCompletedLevels
