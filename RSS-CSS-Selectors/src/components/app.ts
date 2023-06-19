@@ -6,8 +6,7 @@ import { footerParams } from './footer/footer-view';
 import { levels } from './game/levels';
 import type { IApp } from '../types/types';
 import { Elements } from '../types/types';
-import { parseLevelObjToHtmlViewer, parsedNodeHtml } from './util/parce-level-obj-to-html-viewer';
-import { addToolTips } from './util/add-tooltip';
+import { parsedNodeHtml } from './util/parce-level-obj-to-html-viewer';
 import { addHighlightedTag } from './util/add-highlighted-tag';
 import { ElementGenerator } from './util/element-generator';
 import { removeElement } from './util/remove-element';
@@ -15,6 +14,7 @@ import { cleanElement } from './util/clean-element';
 import { getAsideState } from './util/get-aside-state';
 import { setAsideState } from './util/set-aside-state';
 import { getNotCompletedLevelsList } from './util/get-not-completed-levels-list';
+import { buildLevel } from './util/build-level';
 
 export class App implements IApp {
   header: ElementGenerator;
@@ -61,18 +61,8 @@ export class App implements IApp {
     cleanElement(story);
     parsedNodeHtml.length = 0;
 
-    levels[levelNumber].forEach((element) => {
-      const parsedLevelData = parseLevelObjToHtmlViewer(element);
-      htmlViewer.append(parsedLevelData);
+    buildLevel(levelNumber);
 
-      const elementOnTable = new ElementGenerator(element).getElement();
-      addToolTips(elementOnTable);
-      table.append(elementOnTable);
-
-      if (element.story !== undefined) {
-        story.append(element.story);
-      }
-    });
     addHighlightedTag(htmlViewer, 'table');
 
     this.toggleBtnDataActiveStatus();
