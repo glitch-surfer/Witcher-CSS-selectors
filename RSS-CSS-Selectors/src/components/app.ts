@@ -79,7 +79,7 @@ export class App implements IApp {
     });
     addHighlightedTag(htmlViewer, 'table');
 
-    currentLevelBtn.classList.toggle('active');
+    this.toggleBtnDataActiveStatus();
 
     const setAsideState = (): void => {
       const asideStateJson = localStorage.getItem('asideState');
@@ -148,7 +148,7 @@ export class App implements IApp {
         alert('Вы прошли игру!');
         return;
       }
-      currentLevelBtn.classList.toggle('active');
+      this.toggleBtnDataActiveStatus();
       this.currentLevel += 1;
       this.startGame(this.currentLevel);
       this.setState();
@@ -173,7 +173,7 @@ export class App implements IApp {
 
     btnPrev.addEventListener('click', () => {
       if (this.currentLevel > 0) {
-        ElementGenerator.elementLinks[`LI.${this.currentLevel}`].classList.toggle('active');
+        this.toggleBtnDataActiveStatus();
         this.currentLevel -= 1;
         this.startGame(this.currentLevel);
         this.setState();
@@ -183,7 +183,7 @@ export class App implements IApp {
     this.aside.getElement().addEventListener('click', (event) => {
       const levelBtn = event.target;
       if (levelBtn instanceof HTMLElement && levelBtn.classList.contains('levels__item')) {
-        ElementGenerator.elementLinks[`LI.${this.currentLevel}`].classList.toggle('active');
+        this.toggleBtnDataActiveStatus();
         const levelBtnIndex = levelBtn.classList[levelBtn.classList.length - 1];
         this.currentLevel = Number(levelBtnIndex);
         this.startGame(this.currentLevel);
@@ -218,5 +218,14 @@ export class App implements IApp {
       const sereilizedAside = JSON.stringify(this.asideState);
       localStorage.setItem('asideState', sereilizedAside);
     });
+  }
+
+  private toggleBtnDataActiveStatus(): void {
+    const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.currentLevel}`];
+    if (currentLevelBtn.getAttribute('data-active') === null) {
+      currentLevelBtn.setAttribute('data-active', 'active');
+    } else {
+      currentLevelBtn.removeAttribute('data-active');
+    }
   }
 }
