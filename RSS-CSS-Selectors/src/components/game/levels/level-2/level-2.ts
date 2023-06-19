@@ -1,7 +1,7 @@
-import type { IParams } from '../../../../types/types';
+import type { ILevelParams } from '../../../../types/types';
 import './level-2.scss';
 
-export const level2: IParams[] = [
+export const level2: ILevelParams[] = [
   {
     story: 'level222222222222222222',
     help: 'plate',

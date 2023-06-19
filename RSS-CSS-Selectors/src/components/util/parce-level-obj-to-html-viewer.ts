@@ -1,13 +1,13 @@
 import 'highlight.js/styles/github.css';
 import hljs from 'highlight.js/lib/core';
 import xml from 'highlight.js/lib/languages/xml';
-import type { IParams } from '../../types/types';
+import type { ILevelParams } from '../../types/types';
 
 hljs.registerLanguage('xml', xml);
 
 export const parsedNodeHtml: HTMLElement[] = [];
 
-export const parseLevelObjToHtmlViewer = (level: IParams): HTMLElement => {
+export const parseLevelObjToHtmlViewer = (level: ILevelParams): HTMLElement => {
   const result = document.createElement('div');
   let start;
   let end;

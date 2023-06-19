@@ -4,9 +4,11 @@ export interface IParams {
   attributes?: Record<string, string>
   id?: string
   text?: string
-  callback?: () => void
   children?: IParams[]
   link?: boolean
+}
+
+export interface ILevelParams extends IParams {
   story?: string
   help?: string
 }

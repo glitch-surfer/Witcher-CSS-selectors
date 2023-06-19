@@ -1,6 +1,6 @@
-import type { IParams } from '../../../../types/types';
+import type { ILevelParams } from '../../../../types/types';
 
-export const level4: IParams[] = [
+export const level4: ILevelParams[] = [
   {
     story: 'level4444444444444',
     help: 'level1 bento',

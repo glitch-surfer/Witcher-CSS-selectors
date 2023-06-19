@@ -1,16 +1,15 @@
-import type { IParams, IElementGenerator } from '../../types/types';
+import type { IParams, IElementGenerator, ILevelParams } from '../../types/types';
 
 export class ElementGenerator implements IElementGenerator {
   element: HTMLElement;
 
   static elementLinks: Record<string, HTMLElement> = {};
 
-  constructor(params: IParams) {
+  constructor(params: IParams | ILevelParams) {
     this.element = this.createElement(params.tag);
     if (params.className !== undefined) this.setStyles(params.className);
     if (params.attributes !== undefined) this.setAttributes(params.attributes);
     if (params.text !== undefined) this.setText(params.text);
-    if (params.callback !== undefined) this.setCallback(params.callback);
     if (params.children !== undefined) this.addChild(params.children);
     if (params.link !== undefined) this.setElementLink();
   }
@@ -34,13 +33,7 @@ export class ElementGenerator implements IElementGenerator {
     this.element.textContent = text;
   }
 
-  private setCallback(callback: () => void): void {
-    if (typeof callback === 'function') {
-      this.element.addEventListener('click', callback);
-    }
-  }
-
-  private addChild(children: IParams[]): void {
+  private addChild(children: IParams[] | ILevelParams[]): void {
     children.forEach((child) => {
       const childElement = new ElementGenerator(child).getElement();
       this.element.append(childElement);
