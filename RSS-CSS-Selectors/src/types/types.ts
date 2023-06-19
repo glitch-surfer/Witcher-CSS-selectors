@@ -8,6 +8,7 @@ export interface IParams {
   children?: IParams[]
   link?: boolean
   story?: string
+  help?: string
 }
 
 export interface IElementGenerator {

@@ -1,5 +1,6 @@
 import { Elements } from '../../types/types';
 import type { App } from '../app';
+import { levels } from '../game/levels';
 import { ElementGenerator } from './element-generator';
 import { removeElement } from './remove-element';
 
@@ -50,6 +51,7 @@ export class EventHandler {
   addLevelHandler(): void {
     const btnNext = ElementGenerator.elementLinks[Elements.BTN_NEXT];
     const btnPrev = ElementGenerator.elementLinks[Elements.BTN_PREV];
+    const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
 
     btnNext.addEventListener('click', this.this.nextLevel.bind(this.this));
 
@@ -59,6 +61,7 @@ export class EventHandler {
         this.this.currentLevel -= 1;
         this.this.startGame(this.this.currentLevel);
         this.this.setState();
+        input.value = '';
       }
     });
 
@@ -70,19 +73,32 @@ export class EventHandler {
         this.this.currentLevel = Number(levelBtnIndex);
         this.this.startGame(this.this.currentLevel);
         this.this.setState();
+        input.value = '';
       }
     });
   }
 
-  addMarkAsHelpedHandler(): void {
+  addHelpHandler(): void {
     const helpBtn = ElementGenerator.elementLinks[Elements.BTN_HELP];
+    const CHILD_WITH_HELP_PROP = 0;
 
     helpBtn.addEventListener('click', () => {
       const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
+      const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
       if (!currentLevelBtn.classList.contains('done')) {
         currentLevelBtn.className = `levels__item helped ${this.this.currentLevel}`;
         this.this.asideState[`LI.${this.this.currentLevel}`] = currentLevelBtn.className;
       }
+
+      input.value = '';
+      const text = levels[this.this.currentLevel][CHILD_WITH_HELP_PROP].help;
+      const splittedText = text?.split('');
+
+      splittedText?.forEach((letter, index) => {
+        setTimeout(() => {
+          input.value += letter;
+        }, 100 * index);
+      });
     });
   }
 

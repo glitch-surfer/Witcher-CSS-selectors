@@ -1,4 +1,5 @@
 import './base.scss';
+import './typing-effect.scss';
 import { headerParams } from './header/header-view';
 import { mainParams } from './main/main-view';
 import { asideParams } from './aside/aside-view';
@@ -13,7 +14,7 @@ import { getAsideState } from './util/get-aside-state';
 import { setAsideState } from './util/set-aside-state';
 import { getNotCompletedLevelsList } from './util/get-not-completed-levels-list';
 import { buildLevel } from './util/build-level';
-import { EventHandler } from './util/eventsHandler';
+import { EventHandler } from './util/events-handler';
 
 export class App {
   private readonly eventHandler: EventHandler;
@@ -43,7 +44,7 @@ export class App {
     this.eventHandler.addKeydownHandler();
     this.eventHandler.addClickHandler();
     this.eventHandler.addLevelHandler();
-    this.eventHandler.addMarkAsHelpedHandler();
+    this.eventHandler.addHelpHandler();
     this.eventHandler.addAsideStateHandler();
   }
 

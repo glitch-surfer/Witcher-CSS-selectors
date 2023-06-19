@@ -4,6 +4,7 @@ import './level-1.scss';
 export const level1: IParams[] = [
   {
     story: 'level11111111111111111',
+    help: 'sword',
     tag: 'plate',
     className: ['level1'],
     attributes: {
