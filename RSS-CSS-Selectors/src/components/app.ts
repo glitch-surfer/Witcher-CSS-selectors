@@ -4,7 +4,7 @@ import { mainParams } from './main/main-view';
 import { asideParams } from './aside/aside-view';
 import { footerParams } from './footer/footer-view';
 import { levels } from './game/levels';
-import type { IApp } from '../types/types';
+import type { IApp, IParams } from '../types/types';
 import { Elements } from '../types/types';
 import { parseLevelObjToHtmlViewer, parsedNodeHtml } from './util/parce-level-obj-to-html-viewer';
 import { addToolTips } from './util/add-tooltip';
@@ -129,12 +129,34 @@ export class App implements IApp {
   }
 
   private nextLevel(): void {
+    const notCompletedLevels: Array<{ levelBtn: Node, level: IParams[] }> = [];
+
+    levels.forEach((level, index) => {
+      const levelBtn = ElementGenerator.elementLinks[`LI.${index}`];
+      if (!levelBtn.classList.contains('done')
+        && !levelBtn.classList.contains('helped')) {
+        notCompletedLevels.push({ levelBtn, level });
+      }
+    });
+
     if (this.currentLevel < levels.length - 1) {
+      if (notCompletedLevels.length === 0) {
+        alert('Вы прошли игру!');
+        return;
+      }
       this.currentLevel += 1;
       App.startGame(this.currentLevel);
       this.setState();
       const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
       input.value = '';
+    } else if (this.currentLevel === levels.length - 1) { // TODO: msg for finished game
+      if (notCompletedLevels.length === 0) {
+        alert('Вы прошли игру!');
+      } else {
+        alert('Остались эти уровни, попробуй!');
+        console.log(notCompletedLevels);
+        // TODO: add modal with btns for notCompletedLevels
+      }
     }
   }
 
