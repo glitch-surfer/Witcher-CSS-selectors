@@ -13,6 +13,7 @@ import { ElementGenerator } from './util/element-generator';
 import { removeElement } from './util/remove-element';
 import { cleanElement } from './util/clean-element';
 import { getAsideState } from './util/get-aside-state';
+import { setAsideState } from './util/set-aside-state';
 
 export class App implements IApp {
   header: ElementGenerator;
@@ -75,16 +76,6 @@ export class App implements IApp {
 
     this.toggleBtnDataActiveStatus();
 
-    const setAsideState = (): void => {
-      const asideStateJson = localStorage.getItem('asideState');
-      if (asideStateJson !== null) {
-        const asideState = JSON.parse(asideStateJson);
-        Object.entries(asideState).forEach(([selector, stateClass]) => {
-          const levelBtn = ElementGenerator.elementLinks[selector];
-          levelBtn.className = stateClass as string;
-        });
-      }
-    };
     setAsideState();
   }
 
