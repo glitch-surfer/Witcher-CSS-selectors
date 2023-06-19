@@ -56,9 +56,8 @@ export class App implements IApp {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
     const htmlViewer = ElementGenerator.elementLinks[Elements.HTML_VIEWER];
     const story = ElementGenerator.elementLinks[Elements.STORY];
-    cleanElement(table);
-    cleanElement(htmlViewer);
-    cleanElement(story);
+
+    cleanElement(table, htmlViewer, story);
     parsedNodeHtml.length = 0;
 
     buildLevel(levelNumber);
