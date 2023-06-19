@@ -12,14 +12,7 @@ import { addHighlightedTag } from './util/add-highlighted-tag';
 import { ElementGenerator } from './util/element-generator';
 import { removeElement } from './util/remove-element';
 import { cleanElement } from './util/clean-element';
-
-const getAsideState = (): Record<string, string> => {
-  const asideState = localStorage.getItem('asideState');
-  if (asideState !== null) {
-    return JSON.parse(asideState);
-  }
-  return {};
-};
+import { getAsideState } from './util/get-aside-state';
 
 export class App implements IApp {
   header: ElementGenerator;
