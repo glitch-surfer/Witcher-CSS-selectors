@@ -30,8 +30,9 @@ export enum Elements {
   INPUT = 'INPUT.editor__input',
   BUTTON = 'BUTTON.editor__button',
   STORY = 'P.story__text',
-  BTN_NEXT = 'BUTTON.levels__button_next',
-  BTN_PREV = 'BUTTON.levels__button_prev',
-  BTN_HELP = 'BUTTON.levels__button_help',
-  BTN_RESET = 'BUTTON.levels__button_reset',
+  BTN_NEXT = 'BUTTON.aside__button_next',
+  BTN_PREV = 'BUTTON.aside__button_prev',
+  BTN_HELP = 'BUTTON.aside__button_help',
+  BTN_RESET = 'BUTTON.aside__button_reset',
+  NAV_TITLE = 'H3.nav__title',
 }

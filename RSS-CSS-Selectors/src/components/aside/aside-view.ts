@@ -1,9 +1,10 @@
 import './aside.scss';
+import './burger.scss';
 import type { IParams } from '../../types/types';
 
 export const asideParams: IParams = {
   tag: 'aside',
-  className: ['levels'],
+  className: ['aside'],
   children: [
     {
       tag: 'nav',
@@ -17,61 +18,66 @@ export const asideParams: IParams = {
         },
         {
           tag: 'button',
-          className: ['btn', 'levels__button', 'levels__button_prev'],
+          className: ['btn', 'aside__button', 'aside__button_prev'],
           text: '❮',
           link: true,
         },
         {
           tag: 'button',
-          className: ['btn', 'levels__button', 'levels__button_next'],
+          className: ['btn', 'aside__button', 'aside__button_next'],
           text: '❯',
           link: true,
         },
         {
-          tag: 'button',
-          className: ['btn', 'levels__button', 'levels__button_burger'],
-          text: 'BURG',
+          tag: 'div',
+          className: ['burger'],
           link: true,
+          children: [
+            {
+              tag: 'div',
+              className: ['burger__line'],
+            },
+          ],
         },
       ],
     },
     {
       tag: 'h2',
-      className: ['title', 'levels__title'],
+      className: ['title', 'aside__title'],
       text: 'Content',
       link: true,
     },
     {
       tag: 'p',
-      className: ['title', 'levels__content'],
+      className: ['title', 'aside__content'],
       text: 'ContentCo n tentCon t entConte ntConte ntConten tContent Content Content ContentC ontent Conten tContentC ontentCo ntentCo ntentCont entContentCo ntentCont entContentC ontentCo ntentCon tentCont entConten tConten tContentCo ntentCo ntent',
       link: true,
     },
     {
       tag: 'ul',
-      className: ['levels__list'],
+      className: ['aside__list'],
       children: [
         {
           tag: 'li',
-          className: ['levels__item', '0'],
+          className: ['aside__item', '0'],
           text: '1',
           link: true,
         },
         {
           tag: 'li',
-          className: ['levels__item', '1'],
+          className: ['aside__item', '1'],
           text: '2',
           link: true,
         },
         {
           tag: 'li',
-          className: ['levels__item', '2'],
+          className: ['aside__item', '2'],
           text: '3',
           link: true,
         },
         {
           tag: 'li',
-          className: ['levels__item', '3'],
+          className: ['aside__item', '3'],
           text: '4',
           link: true,
         },
@@ -79,13 +85,13 @@ export const asideParams: IParams = {
     },
     {
       tag: 'button',
-      className: ['btn', 'levels__button', 'levels__button_reset'],
+      className: ['btn', 'aside__button', 'aside__button_reset'],
       text: 'reset',
       link: true,
     },
     {
       tag: 'button',
-      className: ['btn', 'levels__button', 'levels__button_help'],
+      className: ['btn', 'aside__button', 'aside__button_help'],
       text: 'help',
       link: true,
     },

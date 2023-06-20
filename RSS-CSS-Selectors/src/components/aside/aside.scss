@@ -1,6 +1,7 @@
-.levels {
-  grid-area: levels;
+.aside {
+  grid-area: aside;
   padding: 1rem;
+  padding-left: 1rem;
   background-color: darkkhaki;
   width: 100%;
 }
@@ -13,15 +14,15 @@
   border-bottom: 1px solid #000;
 }
 
-.levels__button {
+.aside__button {
   width: 3rem;
 }
 
-.levels__list {
+.aside__list {
   list-style: none;
 }
 
-.levels__item {
+.aside__item {
   margin-bottom: 1rem;
   position: relative;
 
@@ -60,12 +61,12 @@
     left: -1.5rem;
     bottom: 0.2rem;
 
-    .levels:has([data-active].helped) & {
+    .aside:has([data-active].helped) & {
       background: url(../../img/mark-yellow.png) no-repeat center transparent;
       background-size: contain;
     }
 
-    .levels:has([data-active].done) & {
+    .aside:has([data-active].done) & {
       background: url(../../img/mark-green.png) no-repeat center transparent;
       background-size: contain;
     }

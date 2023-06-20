@@ -5,9 +5,9 @@ body {
   // margin: 0 auto;
   display: grid;
   grid-template:
-    "header header header levels" 18rem
-    "main main main levels" 1fr
-    "footer footer footer levels" 1fr
+    "header header header aside" 18rem
+    "main main main aside" 1fr
+    "footer footer footer aside" 1fr
     / 1fr 1fr 1fr minmax(20%, 20rem);
   justify-items: center;
   // background: url(../../img/2387540.jpg) center no-repeat;
