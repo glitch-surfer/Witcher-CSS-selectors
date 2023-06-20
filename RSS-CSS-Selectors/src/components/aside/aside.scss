@@ -1,7 +1,6 @@
 .aside {
   grid-area: aside;
   padding: 1rem;
-  padding-left: 1rem;
   background-color: darkkhaki;
   width: 100%;
 }
@@ -14,8 +13,16 @@
   border-bottom: 1px solid #000;
 }
 
-.aside__button {
-  width: 3rem;
+.aside__button_prev,
+.aside__button_next {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+
+  &:hover {
+    color: orange;
+  }
 }
 
 .aside__list {
