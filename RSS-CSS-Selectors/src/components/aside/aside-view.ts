@@ -98,6 +98,12 @@ export const asideParams: IParams = {
                 },
               ],
             },
+            {
+              tag: 'button',
+              className: ['btn', 'aside__button', 'aside__button_reset'],
+              text: 'reset',
+              link: true,
+            },
           ],
         },
       ],
@@ -112,12 +118,6 @@ export const asideParams: IParams = {
       tag: 'p',
       className: ['title', 'aside__content'],
       text: 'ContentCo n tentCon t entConte ntConte ntConten tContent Content Content ContentC ontent Conten tContentC ontentCo ntentCo ntentCont entContentCo ntentCont entContentC ontentCo ntentCon tentCont entConten tConten tContentCo ntentCo ntent',
-      link: true,
-    },
-    {
-      tag: 'button',
-      className: ['btn', 'aside__button', 'aside__button_reset'],
-      text: 'reset',
       link: true,
     },
     {
