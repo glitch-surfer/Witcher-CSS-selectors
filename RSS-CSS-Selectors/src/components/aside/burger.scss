@@ -30,7 +30,7 @@
       left: 0;
   }
 
-  &.is-active {
+  &.burger-active {
       transform: rotate(-90deg);
   }
 
@@ -47,12 +47,13 @@
 }
 
 .burger-menu {
-  position: fixed;
+  position: absolute;
   z-index: 10;
   top: 0;
   right: -150%;
   width: 100%;
   height: 100vh;
+  background-color: aquamarine;
   // display: flex;
   // flex-direction: column;
   // align-items: center;
@@ -63,9 +64,36 @@
   // background-color: $color-dark;
   // @extend %transition;
 
-  &.is-active {
+  .burger-active ~ & {
       right: 0;
   }
+}
+
+.burger-menu__level {
+  position: relative;
+  padding: 0.5rem 2.5rem;
+
+  &::before {
+    content: '';
+    background: url(../../img/mark-grey.png) no-repeat center transparent;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0.5rem;
+    bottom: 0.5rem;
+
+    .helped & {
+      background: url(../../img/mark-yellow.png) no-repeat center transparent;
+      background-size: contain;
+    }
+    
+    .done & {
+      background: url(../../img/mark-green.png) no-repeat center transparent;
+      background-size: contain;
+    }
+  }
+  
 }
 
 // .overlay {

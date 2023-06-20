@@ -112,4 +112,12 @@ export class EventHandler {
       else localStorage.setItem('isWin', '0');
     });
   }
+
+  static addBurgerHandler(): void {
+    const burger = ElementGenerator.elementLinks[Elements.BURGER];
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('burger-active');
+    });
+  }
 }

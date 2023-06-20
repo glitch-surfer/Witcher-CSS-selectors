@@ -1,8 +1,9 @@
 .aside {
   grid-area: aside;
+  position: relative;
+  overflow: hidden;
   padding: 1rem;
   background-color: darkkhaki;
-  width: 100%;
 }
 
 .nav {
@@ -26,33 +27,15 @@
 }
 
 .aside__list {
+  margin-top: 4rem;
+  padding: 0;
   list-style: none;
 }
 
 .aside__item {
-  margin-bottom: 1rem;
-  position: relative;
-
-  &::before {
-    content: '';
-    background: url(../../img/mark-grey.png) no-repeat center transparent;
-    background-size: contain;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    left: -1.5rem;
-    bottom: 0;
+  &:hover {
+    background-color: aqua;
   }
-}
-
-.helped::before {
-  background: url(../../img/mark-yellow.png) no-repeat center transparent;
-  background-size: contain;
-}
-
-.done::before {
-  background: url(../../img/mark-green.png) no-repeat center transparent;
-  background-size: contain;
 }
 
 .nav__title {

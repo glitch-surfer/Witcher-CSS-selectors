@@ -35,4 +35,5 @@ export enum Elements {
   BTN_HELP = 'BUTTON.aside__button_help',
   BTN_RESET = 'BUTTON.aside__button_reset',
   NAV_TITLE = 'H3.nav__title',
+  BURGER = 'DIV.burger',
 }

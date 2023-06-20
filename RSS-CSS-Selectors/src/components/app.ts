@@ -47,6 +47,7 @@ export class App {
     this.eventHandler.addLevelHandler();
     this.eventHandler.addHelpHandler();
     this.eventHandler.addAsideStateHandler();
+    EventHandler.addBurgerHandler();
     this.isWin = Boolean(Number(localStorage.getItem('isWin')));
   }
 
