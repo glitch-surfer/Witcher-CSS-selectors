@@ -9,6 +9,7 @@
   display: grid;
   grid-template-columns: 1fr repeat(3, auto);
   align-items: center;
+  padding-left: 1rem;
   border-bottom: 1px solid #000;
 }
 
@@ -49,14 +50,14 @@
 .nav__title {
   position: relative;
 
-  &::after {
+  &::before {
     content: '';
     background: url(../../img/mark-grey.png) no-repeat center transparent;
     background-size: contain;
     width: 20px;
     height: 20px;
     position: absolute;
-    right: -1rem;
+    left: -1.5rem;
     bottom: 0.2rem;
 
     .levels:has([data-active].helped) & {
