@@ -16,7 +16,7 @@ export const mainParams: IParams = {
           children: [
             {
               tag: 'h2',
-              className: ['editor__title'],
+              className: ['editor__title', 'title'],
               text: 'CSS Editor',
             },
             {
@@ -30,12 +30,13 @@ export const mainParams: IParams = {
               attributes: {
                 type: 'text',
                 autofocus: '',
+                placeholder: 'Type your CSS selector here',
               },
               link: true,
             },
             {
               tag: 'button',
-              className: ['editor__button'],
+              className: ['btn', 'editor__button'],
               text: 'enter',
               link: true,
             },
@@ -47,7 +48,7 @@ export const mainParams: IParams = {
           children: [
             {
               tag: 'h2',
-              className: ['html-viewer__title'],
+              className: ['html-viewer__title', 'title'],
               text: 'HTML Viewer',
             },
             {
@@ -70,7 +71,7 @@ export const mainParams: IParams = {
       children: [
         {
           tag: 'h2',
-          className: ['story__title'],
+          className: ['story__title', 'title'],
           text: 'Story',
         },
         {

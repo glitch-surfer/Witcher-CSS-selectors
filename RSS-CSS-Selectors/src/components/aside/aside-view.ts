@@ -44,7 +44,7 @@ export const asideParams: IParams = {
     {
       tag: 'p',
       className: ['title', 'levels__content'],
-      text: 'ContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContent',
+      text: 'ContentCo n tentCon t entConte ntConte ntConten tContent Content Content ContentC ontent Conten tContentC ontentCo ntentCo ntentCont entContentCo ntentCont entContentC ontentCo ntentCon tentCont entConten tConten tContentCo ntentCo ntent',
       link: true,
     },
     {
