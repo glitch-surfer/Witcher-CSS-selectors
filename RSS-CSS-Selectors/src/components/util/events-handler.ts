@@ -3,6 +3,7 @@ import type { App } from '../app';
 import { levels } from '../game/levels';
 import { ElementGenerator } from './element-generator';
 import { removeElement } from './remove-element';
+import { unshiftCssClass } from './unshift-css-class';
 
 export class EventHandler {
   private readonly this: App;
@@ -20,7 +21,7 @@ export class EventHandler {
         if (isRightSelector) {
           const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
           if (!currentLevelBtn.classList.contains('helped')) {
-            currentLevelBtn.className = `levels__item done ${this.this.currentLevel}`;
+            unshiftCssClass(currentLevelBtn, 'done');
             this.this.asideState[`LI.${this.this.currentLevel}`] = currentLevelBtn.className;
           }
           this.this.nextLevel();
@@ -40,7 +41,7 @@ export class EventHandler {
       if (isRightSelector) {
         const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
         if (!currentLevelBtn.classList.contains('helped')) {
-          currentLevelBtn.className = `levels__item done ${this.this.currentLevel}`;
+          unshiftCssClass(currentLevelBtn, 'done');
           this.this.asideState[`LI.${this.this.currentLevel}`] = currentLevelBtn.className;
         }
         this.this.nextLevel();
@@ -86,7 +87,7 @@ export class EventHandler {
       const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
       const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
       if (!currentLevelBtn.classList.contains('done')) {
-        currentLevelBtn.className = `levels__item helped ${this.this.currentLevel}`;
+        unshiftCssClass(currentLevelBtn, 'helped');
         this.this.asideState[`LI.${this.this.currentLevel}`] = currentLevelBtn.className;
       }
 
