@@ -68,9 +68,14 @@ export class EventHandler {
 
     this.this.aside.getElement().addEventListener('click', (event) => {
       const levelBtn = event.target;
-      if (levelBtn instanceof HTMLElement && levelBtn.classList.contains('aside__item')) {
+      if (!(levelBtn instanceof HTMLElement)) throw new Error();
+
+      const parent = levelBtn.parentElement;
+      if (parent === null || !(parent instanceof HTMLElement)) throw new Error();
+
+      if (parent.classList.contains('aside__item')) {
         this.this.toggleBtnDataActiveStatus();
-        const levelBtnIndex = levelBtn.classList[levelBtn.classList.length - 1];
+        const levelBtnIndex = parent.classList[parent.classList.length - 1];
         this.this.currentLevel = Number(levelBtnIndex);
         this.this.startGame(this.this.currentLevel);
         this.this.setState();
