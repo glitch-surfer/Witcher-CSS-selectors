@@ -2,18 +2,40 @@
   grid-area: main;
   display: flex;
   gap: 1.5rem;
+  width: 40rem;
+  padding: 0 1rem;
+}
+
+.title {
+  margin: 0.6rem 0;
+  font-size: 1.2rem;
+}
+
+.editor {
+  display: grid;
+  grid-template-columns: 1fr 4rem;
+  grid-template-rows: repeat(2, auto);
+  align-items: center;
 }
 
 .workspace {
-  flex: 2 1 60%;
+  flex-basis: 50%;
 }
 
-.story {
-  flex: 1 1 40%;
+.html-viewer {
+  display: grid;
+  grid-template-columns: 1fr 4rem;
+  grid-template-rows: repeat(2, auto);
+  align-items: center;
 }
 
 .html-viewer__content {
+  grid-column: span 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  div {
+    padding-left: 1rem;
+  }
 }
