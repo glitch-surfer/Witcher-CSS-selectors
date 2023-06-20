@@ -1,6 +1,19 @@
 .levels {
-  margin-top: 2rem;
   grid-area: levels;
+  padding: 1rem;
+  background-color: darkkhaki;
+  width: 100%;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, auto);
+  align-items: center;
+  border-bottom: 1px solid #000;
+}
+
+.levels__button {
+  width: 3rem;
 }
 
 .levels__list {
@@ -10,29 +23,54 @@
 .levels__item {
   margin-bottom: 1rem;
   position: relative;
+
+  &::before {
+    content: '';
+    background: url(../../img/mark-grey.png) no-repeat center transparent;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -1.5rem;
+    bottom: 0;
+  }
 }
 
-.levels__item::before {
-  content: '';
-  background: url(../../img/mark-grey.png) no-repeat center transparent;
-  background-size: contain;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  left: -1.5rem;
-  bottom: 0;
-}
-
-.helped.levels__item::before {
+.helped::before {
   background: url(../../img/mark-yellow.png) no-repeat center transparent;
   background-size: contain;
 }
 
-.done.levels__item::before {
+.done::before {
   background: url(../../img/mark-green.png) no-repeat center transparent;
   background-size: contain;
 }
 
-[data-active="active"] {
+.nav__title {
+  position: relative;
+
+  &::after {
+    content: '';
+    background: url(../../img/mark-grey.png) no-repeat center transparent;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -1rem;
+    bottom: 0.2rem;
+
+    .levels:has([data-active].helped) & {
+      background: url(../../img/mark-yellow.png) no-repeat center transparent;
+      background-size: contain;
+    }
+
+    .levels:has([data-active].done) & {
+      background: url(../../img/mark-green.png) no-repeat center transparent;
+      background-size: contain;
+    }
+  }
+}
+
+[data-active] {
   box-shadow: 0px 0px 11px 2px orange;
 }

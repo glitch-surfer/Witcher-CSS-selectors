@@ -6,20 +6,45 @@ export const asideParams: IParams = {
   className: ['levels'],
   children: [
     {
-      tag: 'h3',
-      className: ['levels__title'],
-      text: 'Level',
+      tag: 'nav',
+      className: ['nav'],
+      children: [
+        {
+          tag: 'h3',
+          className: ['title', 'nav__title'],
+          text: 'Level 1 of 10',
+          link: true,
+        },
+        {
+          tag: 'button',
+          className: ['btn', 'levels__button', 'levels__button_prev'],
+          text: '❮',
+          link: true,
+        },
+        {
+          tag: 'button',
+          className: ['btn', 'levels__button', 'levels__button_next'],
+          text: '❯',
+          link: true,
+        },
+        {
+          tag: 'button',
+          className: ['btn', 'levels__button', 'levels__button_burger'],
+          text: 'BURG',
+          link: true,
+        },
+      ],
     },
     {
-      tag: 'button',
-      className: ['levels__button', 'levels__button_prev'],
-      text: '❮',
+      tag: 'h2',
+      className: ['title', 'levels__title'],
+      text: 'Content',
       link: true,
     },
     {
-      tag: 'button',
-      className: ['levels__button', 'levels__button_next'],
-      text: '❯',
+      tag: 'p',
+      className: ['title', 'levels__content'],
+      text: 'ContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContentContent',
       link: true,
     },
     {
@@ -54,13 +79,13 @@ export const asideParams: IParams = {
     },
     {
       tag: 'button',
-      className: ['levels__button', 'levels__button_reset'],
+      className: ['btn', 'levels__button', 'levels__button_reset'],
       text: 'reset',
       link: true,
     },
     {
       tag: 'button',
-      className: ['levels__button', 'levels__button_help'],
+      className: ['btn', 'levels__button', 'levels__button_help'],
       text: 'help',
       link: true,
     },
