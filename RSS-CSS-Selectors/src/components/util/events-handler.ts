@@ -25,6 +25,12 @@ export class EventHandler {
             this.this.asideState[`LI.${this.this.currentLevel}`] = currentLevelBtn.className;
           }
           this.this.nextLevel();
+        } else {
+          const main = this.this.main.getElement();
+          main.addEventListener('animationend', () => {
+            main.classList.remove('wrong-answer');
+          });
+          main.classList.add('wrong-answer');
         }
       }
     };
