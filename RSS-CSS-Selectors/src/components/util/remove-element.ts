@@ -6,6 +6,15 @@ const isEqual = (a: NodeListOf<Element>, b: NodeListOf<Element>): boolean => {
   return true;
 };
 
+const removeTargetWithAnimation = (element: Element, index: number): void => {
+  element.addEventListener('animationend', () => {
+    element.remove();
+  });
+  setTimeout(() => {
+    element.classList.add('right-answer');
+  }, 300 * index);
+};
+
 export const removeElement = (area: HTMLElement, selector: string): boolean => {
   if (selector === '' || Number.isFinite(Number(selector))) return false;
 
@@ -13,9 +22,7 @@ export const removeElement = (area: HTMLElement, selector: string): boolean => {
   const targetElement = area.querySelectorAll('[data-target]');
 
   if (isEqual(selectedElements, targetElement)) {
-    selectedElements.forEach((element) => {
-      element.remove();
-    });
+    selectedElements.forEach(removeTargetWithAnimation);
     return true;
   }
   return false;

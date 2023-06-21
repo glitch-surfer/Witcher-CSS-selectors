@@ -128,9 +128,9 @@ body:has([data-id="6"]:hover) [data-id="5"] {
   animation: 2s ease-in-out 0s infinite blink,
     4s ease-in-out 0s infinite uroboros;
 
-  &>* {
-    animation: none;
-  }
+  // & > * {
+  //   animation: none;
+  // }
 }
 
 @keyframes blink {
@@ -177,24 +177,48 @@ body:has([data-id="6"]:hover) [data-id="5"] {
   }
 }
 
+.wrong-answer {
+  animation: 0.5s ease-in-out 0s horizontal-shaking;
+}
+
 @keyframes horizontal-shaking {
-  10%, 90% {
+
+  10%,
+  90% {
     transform: translate3d(-1px, 0, 0);
   }
-  
-  20%, 80% {
+
+  20%,
+  80% {
     transform: translate3d(2px, 0, 0);
   }
 
-  30%, 50%, 70% {
+  30%,
+  50%,
+  70% {
     transform: translate3d(-4px, 0, 0);
   }
 
-  40%, 60% {
+  40%,
+  60% {
     transform: translate3d(4px, 0, 0);
   }
- }
+}
 
- .wrong-answer {
-   animation: 0.5s ease-in-out 0s horizontal-shaking;
- }
+.right-answer {
+  animation: 1s ease-in 0s right-answer;
+}
+
+@keyframes right-answer {
+  0% {
+    transform: none
+  }
+
+  30% {
+    transform: translate(-50px, -100px);
+  }
+
+  100% {
+    transform: translate(-550px, 50px);
+  }
+}
