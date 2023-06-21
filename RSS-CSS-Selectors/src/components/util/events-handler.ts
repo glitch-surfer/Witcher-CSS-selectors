@@ -4,6 +4,7 @@ import { levels } from '../game/levels';
 import { ElementGenerator } from './element-generator';
 import { removeElement } from './remove-element';
 import { unshiftCssClass } from './unshift-css-class';
+import { wrongAnswerHandler } from './wrong-answer-handler';
 
 export class EventHandler {
   private readonly this: App;
@@ -27,10 +28,7 @@ export class EventHandler {
           this.this.nextLevel();
         } else {
           const main = this.this.main.getElement();
-          main.addEventListener('animationend', () => {
-            main.classList.remove('wrong-answer');
-          });
-          main.classList.add('wrong-answer');
+          wrongAnswerHandler(main);
         }
       }
     };
@@ -51,6 +49,9 @@ export class EventHandler {
           this.this.asideState[`LI.${this.this.currentLevel}`] = currentLevelBtn.className;
         }
         this.this.nextLevel();
+      } else {
+        const main = this.this.main.getElement();
+        wrongAnswerHandler(main);
       }
     });
   }
