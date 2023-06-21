@@ -88,7 +88,8 @@ export class EventHandler {
     const helpBtn = ElementGenerator.elementLinks[Elements.BTN_HELP];
     const CHILD_WITH_HELP_PROP = 0;
 
-    helpBtn.addEventListener('click', () => {
+    const helpHandler = (): void => {
+      helpBtn.removeEventListener('click', helpHandler);
       const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
       const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
       if (!currentLevelBtn.classList.contains('done')) {
@@ -99,13 +100,20 @@ export class EventHandler {
       input.value = '';
       const text = levels[this.this.currentLevel][CHILD_WITH_HELP_PROP].help;
       const splittedText = text?.split('');
+      if (splittedText === undefined) throw new Error('no help text');
 
-      splittedText?.forEach((letter, index) => {
+      splittedText.forEach((letter, index) => {
         setTimeout(() => {
           input.value += letter;
         }, 100 * index);
       });
-    });
+
+      setTimeout(() => {
+        helpBtn.addEventListener('click', helpHandler);
+      }, 100 * splittedText.length);
+    };
+
+    helpBtn.addEventListener('click', helpHandler);
   }
 
   addAsideStateHandler(): void {
