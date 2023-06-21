@@ -122,12 +122,11 @@ body:has([data-id="6"]:hover) [data-id="5"] {
 
 .tooltip {
   pointer-events: none;
-  animation: 2s ease-in-out 0.3s infinite blink
 }
 
 [data-target] {
-  animation: 2s ease-in-out 0.3s infinite blink,
-             2s ease-in-out 0s infinite shake;
+  animation: 2s ease-in-out 0s infinite blink,
+    4s ease-in-out 0s infinite uroboros;
 
   &>* {
     animation: none;
@@ -148,16 +147,32 @@ body:has([data-id="6"]:hover) [data-id="5"] {
   }
 }
 
-@keyframes shake {
+@keyframes uroboros {
   0% {
-    transform: translateX(3px)
+    transform: translate(4px, 4px)
+  }
+
+  25% {
+    transform: translate(-4px, -4px)
+  }
+
+  37% {
+    transform: translate(-6px, 0px)
   }
 
   50% {
-    transform: translateX(-3px)
+    transform: translate(-4px, 4px)
+  }
+
+  75% {
+    transform: translate(4px, -4px)
+  }
+
+  87% {
+    transform: translate(6px, 0px)
   }
 
   100% {
-    transform: translateX(3px)
+    transform: translate(4px, 4px)
   }
 }
