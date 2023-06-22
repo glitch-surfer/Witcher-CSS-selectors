@@ -1,3 +1,4 @@
+import { Elements } from '../../types/types';
 import type { IModalWindow, IParams } from '../../types/types';
 import { ElementGenerator } from '../util/element-generator';
 
@@ -14,6 +15,7 @@ export class ModalWindow implements IModalWindow {
     this.modal = new ElementGenerator(modalParams).getElement();
     this.message = new ElementGenerator(messageParams).getElement();
     this.modal.append(this.message);
+    ModalWindow.disableButtons();
     this.modal.addEventListener('click', this.removeModal.bind(this));
     document.addEventListener('keydown', this.removeModal.bind(this));
   }
@@ -29,6 +31,7 @@ export class ModalWindow implements IModalWindow {
       this.modal?.remove();
       document.removeEventListener('keydown', this.removeModal.bind(this));
       delete this.modal;
+      ModalWindow.enableButtons();
     }
   }
 
@@ -42,5 +45,15 @@ export class ModalWindow implements IModalWindow {
     if (this.modal === undefined) throw new Error('modal is undefined');
 
     return this.modal;
+  }
+
+  private static disableButtons(): void {
+    const help = ElementGenerator.elementLinks[Elements.BTN_HELP];
+    help.setAttribute('disabled', '');
+  }
+
+  private static enableButtons(): void {
+    const help = ElementGenerator.elementLinks[Elements.BTN_HELP];
+    help.removeAttribute('disabled');
   }
 }
