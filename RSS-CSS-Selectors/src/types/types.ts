@@ -24,6 +24,12 @@ export interface IView {
 
 export type LevelParams = Array<Array<IParams & { story?: string }>>;
 
+export interface IModalWindow {
+  modal?: HTMLElement
+  appendModal: () => void
+  getElement: () => HTMLElement | null
+}
+
 export enum Elements {
   TABLE = 'DIV.header__table',
   HTML_VIEWER = 'DIV.html-viewer__content',

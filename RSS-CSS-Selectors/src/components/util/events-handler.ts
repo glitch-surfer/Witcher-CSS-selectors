@@ -1,6 +1,8 @@
 import { Elements } from '../../types/types';
 import type { App } from '../app';
 import { levels } from '../game/levels';
+import { ModalWindow } from '../modal/modal-window';
+import { modalMessageParams } from '../modal/modal-view';
 import { ElementGenerator } from './element-generator';
 import { removeElement } from './remove-element';
 import { unshiftCssClass } from './unshift-css-class';
@@ -16,16 +18,26 @@ export class EventHandler {
   addKeydownHandler(): void {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
     const selectorsInput = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
+
     const keydownHandler = (event: KeyboardEvent): void => {
       if (event.code === 'Enter') {
+        const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
         const isRightSelector = removeElement(table, selectorsInput.value);
         if (isRightSelector) {
-          const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
           if (!currentLevelBtn.classList.contains('helped')) {
             unshiftCssClass(currentLevelBtn, 'done');
             this.this.asideState[`LI.${this.this.currentLevel}`] = currentLevelBtn.className;
           }
-          this.this.nextLevel();
+          let modal: ModalWindow | null = new ModalWindow(modalMessageParams);
+          table.addEventListener('animationend', modal.appendModal.bind(modal));
+
+          const observer = new MutationObserver(() => {
+            modal = null;
+            this.this.nextLevel();
+            observer.disconnect();
+          });
+
+          observer.observe(modal.getElement(), { childList: true });
         } else {
           const main = this.this.main.getElement();
           wrongAnswerHandler(main);
@@ -48,7 +60,16 @@ export class EventHandler {
           unshiftCssClass(currentLevelBtn, 'done');
           this.this.asideState[`LI.${this.this.currentLevel}`] = currentLevelBtn.className;
         }
-        this.this.nextLevel();
+        let modal: ModalWindow | null = new ModalWindow(modalMessageParams);
+        table.addEventListener('animationend', modal.appendModal.bind(modal));
+
+        const observer = new MutationObserver(() => {
+          modal = null;
+          this.this.nextLevel();
+          observer.disconnect();
+        });
+
+        observer.observe(modal.getElement(), { childList: true });
       } else {
         const main = this.this.main.getElement();
         wrongAnswerHandler(main);
