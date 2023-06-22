@@ -1,5 +1,4 @@
 import './aside.scss';
-import './burger.scss';
 import type { IParams } from '../../types/types';
 
 export const asideParams: IParams = {
@@ -18,13 +17,13 @@ export const asideParams: IParams = {
         },
         {
           tag: 'button',
-          className: ['btn', 'aside__button', 'aside__button_prev'],
+          className: ['aside__button_prev'],
           text: '❮',
           link: true,
         },
         {
           tag: 'button',
-          className: ['btn', 'aside__button', 'aside__button_next'],
+          className: ['aside__button_next'],
           text: '❯',
           link: true,
         },
@@ -100,7 +99,7 @@ export const asideParams: IParams = {
             },
             {
               tag: 'button',
-              className: ['btn', 'aside__button', 'aside__button_reset'],
+              className: ['aside__button', 'aside__button_reset'],
               text: 'reset',
               link: true,
             },
@@ -116,13 +115,13 @@ export const asideParams: IParams = {
     },
     {
       tag: 'p',
-      className: ['title', 'aside__content'],
+      className: ['aside__content'],
       text: 'ContentCo n tentCon t entConte ntConte ntConten tContent Content Content ContentC ontent Conten tContentC ontentCo ntentCo ntentCont entContentCo ntentCont entContentC ontentCo ntentCon tentCont entConten tConten tContentCo ntentCo ntent',
       link: true,
     },
     {
       tag: 'button',
-      className: ['btn', 'aside__button', 'aside__button_help'],
+      className: ['aside__button', 'aside__button_help'],
       text: 'help',
       link: true,
     },

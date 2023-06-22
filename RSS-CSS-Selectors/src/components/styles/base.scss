@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 body {
   margin: 0;
   // max-width: 64rem;
@@ -10,9 +12,9 @@ body {
     "footer footer footer aside" 1fr
     / 1fr 1fr 1fr minmax(20%, 20rem);
   justify-items: center;
-  // background: url(../../img/2387540.jpg) center no-repeat;
-  background-size: 100% 120%;
-  color: rgb(4, 66, 120);
+  background: url(../../img/bacjgroung.jpg) center no-repeat;
+  background-size: cover;
+  color: $main-text-color;
 }
 
 body:has([data-id="1"]:hover) [data-id="1"] {

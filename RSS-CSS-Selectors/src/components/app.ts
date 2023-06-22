@@ -1,5 +1,4 @@
-import './btn.scss';
-import './base.scss';
+import './styles/base.scss';
 import './typing-effect.scss';
 import { headerParams } from './header/header-view';
 import { mainParams } from './main/main-view';

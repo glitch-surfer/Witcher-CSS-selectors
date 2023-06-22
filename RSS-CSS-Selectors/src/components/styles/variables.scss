@@ -1,0 +1,39 @@
+// Colors
+$main-background-color: rgb(12 45 71 / 63%);
+$burger-background-color: rgb(12 45 71);
+$main-text-color: rgb(190 176 138);
+$main-hover-color: orange;
+$main-hover-background-color: rgba(208, 163, 80, 0.728);
+$main-btn-color: rgb(84 114 197);
+$main-title-color: rgb(193 149 31);
+
+// placeholders
+%button {
+  display: block;
+  margin: auto;
+  background-color: transparent;
+  color: $main-btn-color;
+  cursor: pointer;
+  @extend %transition;
+}
+
+%burger__line {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: $main-btn-color;
+
+  &:hover {
+    background-color:  $main-hover-color;
+  }
+}
+
+%transition {
+  transition: all 0.1s ease-in-out;
+}
+
+// mixins
+@mixin media-mobile-small {
+  @media (max-width: 450px) { @content;}
+}

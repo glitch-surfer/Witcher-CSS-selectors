@@ -1,3 +1,5 @@
+@import '../styles/variables.scss';
+
 .main {
   grid-area: main;
   display: flex;
@@ -9,6 +11,7 @@
 .title {
   margin: 0.6rem 0;
   font-size: 1.2rem;
+  color: $main-title-color;
 }
 
 .editor {

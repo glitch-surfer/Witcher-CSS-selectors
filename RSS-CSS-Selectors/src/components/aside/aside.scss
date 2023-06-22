@@ -1,9 +1,12 @@
+@import './burger';
+@import '../styles/variables.scss';
+
 .aside {
   grid-area: aside;
   position: relative;
   overflow: hidden;
   padding: 1rem;
-  background-color: darkkhaki;
+  background-color: $main-background-color;
 }
 
 .nav {
@@ -11,31 +14,7 @@
   grid-template-columns: 1fr repeat(3, auto);
   align-items: center;
   padding-left: 1rem;
-  border-bottom: 1px solid #000;
-}
-
-.aside__button_prev,
-.aside__button_next {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-
-  &:hover {
-    color: orange;
-  }
-}
-
-.aside__list {
-  margin-top: 4.5rem;
-  padding: 0;
-  list-style: none;
-}
-
-.aside__item {
-  &:hover {
-    background-color: aqua;
-  }
+  border-bottom: 1px solid darken($main-text-color, 30%);
 }
 
 .nav__title {
@@ -63,11 +42,42 @@
   }
 }
 
-[data-active] {
-  box-shadow: 0px 0px 11px 2px orange;
+.aside__button {
+  @extend %button;
+  padding: 0.3rem 1rem;
+  border: 1px solid $main-btn-color;
+  border-radius: 5px;
+  font-size: 1rem;
+
+  &:hover {
+    color: $main-hover-color;
+    border-color: $main-hover-color;
+  }
 }
 
-.aside__button {
-  display: block;
-  margin: auto;
+.aside__button_prev,
+.aside__button_next {
+  @extend %button;
+  border: none;
+  font-size: 2rem;
+
+  &:hover {
+    color: $main-hover-color;
+  }
+}
+
+.aside__list {
+  margin-top: 4.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.aside__item {
+  &:hover {
+    background-color: lighten($burger-background-color, 10%);
+  }
+}
+
+[data-active] {
+  box-shadow: 0px 0px 11px 2px orange;
 }
