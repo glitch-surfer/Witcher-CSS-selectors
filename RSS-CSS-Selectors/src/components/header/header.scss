@@ -1,9 +1,18 @@
-// import '../../variables.scss';
+@import '../styles/variables.scss';
+
+%title {
+  padding: 0.5rem;
+  border-radius: 5px;
+  text-align: center;
+  background-color: $main-background-color;
+}
 
 .header {
   grid-area: header;
-  width: 40rem;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center
 
   // @include media-mobile {
   //   width: 30rem;
@@ -11,15 +20,27 @@
 }
 
 .header__title {
+  @extend %title;
   margin-bottom: 0;
-  text-align: center;
+  font-size: 1.5rem;
+}
+
+.header__description {
+  @extend %title;
+  margin: 1rem auto;
+  font-size: 2rem;
 }
 
 .header__table {
+  transform: perspective(1000px) rotateX(25deg);
+  padding: 15px 15px 22px 15px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 1rem;
-  height: 15rem;
-  background-color: aquamarine;
+  background-color: $table-color;
+  border-radius: 35px;
+  // background: url(../../img/table.svg) center no-repeat;
+  // background-size: contain;
+  // height: 142px;
 }

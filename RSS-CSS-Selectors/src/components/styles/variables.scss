@@ -6,6 +6,7 @@ $main-hover-color: orange;
 $main-hover-background-color: rgba(208, 163, 80, 0.728);
 $main-btn-color: rgb(84 114 197);
 $main-title-color: rgb(193 149 31);
+$table-color: rgb(220 161 9 / 72%);
 
 // placeholders
 %button {
@@ -25,7 +26,7 @@ $main-title-color: rgb(193 149 31);
   background-color: $main-btn-color;
 
   &:hover {
-    background-color:  $main-hover-color;
+    background-color: $main-hover-color;
   }
 }
 
@@ -35,5 +36,7 @@ $main-title-color: rgb(193 149 31);
 
 // mixins
 @mixin media-mobile-small {
-  @media (max-width: 450px) { @content;}
+  @media (max-width: 450px) {
+    @content;
+  }
 }

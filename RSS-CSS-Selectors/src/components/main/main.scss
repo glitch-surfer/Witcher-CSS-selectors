@@ -3,8 +3,9 @@
 .main {
   grid-area: main;
   display: flex;
+  // align-items: flex-start;
   gap: 1.5rem;
-  width: 40rem;
+  // width: 40rem;
   padding: 0 1rem;
 }
 

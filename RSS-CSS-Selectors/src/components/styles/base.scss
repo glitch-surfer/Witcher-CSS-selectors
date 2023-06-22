@@ -3,14 +3,14 @@
 body {
   margin: 0;
   // max-width: 64rem;
-  height: 100vh;
+  min-height: 100vh;
   // margin: 0 auto;
   display: grid;
   grid-template:
-    "header header header aside" 18rem
-    "main main main aside" 1fr
-    "footer footer footer aside" 1fr
-    / 1fr 1fr 1fr minmax(20%, 20rem);
+    "header aside" auto
+    "main aside" auto
+    "footer aside" auto
+    /auto minmax(20%, 20rem);
   justify-items: center;
   background: url(../../img/bacjgroung.jpg) center no-repeat;
   background-size: cover;
