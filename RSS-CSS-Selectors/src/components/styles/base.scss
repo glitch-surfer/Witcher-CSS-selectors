@@ -5,13 +5,23 @@
   box-sizing: border-box;
 }
 
-.hljs-meta .hljs-string, .hljs-regexp, .hljs-string {
+.hljs-meta .hljs-string,
+.hljs-regexp,
+.hljs-string {
   color: $main-text-color;
+}
+
+html {
+  @include media-desctop-big {
+    font-size: 24px;
+  }
 }
 
 body {
   margin: 0;
+  padding: 0.2rem;
   min-height: 100vh;
+  // width: 100%;
   display: grid;
   grid-template:
     "header aside" auto
@@ -24,6 +34,16 @@ body {
   background: url(../../img/bacjgroung.jpg) center no-repeat;
   background-size: cover;
   color: $main-text-color;
+
+  @include media-mobile-big {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: 0.5rem 0;
+  }
+
+  // @include media-mobile-small {
+  //   font-size: 14px;
+  // }
 }
 
 body:has([data-id="1"]:hover) [data-id="1"] {
@@ -44,7 +64,7 @@ body:has([data-id="2"]:hover) [data-id="2"] {
 
 body:has([data-id="2"]:hover) [data-id="1"] {
   box-shadow: none;
-  
+
   [data-id="1"].tooltip {
     opacity: 0;
   }

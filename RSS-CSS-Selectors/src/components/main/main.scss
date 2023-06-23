@@ -1,14 +1,20 @@
 @import '../styles/variables.scss';
 
 .main {
-  max-width: 40rem;
-  margin-left: 0.5rem;
+  max-width: 50rem;
+  margin: 0 0.5rem;
   grid-area: main;
   display: flex;
   gap: 1.5rem;
   padding: 0.5rem;
   background-color: $main-background-color;
   border-radius: $border-radius;
+
+  @include media-mobile-small {
+    align-items: center;
+    flex-direction: column;
+    max-width: 40rem;
+  }
 }
 
 .title {
@@ -38,8 +44,8 @@
   border-radius: $border-radius;
   color: $main-text-color;
   white-space: nowrap;
-  font-size: 1.2rem;
-  animation: animated-background 700ms steps(29,end) infinite;
+  font-size: 1.1rem;
+  animation: animated-background 700ms steps(29, end) infinite;
 
   &:active,
   &:focus,
@@ -49,9 +55,14 @@
   }
 }
 
-@keyframes animated-background{
-  from{background-color: rgba(31, 138, 226, 0.299);}
-  to{background-color: transparent;}
+@keyframes animated-background {
+  from {
+    background-color: rgba(31, 138, 226, 0.299);
+  }
+
+  to {
+    background-color: transparent;
+  }
 }
 
 .workspace {
@@ -89,4 +100,8 @@
   padding: 0.5rem;
   border: 1px solid $main-title-color;
   border-radius: $border-radius;
+
+  @include media-mobile-small {
+    max-width: 19rem;
+  }
 }

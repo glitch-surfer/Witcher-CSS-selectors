@@ -17,7 +17,9 @@
 
 .aside-burger {
   display: none;
-  position: relative;
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
   width: 25px;
   height: 22px;
   cursor: pointer;
