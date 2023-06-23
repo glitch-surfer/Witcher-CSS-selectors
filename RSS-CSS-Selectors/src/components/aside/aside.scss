@@ -5,7 +5,6 @@
   grid-area: aside;
   align-self: stretch;
   position: relative;
-  z-index: 6;
   overflow: hidden;
   padding: 1rem;
   background-color: $main-background-color;
@@ -20,6 +19,7 @@
 }
 
 body:has(.aside-burger.burger-active) .aside {
+  z-index: 6;
   right: 0;
   background-color: $tooltip-background-color;
 }
