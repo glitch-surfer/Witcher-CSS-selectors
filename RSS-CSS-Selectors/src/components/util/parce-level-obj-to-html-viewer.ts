@@ -1,4 +1,4 @@
-import 'highlight.js/styles/github.css';
+import 'highlight.js/scss/atom-one-dark-reasonable.scss';
 import hljs from 'highlight.js/lib/core';
 import xml from 'highlight.js/lib/languages/xml';
 import type { ILevelParams } from '../../types/types';

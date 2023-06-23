@@ -36,6 +36,9 @@
   border: 1px solid $main-btn-color;
   border-radius: $border-radius;
   color: $main-text-color;
+  white-space: nowrap;
+  font-size: 1.2rem;
+  animation: animated-background 700ms steps(29,end) infinite;
 
   &:active,
   &:focus,
@@ -43,6 +46,11 @@
     outline: none;
     box-shadow: $main-box-shadow;
   }
+}
+
+@keyframes animated-background{
+  from{background-color: rgba(31, 138, 226, 0.299);}
+  to{background-color: transparent;}
 }
 
 .workspace {
@@ -60,6 +68,7 @@
   padding: 0.5rem;
   border: 1px solid $main-title-color;
   border-radius: $border-radius;
+  cursor: default;
 }
 
 .html-viewer__content {
@@ -70,6 +79,7 @@
 
   div {
     padding-left: 1rem;
+    border-radius: $border-radius;
   }
 }
 

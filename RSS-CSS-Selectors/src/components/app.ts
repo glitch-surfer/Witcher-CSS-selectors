@@ -1,5 +1,3 @@
-import './styles/base.scss';
-import './typing-effect.scss';
 import { headerParams } from './header/header-view';
 import { mainParams } from './main/main-view';
 import { asideParams } from './aside/aside-view';
@@ -15,6 +13,7 @@ import { setAsideState } from './util/set-aside-state';
 import { getNotCompletedLevelsList } from './util/get-not-completed-levels-list';
 import { buildLevel } from './util/build-level';
 import { EventHandler } from './util/events-handler';
+import './styles/base.scss';
 
 export class App {
   private readonly eventHandler: EventHandler;

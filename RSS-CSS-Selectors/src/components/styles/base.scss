@@ -5,11 +5,13 @@
   box-sizing: border-box;
 }
 
+.hljs-meta .hljs-string, .hljs-regexp, .hljs-string {
+  color: $main-text-color;
+}
+
 body {
   margin: 0;
-  // max-width: 64rem;
   min-height: 100vh;
-  // margin: 0 auto;
   display: grid;
   grid-template:
     "header aside" auto
@@ -42,7 +44,7 @@ body:has([data-id="2"]:hover) [data-id="2"] {
 
 body:has([data-id="2"]:hover) [data-id="1"] {
   box-shadow: none;
-
+  
   [data-id="1"].tooltip {
     opacity: 0;
   }
@@ -116,21 +118,19 @@ body:has([data-id="6"]:hover) [data-id="5"] {
   position: relative;
 }
 
-[data-id].tooltip {
+.tooltip {
   position: absolute;
   right: -40%;
   top: 110%;
   z-index: 2;
-  background-color: rgb(162, 190, 215);
+  background-color: $tooltip-background-color;
+  border-radius: $border-radius;
   opacity: 0;
+  pointer-events: none;
 
   div {
     padding-left: 1rem;
   }
-}
-
-.tooltip {
-  pointer-events: none;
 }
 
 [data-target] {
