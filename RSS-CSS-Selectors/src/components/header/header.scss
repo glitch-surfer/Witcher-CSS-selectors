@@ -37,8 +37,8 @@
       left: 0;
   }
 
-  &.aside-burger_active {
-      transform: rotate(-90deg);
+  &.burger-active {
+      display: none;
   }
 
   @include media-mobile-big {

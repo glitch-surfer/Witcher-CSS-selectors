@@ -5,6 +5,7 @@
   grid-area: aside;
   align-self: stretch;
   position: relative;
+  z-index: 6;
   overflow: hidden;
   padding: 1rem;
   background-color: $main-background-color;
@@ -15,6 +16,12 @@
     height: 100vh;
     width: 18rem;
   }
+
+}
+
+body:has(.aside-burger.burger-active) .aside {
+  right: 0;
+  background-color: $tooltip-background-color;
 }
 
 .nav {

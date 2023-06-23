@@ -8,14 +8,9 @@ export class ModalWindow implements IModalWindow {
   private readonly message: HTMLElement;
 
   constructor(messageParams: IParams) {
-    const modalParams: IParams = {
-      tag: 'div',
-      className: ['overlay'],
-    };
-    this.modal = new ElementGenerator(modalParams).getElement();
+    this.modal = ModalWindow.generateOverlay();
     this.message = new ElementGenerator(messageParams).getElement();
     this.modal.append(this.message);
-    ModalWindow.disableButtons();
     this.modal.addEventListener('click', this.removeModal.bind(this));
     document.addEventListener('keydown', this.removeModal.bind(this));
   }
@@ -37,6 +32,7 @@ export class ModalWindow implements IModalWindow {
 
   public appendModal(): void {
     if (this.modal !== undefined) {
+      ModalWindow.disableButtons();
       document.body.append(this?.modal);
     }
   }
@@ -47,13 +43,32 @@ export class ModalWindow implements IModalWindow {
     return this.modal;
   }
 
-  private static disableButtons(): void {
+  public static disableButtons(): void {
     const help = ElementGenerator.elementLinks[Elements.BTN_HELP];
-    help.setAttribute('disabled', '');
+    const enter = ElementGenerator.elementLinks[Elements.BUTTON];
+    const asideBurger = ElementGenerator.elementLinks[Elements.ASIDE_BURGER];
+
+    if (!asideBurger.classList.contains('burger-active')) {
+      help.setAttribute('disabled', '');
+    }
+    enter.setAttribute('disabled', '');
   }
 
-  private static enableButtons(): void {
+  public static enableButtons(): void {
     const help = ElementGenerator.elementLinks[Elements.BTN_HELP];
+    const enter = ElementGenerator.elementLinks[Elements.BUTTON];
+
     help.removeAttribute('disabled');
+    enter.removeAttribute('disabled');
+  }
+
+  public static generateOverlay(): HTMLElement {
+    const overlayParams: IParams = {
+      tag: 'div',
+      className: ['overlay'],
+    };
+
+    const overlay = new ElementGenerator(overlayParams).getElement();
+    return overlay;
   }
 }

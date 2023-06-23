@@ -18,9 +18,10 @@ export class EventHandler {
   addKeydownHandler(): void {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
     const selectorsInput = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
+    const asideBurger = ElementGenerator.elementLinks[Elements.ASIDE_BURGER];
 
     const keydownHandler = (event: KeyboardEvent): void => {
-      if (event.code === 'Enter') {
+      if (event.code === 'Enter' && !asideBurger.classList.contains('burger-active')) {
         const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
         const isRightSelector = removeElement(table, selectorsInput.value);
         if (isRightSelector) {
@@ -101,7 +102,7 @@ export class EventHandler {
       const parent = levelBtn.parentElement;
       if (parent === null || !(parent instanceof HTMLElement)) throw new Error();
 
-      if (parent.classList.contains('aside__item')) {
+      if (parent.classList.contains('nav__item')) {
         this.this.toggleBtnDataActiveStatus();
         const levelBtnIndex = parent.classList[parent.classList.length - 1];
         this.this.currentLevel = Number(levelBtnIndex);
@@ -155,10 +156,25 @@ export class EventHandler {
   }
 
   static addBurgerHandler(): void {
-    const burger = ElementGenerator.elementLinks[Elements.NAV_BURGER];
+    const navBurger = ElementGenerator.elementLinks[Elements.NAV_BURGER];
+    const asideBurger = ElementGenerator.elementLinks[Elements.ASIDE_BURGER];
 
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('burger-active');
+    navBurger.addEventListener('click', () => {
+      navBurger.classList.toggle('burger-active');
+    });
+
+    asideBurger.addEventListener('click', () => {
+      asideBurger.classList.add('burger-active');
+
+      const overlay = ModalWindow.generateOverlay();
+      document.body.append(overlay);
+      ModalWindow.disableButtons();
+
+      overlay.addEventListener('click', () => {
+        asideBurger.classList.remove('burger-active');
+        overlay.remove();
+        ModalWindow.enableButtons();
+      });
     });
   }
 }
