@@ -8,7 +8,7 @@ export const footerParams: IParams = {
     {
       tag: 'p',
       className: ['footer__text'],
-      text: '2023',
+      text: 'Made by Glitch_surfer. 2023',
     },
     {
       tag: 'a',

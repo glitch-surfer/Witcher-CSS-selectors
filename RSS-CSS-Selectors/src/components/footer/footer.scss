@@ -1,3 +1,5 @@
+@import '../styles/variables.scss';
+
 .footer {
   grid-area: footer;
   display: flex;
@@ -9,26 +11,26 @@
   display: block;
   width: 40px;
   height: 40px;
-  background: url(../../img/github-img.png) no-repeat center;
+  background: url(../../img/github-mark.svg) no-repeat center;
   background-size: contain;
-  border-radius: 50%;
-  transition: 0.25s;
+  @extend %transition;
+
+  &:hover {
+    background: url(../../img/github-mark-hover.svg) no-repeat center;
+    background-size: contain;
+    filter: drop-shadow(0 0 0.5rem orange);
+  }
 }
 
 .school-link {
   display: block;
-  width: 36px;
-  height: 36px;
-  background: url(../../img/school-img.svg) center no-repeat;
+  width: 4rem;
+  height: 2.5rem;
+  background: url(../../img/rs-school-logo.svg) center no-repeat;
   background-size: contain;
-  border: 2px solid #032836;
-  border-radius: 50%;
-  transition: 0.25s;
-}
+  @extend %transition;
 
-.github-link:hover,
-.school-link:hover {
-  background-color: orange;
-  transform: scale(1.1);
-  box-shadow: 0 0 4px 1px orange;
+  &:hover {
+    filter: drop-shadow(0 0 0.5rem orange);
+  }
 }
