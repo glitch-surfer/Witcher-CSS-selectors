@@ -99,7 +99,7 @@ export const asideParams: IParams = {
             },
             {
               tag: 'button',
-              className: ['aside__button', 'aside__button_reset'],
+              className: ['btn', 'aside__button_reset'],
               text: 'reset',
               link: true,
             },
@@ -121,7 +121,7 @@ export const asideParams: IParams = {
     },
     {
       tag: 'button',
-      className: ['aside__button', 'aside__button_help'],
+      className: ['btn', 'aside__button_help'],
       text: 'help',
       link: true,
     },

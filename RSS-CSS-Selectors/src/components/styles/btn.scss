@@ -1,0 +1,24 @@
+.btn {
+  @extend %button;
+  padding: 0.3rem 1rem;
+  border: 1px solid $main-btn-color;
+  border-radius: $border-radius;
+  font-size: 1rem;
+
+  &:hover {
+    color: $main-hover-color;
+    border-color: $main-hover-color;
+    box-shadow: $main-box-shadow;
+  }
+}
+
+.aside__button_prev,
+.aside__button_next {
+  @extend %button;
+  border: none;
+  font-size: 2rem;
+
+  &:hover {
+    color: $main-hover-color;
+  }
+}

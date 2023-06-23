@@ -3,6 +3,7 @@
 
 .aside {
   grid-area: aside;
+  align-self: stretch;
   position: relative;
   overflow: hidden;
   padding: 1rem;
@@ -42,30 +43,6 @@
   }
 }
 
-.aside__button {
-  @extend %button;
-  padding: 0.3rem 1rem;
-  border: 1px solid $main-btn-color;
-  border-radius: 5px;
-  font-size: 1rem;
-
-  &:hover {
-    color: $main-hover-color;
-    border-color: $main-hover-color;
-  }
-}
-
-.aside__button_prev,
-.aside__button_next {
-  @extend %button;
-  border: none;
-  font-size: 2rem;
-
-  &:hover {
-    color: $main-hover-color;
-  }
-}
-
 .aside__list {
   margin-top: 4.5rem;
   padding: 0;
@@ -79,5 +56,5 @@
 }
 
 [data-active] {
-  box-shadow: 0px 0px 11px 2px orange;
+  box-shadow: $main-box-shadow;
 }

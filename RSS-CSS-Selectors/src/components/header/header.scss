@@ -2,7 +2,7 @@
 
 %title {
   padding: 0.5rem;
-  border-radius: 5px;
+  border-radius: $border-radius;
   text-align: center;
   background-color: $main-background-color;
 }
@@ -38,7 +38,7 @@
   align-items: flex-start;
   justify-content: center;
   gap: 1rem;
-  background-color: $table-color;
+  background-color: $main-background-color;
   border-radius: 35px;
   // background: url(../../img/table.svg) center no-repeat;
   // background-size: contain;

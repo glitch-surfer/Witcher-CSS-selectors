@@ -1,16 +1,17 @@
 @import '../styles/variables.scss';
 
 .main {
+  margin-left: 0.5rem;
   grid-area: main;
   display: flex;
-  // align-items: flex-start;
   gap: 1.5rem;
-  // width: 40rem;
-  padding: 0 1rem;
+  padding: 0.5rem;
+  background-color: $main-background-color;
+  border-radius: $border-radius;
 }
 
 .title {
-  margin: 0.6rem 0;
+  margin: 0;
   font-size: 1.2rem;
   color: $main-title-color;
 }
@@ -19,11 +20,36 @@
   display: grid;
   grid-template-columns: 1fr 4rem;
   grid-template-rows: repeat(2, auto);
+  column-gap: 0.5rem;
   align-items: center;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  border: 1px solid $main-title-color;
+  border-radius: $border-radius;
+}
+
+.editor__description {
+  justify-self: center;
+}
+
+.editor__input {
+  align-self: stretch;
+  border: 1px solid $main-btn-color;
+  border-radius: $border-radius;
+  color: $main-text-color;
+
+  &:active,
+  &:focus,
+  &:hover {
+    outline: none;
+    box-shadow: $main-box-shadow;
+  }
 }
 
 .workspace {
   flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .html-viewer {
@@ -31,6 +57,9 @@
   grid-template-columns: 1fr 4rem;
   grid-template-rows: repeat(2, auto);
   align-items: center;
+  padding: 0.5rem;
+  border: 1px solid $main-title-color;
+  border-radius: $border-radius;
 }
 
 .html-viewer__content {
@@ -42,4 +71,10 @@
   div {
     padding-left: 1rem;
   }
+}
+
+.story {
+  padding: 0.5rem;
+  border: 1px solid $main-title-color;
+  border-radius: $border-radius;
 }

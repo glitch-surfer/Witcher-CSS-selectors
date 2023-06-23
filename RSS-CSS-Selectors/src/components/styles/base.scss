@@ -1,4 +1,9 @@
 @import './variables.scss';
+@import './btn.scss';
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -12,13 +17,15 @@ body {
     "footer aside" auto
     /auto minmax(20%, 20rem);
   justify-items: center;
+  align-items: flex-start;
+  gap: 0.5rem;
   background: url(../../img/bacjgroung.jpg) center no-repeat;
   background-size: cover;
   color: $main-text-color;
 }
 
 body:has([data-id="1"]:hover) [data-id="1"] {
-  box-shadow: 0px 0px 11px 2px orange;
+  box-shadow: $main-box-shadow;
 
   [data-id="1"].tooltip {
     opacity: 1;
@@ -26,7 +33,7 @@ body:has([data-id="1"]:hover) [data-id="1"] {
 }
 
 body:has([data-id="2"]:hover) [data-id="2"] {
-  box-shadow: 0px 0px 11px 2px orange;
+  box-shadow: $main-box-shadow;
 
   [data-id="2"].tooltip {
     opacity: 1;
@@ -42,7 +49,7 @@ body:has([data-id="2"]:hover) [data-id="1"] {
 }
 
 body:has([data-id="3"]:hover) [data-id="3"] {
-  box-shadow: 0px 0px 11px 2px orange;
+  box-shadow: $main-box-shadow;
 
   [data-id="3"].tooltip {
     opacity: 1;
@@ -58,7 +65,7 @@ body:has([data-id="3"]:hover) [data-id="2"] {
 }
 
 body:has([data-id="4"]:hover) [data-id="4"] {
-  box-shadow: 0px 0px 11px 2px orange;
+  box-shadow: $main-box-shadow;
 
   [data-id="4"].tooltip {
     opacity: 1;
@@ -74,7 +81,7 @@ body:has([data-id="4"]:hover) [data-id="3"] {
 }
 
 body:has([data-id="5"]:hover) [data-id="5"] {
-  box-shadow: 0px 0px 11px 2px orange;
+  box-shadow: $main-box-shadow;
 
   [data-id="5"].tooltip {
     opacity: 1;
@@ -90,7 +97,7 @@ body:has([data-id="5"]:hover) [data-id="4"] {
 }
 
 body:has([data-id="6"]:hover) [data-id="6"] {
-  box-shadow: 0px 0px 11px 2px orange;
+  box-shadow: $main-box-shadow;
 
   [data-id="6"].tooltip {
     opacity: 1;
