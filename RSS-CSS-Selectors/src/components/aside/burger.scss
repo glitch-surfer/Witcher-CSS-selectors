@@ -3,36 +3,17 @@
 .burger {
   position: relative;
   z-index: 11;
-  width: 25px;
-  height: 22px;
-  cursor: pointer;
+  width: 1.8rem;
+  height: 1.8rem;
+  background: url(../../img/levels-menu.svg) no-repeat center transparent;
+  background-size: contain;
   @extend %transition;
+  cursor: pointer;
 
-  &::before {
-      @extend %burger__line;
-      top: 0;
-      left: 0;
-  }
-
-  &::after {
-      @extend %burger__line;
-      bottom: 0;
-      left: 0;
-  }
-
-  &.burger-active {
-      transform: rotate(-90deg);
-  }
-
-}
-
-.burger__line {
-  @extend %burger__line;
-  top: calc(50% - 1px);
-  left: 0;
-
-  .burger:hover & {
-    background-color: $main-hover-color;
+  &:hover {
+    background: url(../../img/levels-menu-hover.svg) no-repeat center transparent;
+    background-size: contain;
+    transform: translateX(-0.2rem);
   }
 }
 

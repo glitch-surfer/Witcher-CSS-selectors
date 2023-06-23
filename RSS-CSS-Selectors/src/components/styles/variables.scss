@@ -2,14 +2,15 @@
 $main-background-color: rgb(12 45 71 / 63%);
 $burger-background-color: rgb(12 45 71);
 $main-text-color: rgb(190 176 138);
-$main-hover-color: orange;
+$main-hover-color: #ffa500;
 $main-hover-background-color: rgba(208, 163, 80, 0.728);
 $main-btn-color: rgb(84 114 197);
 $main-title-color: rgb(193 149 31);
 $tooltip-background-color: rgba(7, 39, 62, 0.908);
+$overlay-color: rgba(41, 41, 41, 0.316);
 
 //Constants
-$border-radius: 5px;
+$border-radius: 8px;
 $main-box-shadow: 0px 0px 11px 2px orange;
 
 // placeholders
@@ -26,8 +27,8 @@ $main-box-shadow: 0px 0px 11px 2px orange;
   content: '';
   position: absolute;
   width: 100%;
-  height: 2px;
-  background-color: $main-btn-color;
+  height: 3px;
+  background-color: $main-background-color;
 
   &:hover {
     background-color: $main-hover-color;
@@ -39,8 +40,8 @@ $main-box-shadow: 0px 0px 11px 2px orange;
 }
 
 // mixins
-@mixin media-mobile-small {
-  @media (max-width: 450px) {
+@mixin media-mobile-big {
+  @media (max-width: 830px) {
     @content;
   }
 }

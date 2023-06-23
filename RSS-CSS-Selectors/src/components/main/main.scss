@@ -1,6 +1,7 @@
 @import '../styles/variables.scss';
 
 .main {
+  max-width: 40rem;
   margin-left: 0.5rem;
   grid-area: main;
   display: flex;
@@ -54,7 +55,7 @@
 }
 
 .workspace {
-  flex-basis: 50%;
+  flex: 1 0 50%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -84,6 +85,7 @@
 }
 
 .story {
+  min-width: 15rem;
   padding: 0.5rem;
   border: 1px solid $main-title-color;
   border-radius: $border-radius;

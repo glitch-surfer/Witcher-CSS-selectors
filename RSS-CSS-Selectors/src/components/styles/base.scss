@@ -17,7 +17,7 @@ body {
     "header aside" auto
     "main aside" auto
     "footer aside" auto
-    /auto minmax(20%, 20rem);
+    /auto minmax(15rem, 20rem);
   justify-items: center;
   align-items: flex-start;
   gap: 0.5rem;
@@ -123,8 +123,8 @@ body:has([data-id="6"]:hover) [data-id="5"] {
   right: -40%;
   top: 110%;
   z-index: 2;
-  background-color: $tooltip-background-color;
   border-radius: $border-radius;
+  background-color: $tooltip-background-color;
   opacity: 0;
   pointer-events: none;
 

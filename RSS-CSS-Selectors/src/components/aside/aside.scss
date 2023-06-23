@@ -43,6 +43,17 @@
   }
 }
 
+.aside__button_prev,
+.aside__button_next {
+  @extend %button;
+  border: none;
+  font-size: 2rem;
+
+  &:hover {
+    color: $main-hover-color;
+  }
+}
+
 .aside__list {
   margin-top: 4.5rem;
   padding: 0;

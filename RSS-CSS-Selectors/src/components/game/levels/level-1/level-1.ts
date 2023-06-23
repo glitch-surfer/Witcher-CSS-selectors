@@ -3,7 +3,7 @@ import './level-1.scss';
 
 export const level1: ILevelParams[] = [
   {
-    story: 'level11111111111111111',
+    story: 'level11111 111111111111 level1111111 1111111111 level1111 1111111111111 level111111 11111111111l evel111111 11111111111 level1111111 1111111111 level111111 11111111111 level111111 11111111111 level111111 11111111111 ',
     help: 'sword',
     tag: 'plate',
     className: ['level1'],

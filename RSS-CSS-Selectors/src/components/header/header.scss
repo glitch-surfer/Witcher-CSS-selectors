@@ -13,10 +13,46 @@
   display: flex;
   flex-direction: column;
   align-items: center
+}
 
-  // @include media-mobile {
-  //   width: 30rem;
-  // }
+.aside-burger {
+  display: none;
+  position: relative;
+  width: 25px;
+  height: 22px;
+  cursor: pointer;
+  @extend %transition;
+
+  &::before {
+      @extend %burger__line;
+      top: 0;
+      left: 0;
+  }
+
+  &::after {
+      @extend %burger__line;
+      bottom: 0;
+      left: 0;
+  }
+
+  &.aside-burger_active {
+      transform: rotate(-90deg);
+  }
+
+  @include media-mobile-big {
+      display: block;
+  }
+
+}
+
+.burger__line {
+  @extend %burger__line;
+  top: calc(50% - 1px);
+  left: 0;
+
+  .aside-burger:hover & {
+    background-color: $main-hover-color;
+  }
 }
 
 .header__title {
@@ -33,14 +69,13 @@
 
 .header__table {
   transform: perspective(1000px) rotateX(25deg);
-  padding: 15px 15px 22px 15px;
+  padding: 1rem;
+  min-width: 8rem;
+  min-height: 8rem;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   gap: 1rem;
   background-color: $main-background-color;
-  border-radius: 35px;
-  // background: url(../../img/table.svg) center no-repeat;
-  // background-size: contain;
-  // height: 142px;
+  border-radius: 2rem;
 }

@@ -11,14 +11,3 @@
     box-shadow: $main-box-shadow;
   }
 }
-
-.aside__button_prev,
-.aside__button_next {
-  @extend %button;
-  border: none;
-  font-size: 2rem;
-
-  &:hover {
-    color: $main-hover-color;
-  }
-}

@@ -11,6 +11,17 @@ export const headerParams: IParams = {
       text: 'Witcher`s Adventures',
     },
     {
+      tag: 'div',
+      className: ['aside-burger'],
+      link: true,
+      children: [
+        {
+          tag: 'div',
+          className: ['burger__line'],
+        },
+      ],
+    },
+    {
       tag: 'p',
       className: ['header__description'],
       text: 'Grab this box!!!',

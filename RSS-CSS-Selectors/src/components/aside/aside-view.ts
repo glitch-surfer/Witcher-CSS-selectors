@@ -31,12 +31,6 @@ export const asideParams: IParams = {
           tag: 'div',
           className: ['burger'],
           link: true,
-          children: [
-            {
-              tag: 'div',
-              className: ['burger__line'],
-            },
-          ],
         },
         {
           tag: 'div',
