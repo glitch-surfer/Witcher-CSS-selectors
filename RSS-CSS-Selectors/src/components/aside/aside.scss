@@ -50,8 +50,8 @@
   }
 }
 
-.aside__button_prev,
-.aside__button_next {
+.nav__button_prev,
+.nav__button_next {
   @extend %button;
   border: none;
   font-size: 2rem;
@@ -61,13 +61,13 @@
   }
 }
 
-.aside__list {
+.nav__list {
   margin-top: 4.5rem;
   padding: 0;
   list-style: none;
 }
 
-.aside__item {
+.nav__item {
   &:hover {
     background-color: lighten($burger-background-color, 10%);
   }

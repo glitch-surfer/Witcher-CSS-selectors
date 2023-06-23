@@ -1,6 +1,6 @@
 @import '../styles/variables.scss';
 
-.burger {
+.nav__burger {
   position: relative;
   z-index: 11;
   width: 1.8rem;
@@ -18,7 +18,7 @@
 
 }
 
-.burger-menu {
+.nav__menu {
   position: absolute;
   z-index: 10;
   top: 0;
@@ -33,7 +33,7 @@
   }
 }
 
-.burger-menu__level {
+.nav__level {
   position: relative;
   padding: 0.5rem 2.5rem;
 

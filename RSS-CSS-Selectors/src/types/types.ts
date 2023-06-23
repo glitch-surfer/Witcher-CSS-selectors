@@ -36,10 +36,10 @@ export enum Elements {
   INPUT = 'INPUT.editor__input',
   BUTTON = 'BUTTON.editor__button',
   STORY = 'P.story__text',
-  BTN_NEXT = 'BUTTON.aside__button_next',
-  BTN_PREV = 'BUTTON.aside__button_prev',
+  BTN_NEXT = 'BUTTON.nav__button_next',
+  BTN_PREV = 'BUTTON.nav__button_prev',
   BTN_HELP = 'BUTTON.aside__button_help',
   BTN_RESET = 'BUTTON.aside__button_reset',
   NAV_TITLE = 'H3.nav__title',
-  BURGER = 'DIV.burger',
+  NAV_BURGER = 'DIV.nav__burger',
 }

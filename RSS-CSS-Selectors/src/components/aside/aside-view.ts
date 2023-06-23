@@ -17,74 +17,74 @@ export const asideParams: IParams = {
         },
         {
           tag: 'button',
-          className: ['aside__button_prev'],
+          className: ['nav__button_prev'],
           text: '❮',
           link: true,
         },
         {
           tag: 'button',
-          className: ['aside__button_next'],
+          className: ['nav__button_next'],
           text: '❯',
           link: true,
         },
         {
           tag: 'div',
-          className: ['burger'],
+          className: ['nav__burger'],
           link: true,
         },
         {
           tag: 'div',
-          className: ['burger-menu'],
+          className: ['nav__menu'],
           link: true,
           children: [
             {
               tag: 'ul',
-              className: ['aside__list'],
+              className: ['nav__list'],
               children: [
                 {
                   tag: 'li',
-                  className: ['aside__item', '0'],
+                  className: ['nav__item', '0'],
                   link: true,
                   children: [
                     {
                       tag: 'div',
-                      className: ['burger-menu__level'],
+                      className: ['nav__level'],
                       text: '1',
                     },
                   ],
                 },
                 {
                   tag: 'li',
-                  className: ['aside__item', '1'],
+                  className: ['nav__item', '1'],
                   link: true,
                   children: [
                     {
                       tag: 'div',
-                      className: ['burger-menu__level'],
+                      className: ['nav__level'],
                       text: '2',
                     },
                   ],
                 },
                 {
                   tag: 'li',
-                  className: ['aside__item', '2'],
+                  className: ['nav__item', '2'],
                   link: true,
                   children: [
                     {
                       tag: 'div',
-                      className: ['burger-menu__level'],
+                      className: ['nav__level'],
                       text: '3',
                     },
                   ],
                 },
                 {
                   tag: 'li',
-                  className: ['aside__item', '3'],
+                  className: ['nav__item', '3'],
                   link: true,
                   children: [
                     {
                       tag: 'div',
-                      className: ['burger-menu__level'],
+                      className: ['nav__level'],
                       text: '4',
                     },
                   ],

@@ -155,7 +155,7 @@ export class EventHandler {
   }
 
   static addBurgerHandler(): void {
-    const burger = ElementGenerator.elementLinks[Elements.BURGER];
+    const burger = ElementGenerator.elementLinks[Elements.NAV_BURGER];
 
     burger.addEventListener('click', () => {
       burger.classList.toggle('burger-active');
