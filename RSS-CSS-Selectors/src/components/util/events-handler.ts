@@ -170,11 +170,20 @@ export class EventHandler {
       document.body.append(overlay);
       ModalWindow.disableButtons();
 
-      overlay.addEventListener('click', () => {
+      const removeOverlayHandler = (): void => {
         asideBurger.classList.remove('burger-active');
         overlay.remove();
         ModalWindow.enableButtons();
-      });
+      };
+
+      overlay.addEventListener('click', removeOverlayHandler);
+    });
+  }
+
+  addInvalidSelectorHandler(): void {
+    window.addEventListener('error', (e) => {
+      e.preventDefault();
+      wrongAnswerHandler(this.this.main.getElement());
     });
   }
 }

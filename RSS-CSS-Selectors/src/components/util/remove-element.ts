@@ -1,7 +1,7 @@
-const isEqual = (a: NodeListOf<Element>, b: NodeListOf<Element>): boolean => {
-  if (a.length !== b.length || a.length === 0) return false;
-  for (let i = 0; i < a.length; i += 1) {
-    if (a[i] !== b[i]) return false;
+const isEqual = (listA: NodeListOf<Element>, listB: NodeListOf<Element>): boolean => {
+  if (listA.length !== listB.length || listA.length === 0) return false;
+  for (let i = 0; i < listA.length; i += 1) {
+    if (listA[i] !== listB[i]) return false;
   }
   return true;
 };
@@ -15,13 +15,15 @@ const removeTargetWithAnimation = (element: Element, index: number): void => {
   }, 300 * index);
 };
 
+const isInvalidSelector = (selector: string): boolean => selector === '' || Number.isFinite(Number(selector));
+
 export const removeElement = (area: HTMLElement, selector: string): boolean => {
-  if (selector === '' || Number.isFinite(Number(selector))) return false;
+  if (isInvalidSelector(selector)) return false;
 
   const selectedElements = area.querySelectorAll(selector.toString());
-  const targetElement = area.querySelectorAll('[data-target]');
+  const targetElements = area.querySelectorAll('[data-target]');
 
-  if (isEqual(selectedElements, targetElement)) {
+  if (isEqual(selectedElements, targetElements)) {
     selectedElements.forEach(removeTargetWithAnimation);
     return true;
   }
