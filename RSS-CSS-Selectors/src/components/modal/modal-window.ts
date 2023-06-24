@@ -45,7 +45,7 @@ export class ModalWindow implements IModalWindow {
 
   public static disableButtons(): void {
     const help = ElementGenerator.elementLinks[Elements.BTN_HELP];
-    const enter = ElementGenerator.elementLinks[Elements.BUTTON];
+    const enter = ElementGenerator.elementLinks[Elements.BTN_SUBMIT];
     const asideBurger = ElementGenerator.elementLinks[Elements.ASIDE_BURGER];
 
     if (!asideBurger.classList.contains('burger-active')) {
@@ -56,7 +56,7 @@ export class ModalWindow implements IModalWindow {
 
   public static enableButtons(): void {
     const help = ElementGenerator.elementLinks[Elements.BTN_HELP];
-    const enter = ElementGenerator.elementLinks[Elements.BUTTON];
+    const enter = ElementGenerator.elementLinks[Elements.BTN_SUBMIT];
 
     help.removeAttribute('disabled');
     enter.removeAttribute('disabled');

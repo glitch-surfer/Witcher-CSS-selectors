@@ -50,7 +50,7 @@ export class EventHandler {
 
   addClickHandler(): void {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
-    const submitButton = ElementGenerator.elementLinks[Elements.BUTTON];
+    const submitButton = ElementGenerator.elementLinks[Elements.BTN_SUBMIT];
     const selectorsInput = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
 
     submitButton.addEventListener('click', () => {
