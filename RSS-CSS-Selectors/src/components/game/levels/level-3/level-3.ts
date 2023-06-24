@@ -3,6 +3,7 @@ import './level-3.scss';
 
 export const level3: ILevelParams[] = [
   {
+    header: 'Some Header',
     story: 'level33333333333',
     help: 'bento',
     tag: 'plate',

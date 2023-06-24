@@ -1,15 +1,15 @@
 import { levels } from '../game/levels';
-import type { ILevelParams } from '../../types/types';
+import type { INotCompletedLevelsList } from '../../types/types';
 import { ElementGenerator } from './element-generator';
 
-export const getNotCompletedLevelsList = (): Array<{ levelBtn: Node, level: ILevelParams[] }> => {
-  const notCompletedLevels: Array<{ levelBtn: Node, level: ILevelParams[] }> = [];
+export const getNotCompletedLevelsList = (): INotCompletedLevelsList => {
+  const notCompletedLevels: INotCompletedLevelsList = [];
 
   levels.forEach((level, index) => {
     const levelBtn = ElementGenerator.elementLinks[`LI.${index}`];
     if (!levelBtn.classList.contains('done')
       && !levelBtn.classList.contains('helped')) {
-      notCompletedLevels.push({ levelBtn, level });
+      notCompletedLevels.push({ levelIndex: index, level });
     }
   });
   return notCompletedLevels;

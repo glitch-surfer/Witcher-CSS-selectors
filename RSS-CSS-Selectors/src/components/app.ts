@@ -14,6 +14,9 @@ import { getNotCompletedLevelsList } from './util/get-not-completed-levels-list'
 import { buildLevel } from './util/build-level';
 import { EventHandler } from './util/events-handler';
 import './styles/base.scss';
+import { ModalWindow } from './modal/modal-window';
+import { modalMessageParams } from './modal/modal-view';
+import { generateNotCompletedLevelsModalParams } from './util/generate-not-completed-levels-modal-params';
 
 export class App {
   private readonly eventHandler: EventHandler;
@@ -79,7 +82,8 @@ export class App {
 
     if (this.currentLevel < levels.length - 1) {
       if (notCompletedLevels.length === 0 && !this.isWin) {
-        alert('Вы прошли игру!');
+        const modal: ModalWindow | null = new ModalWindow(modalMessageParams);
+        modal.appendModal();
         this.isWin = true;
         return;
       }
@@ -93,12 +97,13 @@ export class App {
       input.value = '';
     } else if (this.currentLevel === levels.length - 1) { // TODO: msg for finished game
       if (notCompletedLevels.length === 0 && !this.isWin) {
-        alert('Вы прошли игру!');
+        const modal: ModalWindow | null = new ModalWindow(modalMessageParams);
+        modal.appendModal();
         this.isWin = true;
       } else if (notCompletedLevels.length > 0) {
-        alert('Остались эти уровни, попробуй!');
-        console.log(notCompletedLevels);
-        // TODO: add modal with btns for notCompletedLevels
+        const modalParams = generateNotCompletedLevelsModalParams(notCompletedLevels);
+        const modal: ModalWindow | null = new ModalWindow(modalParams);
+        modal.appendModal();
       }
     }
   }

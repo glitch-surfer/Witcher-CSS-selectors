@@ -9,6 +9,7 @@ export interface IParams {
 }
 
 export interface ILevelParams extends IParams {
+  header?: string
   story?: string
   help?: string
 }
@@ -29,6 +30,8 @@ export interface IModalWindow {
   appendModal: () => void
   getElement: () => HTMLElement | null
 }
+
+export type INotCompletedLevelsList = Array<{ levelIndex: number, level: ILevelParams[] }>;
 
 export enum Elements {
   TABLE = 'DIV.header__table',

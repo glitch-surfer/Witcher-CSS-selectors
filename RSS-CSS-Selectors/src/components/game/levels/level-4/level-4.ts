@@ -2,6 +2,7 @@ import type { ILevelParams } from '../../../../types/types';
 
 export const level4: ILevelParams[] = [
   {
+    header: 'Some Header',
     story: 'level4444444444444',
     help: 'level1 bento',
     tag: 'plate',
