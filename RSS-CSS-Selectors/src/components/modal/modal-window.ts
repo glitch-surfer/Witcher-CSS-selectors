@@ -12,7 +12,7 @@ export class ModalWindow implements IModalWindow {
     this.message = new ElementGenerator(messageParams).getElement();
     this.modal.append(this.message);
     this.modal.addEventListener('click', this.removeModal.bind(this));
-    document.addEventListener('keydown', this.removeModal.bind(this));
+    // document.addEventListener('keydown', this.removeModal.bind(this));
   }
 
   private removeModal(event: KeyboardEvent | MouseEvent): void {

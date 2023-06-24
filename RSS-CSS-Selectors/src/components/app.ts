@@ -15,7 +15,7 @@ import { buildLevel } from './util/build-level';
 import { EventHandler } from './util/events-handler';
 import './styles/base.scss';
 import { ModalWindow } from './modal/modal-window';
-import { modalMessageParams } from './modal/modal-view';
+import { winModalParams } from './modal/modal-view';
 import { generateNotCompletedLevelsModalParams } from './util/generate-not-completed-levels-modal-params';
 
 export class App {
@@ -82,7 +82,7 @@ export class App {
 
     if (this.currentLevel < levels.length - 1) {
       if (notCompletedLevels.length === 0 && !this.isWin) {
-        const modal: ModalWindow | null = new ModalWindow(modalMessageParams);
+        const modal: ModalWindow | null = new ModalWindow(winModalParams);
         modal.appendModal();
         this.isWin = true;
         return;
@@ -97,12 +97,12 @@ export class App {
       input.value = '';
     } else if (this.currentLevel === levels.length - 1) { // TODO: msg for finished game
       if (notCompletedLevels.length === 0 && !this.isWin) {
-        const modal: ModalWindow | null = new ModalWindow(modalMessageParams);
+        const modal: ModalWindow | null = new ModalWindow(winModalParams);
         modal.appendModal();
         this.isWin = true;
       } else if (notCompletedLevels.length > 0) {
-        const modalParams = generateNotCompletedLevelsModalParams(notCompletedLevels);
-        const modal: ModalWindow | null = new ModalWindow(modalParams);
+        const notCompletedModalParams = generateNotCompletedLevelsModalParams(notCompletedLevels);
+        const modal: ModalWindow | null = new ModalWindow(notCompletedModalParams);
         modal.appendModal();
       }
     }
