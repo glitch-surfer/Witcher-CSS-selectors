@@ -81,3 +81,18 @@
   background-color: $main-background-color;
   border-radius: 2rem;
 }
+
+.header__hand-img {
+  position: fixed;
+  top: 10rem;
+  left: -100%;
+  width: 7rem;
+  height: 10rem;
+  background: url(../../img/grabbing-hand.png) no-repeat center transparent;
+  background-size: contain;
+  transition: left 1s ease-in-out;
+
+  &.grab{
+    left: 0;
+  }
+}

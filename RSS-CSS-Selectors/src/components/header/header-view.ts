@@ -12,6 +12,11 @@ export const headerParams: IParams = {
     },
     {
       tag: 'div',
+      className: ['header__hand-img'],
+      link: true,
+    },
+    {
+      tag: 'div',
       className: ['aside-burger'],
       link: true,
       children: [

@@ -43,4 +43,5 @@ export enum Elements {
   NAV_TITLE = 'H3.nav__title',
   NAV_BURGER = 'DIV.nav__burger',
   ASIDE_BURGER = 'DIV.aside-burger',
+  HAND = 'DIV.header__hand-img',
 }
