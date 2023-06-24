@@ -24,6 +24,7 @@ export class EventHandler {
       if (event.code === 'Enter' && !asideBurger.classList.contains('burger-active')) {
         const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
         const isRightSelector = removeElement(table, selectorsInput.value);
+        selectorsInput.value = '';
         if (isRightSelector) {
           if (!currentLevelBtn.classList.contains('helped')) {
             unshiftCssClass(currentLevelBtn, 'done');
@@ -55,6 +56,7 @@ export class EventHandler {
 
     submitButton.addEventListener('click', () => {
       const isRightSelector = removeElement(table, selectorsInput.value);
+      selectorsInput.value = '';
       if (isRightSelector) {
         const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
         if (!currentLevelBtn.classList.contains('helped')) {
