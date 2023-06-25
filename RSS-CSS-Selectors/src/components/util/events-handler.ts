@@ -157,13 +157,8 @@ export class EventHandler {
     });
   }
 
-  static addBurgerHandler(): void {
-    const navBurger = ElementGenerator.elementLinks[Elements.NAV_BURGER];
+  static addAsideBurgerHandler(): void {
     const asideBurger = ElementGenerator.elementLinks[Elements.ASIDE_BURGER];
-
-    navBurger.addEventListener('click', () => {
-      navBurger.classList.toggle('burger-active');
-    });
 
     asideBurger.addEventListener('click', () => {
       asideBurger.classList.add('burger-active');
@@ -179,6 +174,14 @@ export class EventHandler {
       };
 
       overlay.addEventListener('click', removeOverlayHandler);
+    });
+  }
+
+  static addNavBurgerHandler(): void {
+    const navBurger = ElementGenerator.elementLinks[Elements.NAV_BURGER];
+
+    navBurger.addEventListener('click', () => {
+      navBurger.classList.toggle('burger-active');
     });
   }
 
