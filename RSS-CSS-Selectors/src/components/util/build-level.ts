@@ -9,16 +9,13 @@ export const buildLevel = (levelNumber: number): void => {
   const htmlViewer = ElementGenerator.elementLinks[Elements.HTML_VIEWER];
   const story = ElementGenerator.elementLinks[Elements.STORY];
 
-  levels[levelNumber].forEach((element) => {
+  levels[levelNumber].layout.forEach((element) => {
     const parsedLevelData = parseLevelObjToHtmlViewer(element);
     htmlViewer.append(parsedLevelData);
 
     const elementOnTable = new ElementGenerator(element).getElement();
     addToolTips(elementOnTable);
     table.append(elementOnTable);
-
-    if (element.story !== undefined) {
-      story.append(element.story);
-    }
   });
+  story.append(levels[levelNumber].story);
 };

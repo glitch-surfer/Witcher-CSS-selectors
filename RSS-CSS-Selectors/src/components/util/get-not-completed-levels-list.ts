@@ -9,7 +9,7 @@ export const getNotCompletedLevelsList = (): INotCompletedLevelsList => {
     const levelBtn = ElementGenerator.elementLinks[`LI.${index}`];
     if (!levelBtn.classList.contains('done')
       && !levelBtn.classList.contains('helped')) {
-      notCompletedLevels.push({ levelIndex: index, level });
+      notCompletedLevels.push(level);
     }
   });
   return notCompletedLevels;

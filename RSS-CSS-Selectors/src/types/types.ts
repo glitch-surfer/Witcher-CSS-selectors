@@ -8,12 +8,6 @@ export interface IParams {
   link?: boolean
 }
 
-export interface ILevelParams extends IParams {
-  header?: string
-  story?: string
-  help?: string
-}
-
 export interface IElementGenerator {
   element: HTMLElement
   getElement: () => HTMLElement
@@ -23,7 +17,14 @@ export interface IView {
   getHtmlElement: () => HTMLElement
 }
 
-export type LevelParams = Array<Array<IParams & { story?: string }>>;
+export interface ILevelParams {
+  id: number
+  header: string
+  story: string
+  help: string
+  modal: IParams
+  layout: IParams[]
+}
 
 export interface IModalWindow {
   modal?: HTMLElement
@@ -31,7 +32,7 @@ export interface IModalWindow {
   getElement: () => HTMLElement | null
 }
 
-export type INotCompletedLevelsList = Array<{ levelIndex: number, level: ILevelParams[] }>;
+export type INotCompletedLevelsList = ILevelParams[];
 
 export enum Elements {
   TABLE = 'DIV.header__table',

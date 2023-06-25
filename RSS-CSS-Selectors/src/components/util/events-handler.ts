@@ -24,6 +24,7 @@ export class EventHandler {
       if (event.code === 'Enter' && !asideBurger.classList.contains('burger-active')) {
         const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
         const isRightSelector = removeElement(table, selectorsInput.value);
+        ModalWindow.disableButtons();
         selectorsInput.value = '';
         if (isRightSelector) {
           if (!currentLevelBtn.classList.contains('helped')) {
@@ -44,6 +45,7 @@ export class EventHandler {
           const main = this.this.main.getElement();
           wrongAnswerHandler(main);
         }
+        ModalWindow.enableButtons();
       }
     };
     document.addEventListener('keydown', keydownHandler);
@@ -123,7 +125,7 @@ export class EventHandler {
 
   addHelpHandler(): void {
     const helpBtn = ElementGenerator.elementLinks[Elements.BTN_HELP];
-    const CHILD_WITH_HELP_PROP = 0;
+    // const CHILD_WITH_HELP_PROP = 0;
 
     const helpHandler = (): void => {
       const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
@@ -137,7 +139,7 @@ export class EventHandler {
       }
 
       input.value = '';
-      const text = levels[this.this.currentLevel][CHILD_WITH_HELP_PROP].help;
+      const text = levels[this.this.currentLevel].help;
       const splittedText = text?.split('');
 
       if (splittedText === undefined) throw new Error('no help text');
