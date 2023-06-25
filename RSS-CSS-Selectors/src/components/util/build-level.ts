@@ -5,10 +5,11 @@ import { ElementGenerator } from './element-generator';
 import { parseLevelObjToHtmlViewer } from './parce-level-obj-to-html-viewer';
 
 export const buildLevel = (levelNumber: number): void => {
+  const task = ElementGenerator.elementLinks[Elements.TASK];
   const table = ElementGenerator.elementLinks[Elements.TABLE];
   const htmlViewer = ElementGenerator.elementLinks[Elements.HTML_VIEWER];
   const story = ElementGenerator.elementLinks[Elements.STORY];
-  const task = ElementGenerator.elementLinks[Elements.TASK];
+  const navTitle = ElementGenerator.elementLinks[Elements.NAV_TITLE];
 
   task.textContent = levels[levelNumber].task;
 
@@ -22,4 +23,6 @@ export const buildLevel = (levelNumber: number): void => {
   });
 
   story.append(levels[levelNumber].story);
+
+  navTitle.textContent = `Level ${levels[levelNumber].id} of ${levels.length}`;
 };

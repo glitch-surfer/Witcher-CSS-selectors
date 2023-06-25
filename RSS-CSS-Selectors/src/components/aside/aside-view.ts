@@ -12,7 +12,6 @@ export const asideParams: IParams = {
         {
           tag: 'h3',
           className: ['title', 'nav__title'],
-          text: 'Level 1 of 10',
           link: true,
         },
         {
