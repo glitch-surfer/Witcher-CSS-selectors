@@ -38,14 +38,14 @@ export const level2: ILevelParams = {
     {
       tag: 'stown',
       attributes: {
-        'data-id': '3',
+        'data-id': '2',
       },
     },
     {
       tag: 'sword',
       attributes: {
         type: 'silver',
-        'data-id': '2',
+        'data-id': '3',
         'data-target': 'true',
       },
     },
