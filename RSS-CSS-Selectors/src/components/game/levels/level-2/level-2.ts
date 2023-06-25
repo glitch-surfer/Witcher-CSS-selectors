@@ -5,7 +5,7 @@ export const level2: ILevelParams = {
   id: 2,
   task: 'Grab a silver sword!',
   story: 'A steel sword is good against people and animals, but evil spirits, as a rule, are not sensitive to it. For monsters, witchers use a silver sword. Help Geralt get one!',
-  help: 'plate',
+  help: 'sword[type="silver"]',
   modal: {
     tag: 'div',
     className: ['modal'],
@@ -29,30 +29,25 @@ export const level2: ILevelParams = {
   },
   layout: [
     {
-      tag: 'plate',
-      className: ['level1'],
+      tag: 'sword',
       attributes: {
+        type: 'strange',
         'data-id': '1',
+      },
+    },
+    {
+      tag: 'stown',
+      attributes: {
+        'data-id': '3',
+      },
+    },
+    {
+      tag: 'sword',
+      attributes: {
+        type: 'silver',
+        'data-id': '2',
         'data-target': 'true',
       },
-      children: [
-        {
-          tag: 'bento',
-          className: ['level1_1'],
-          attributes: {
-            'data-id': '2',
-          },
-          children: [
-            {
-              tag: 'sword',
-              className: ['level1_2'],
-              attributes: {
-                'data-id': '3',
-              },
-            },
-          ],
-        },
-      ],
     },
   ],
 };
