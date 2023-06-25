@@ -1,4 +1,5 @@
 import type { ILevelParams, IParams } from '../../types/types';
+import { ElementGenerator } from './element-generator';
 
 export const generateNotCompletedLevelsModalParams = (
   notCompletedLevels: ILevelParams[],
@@ -10,7 +11,7 @@ export const generateNotCompletedLevelsModalParams = (
       {
         tag: 'h2',
         className: ['title'],
-        text: 'You can try this levels, that you not complete yet:',
+        text: 'It was last challenge, but you can try levels, that you don`t complete yet:',
       },
       {
         tag: 'ul',
@@ -20,10 +21,13 @@ export const generateNotCompletedLevelsModalParams = (
     ],
   };
   notCompletedLevels.forEach((level) => {
+    const levelBtn = ElementGenerator.elementLinks[`LI.${String(level.id - 1)}`];
+    const levelName = levelBtn.firstElementChild?.textContent;
+    if (levelName === undefined || levelName === null) throw new Error();
     result.children?.push({
       tag: 'li',
       className: ['not-completed-level__item'],
-      text: `${level.id}. ${level.task}`,
+      text: levelName,
     });
   });
   return result;

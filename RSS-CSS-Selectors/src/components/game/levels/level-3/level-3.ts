@@ -27,7 +27,7 @@ export const level3: ILevelParams = {
       {
         tag: 'P',
         className: ['modal__text'],
-        text: 'It was not easy, but Geralt did it. Now he has become richer by 3000 orens, which he intends to spend with his friend Dandelion in the nearest tavern!',
+        text: 'It was not easy, but Geralt did it. Now he has become richer by 3000 orens, so he intends to binge with his friend Dandelion in the nearest tavern!',
       },
     ],
   },

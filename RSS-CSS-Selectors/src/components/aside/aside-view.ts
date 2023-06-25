@@ -48,7 +48,7 @@ export const asideParams: IParams = {
                     {
                       tag: 'div',
                       className: ['nav__level'],
-                      text: '1',
+                      text: '1. Introduce',
                     },
                   ],
                 },
@@ -60,7 +60,7 @@ export const asideParams: IParams = {
                     {
                       tag: 'div',
                       className: ['nav__level'],
-                      text: '2',
+                      text: '2. Arming',
                     },
                   ],
                 },
@@ -72,7 +72,7 @@ export const asideParams: IParams = {
                     {
                       tag: 'div',
                       className: ['nav__level'],
-                      text: '3',
+                      text: '3. Night with striga',
                     },
                   ],
                 },
@@ -84,7 +84,7 @@ export const asideParams: IParams = {
                     {
                       tag: 'div',
                       className: ['nav__level'],
-                      text: '4',
+                      text: '4. Present for Roach',
                     },
                   ],
                 },
