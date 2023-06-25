@@ -100,6 +100,7 @@ export class EventHandler {
 
   addLevelBtnHandler(): void {
     const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
+    const navBurger = ElementGenerator.elementLinks[Elements.NAV_BURGER];
 
     this.this.aside.getElement().addEventListener('click', (event) => {
       const levelBtn = event.target;
@@ -115,6 +116,7 @@ export class EventHandler {
         this.this.startGame(this.this.currentLevel);
         this.this.setState();
         input.value = '';
+        navBurger.classList.remove('burger-active');
       }
     });
   }
