@@ -3,7 +3,7 @@ import './level-1.scss';
 
 export const level1: ILevelParams = {
   id: 1,
-  header: 'Some 1 Header',
+  task: 'Some 1 Header',
   story: 'level1',
   help: 'sword',
   modal: {

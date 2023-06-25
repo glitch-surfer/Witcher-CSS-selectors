@@ -19,7 +19,7 @@ export interface IView {
 
 export interface ILevelParams {
   id: number
-  header: string
+  task: string
   story: string
   help: string
   modal: IParams
@@ -31,8 +31,6 @@ export interface IModalWindow {
   appendModal: () => void
   getElement: () => HTMLElement | null
 }
-
-export type INotCompletedLevelsList = ILevelParams[];
 
 export enum Elements {
   TABLE = 'DIV.header__table',
@@ -48,4 +46,5 @@ export enum Elements {
   NAV_BURGER = 'DIV.nav__burger',
   ASIDE_BURGER = 'DIV.aside-burger',
   HAND = 'DIV.header__hand-img',
+  TASK = 'P.header__task',
 }

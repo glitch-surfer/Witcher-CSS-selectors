@@ -2,7 +2,7 @@ import type { ILevelParams } from '../../../../types/types';
 
 export const level4: ILevelParams = {
   id: 4,
-  header: 'Some 4 Header',
+  task: 'Some 4 Header',
   story: 'level4444444444444',
   help: ' bento',
   modal: {

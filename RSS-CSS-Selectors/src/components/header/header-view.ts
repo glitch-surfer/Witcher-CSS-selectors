@@ -28,8 +28,7 @@ export const headerParams: IParams = {
     },
     {
       tag: 'p',
-      className: ['header__description'],
-      text: 'Grab this box!!!',
+      className: ['header__task'],
       link: true,
     },
     {

@@ -1,7 +1,7 @@
-import type { INotCompletedLevelsList, IParams } from '../../types/types';
+import type { ILevelParams, IParams } from '../../types/types';
 
 export const generateNotCompletedLevelsModalParams = (
-  notCompletedLevels: INotCompletedLevelsList,
+  notCompletedLevels: ILevelParams[],
 ): IParams => {
   const result: IParams = {
     tag: 'div',
@@ -23,7 +23,7 @@ export const generateNotCompletedLevelsModalParams = (
     result.children?.push({
       tag: 'li',
       className: ['not-completed-level__item'],
-      text: `${level.id}. ${level.header}`,
+      text: `${level.id}. ${level.task}`,
     });
   });
   return result;

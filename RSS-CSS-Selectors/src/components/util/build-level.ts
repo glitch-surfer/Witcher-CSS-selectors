@@ -8,6 +8,9 @@ export const buildLevel = (levelNumber: number): void => {
   const table = ElementGenerator.elementLinks[Elements.TABLE];
   const htmlViewer = ElementGenerator.elementLinks[Elements.HTML_VIEWER];
   const story = ElementGenerator.elementLinks[Elements.STORY];
+  const task = ElementGenerator.elementLinks[Elements.TASK];
+
+  task.textContent = levels[levelNumber].task;
 
   levels[levelNumber].layout.forEach((element) => {
     const parsedLevelData = parseLevelObjToHtmlViewer(element);
@@ -17,5 +20,6 @@ export const buildLevel = (levelNumber: number): void => {
     addToolTips(elementOnTable);
     table.append(elementOnTable);
   });
+
   story.append(levels[levelNumber].story);
 };

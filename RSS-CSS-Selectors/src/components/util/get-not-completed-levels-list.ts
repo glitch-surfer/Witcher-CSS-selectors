@@ -1,9 +1,9 @@
 import { levels } from '../game/levels';
-import type { INotCompletedLevelsList } from '../../types/types';
+import type { ILevelParams } from '../../types/types';
 import { ElementGenerator } from './element-generator';
 
-export const getNotCompletedLevelsList = (): INotCompletedLevelsList => {
-  const notCompletedLevels: INotCompletedLevelsList = [];
+export const getNotCompletedLevelsList = (): ILevelParams[] => {
+  const notCompletedLevels: ILevelParams[] = [];
 
   levels.forEach((level, index) => {
     const levelBtn = ElementGenerator.elementLinks[`LI.${index}`];
