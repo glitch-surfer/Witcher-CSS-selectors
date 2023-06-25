@@ -2,7 +2,6 @@ import { Elements } from '../../types/types';
 import type { App } from '../app';
 import { levels } from '../game/levels';
 import { ModalWindow } from '../modal/modal-window';
-import { modalParams } from '../modal/modal-view';
 import { ElementGenerator } from './element-generator';
 import { removeElement } from './remove-element';
 import { unshiftCssClass } from './unshift-css-class';
@@ -31,7 +30,7 @@ export class EventHandler {
             unshiftCssClass(currentLevelBtn, 'done');
             this.this.asideState[`LI.${this.this.currentLevel}`] = currentLevelBtn.className;
           }
-          let modal: ModalWindow | null = new ModalWindow(modalParams[this.this.currentLevel]);
+          let modal: ModalWindow | null = new ModalWindow(levels[this.this.currentLevel].modal);
           table.addEventListener('animationend', modal.appendModal.bind(modal));
 
           const observer = new MutationObserver(() => {
@@ -65,7 +64,7 @@ export class EventHandler {
           unshiftCssClass(currentLevelBtn, 'done');
           this.this.asideState[`LI.${this.this.currentLevel}`] = currentLevelBtn.className;
         }
-        let modal: ModalWindow | null = new ModalWindow(modalParams[this.this.currentLevel]);
+        let modal: ModalWindow | null = new ModalWindow(levels[this.this.currentLevel].modal);
         table.addEventListener('animationend', modal.appendModal.bind(modal));
 
         const observer = new MutationObserver(() => {
