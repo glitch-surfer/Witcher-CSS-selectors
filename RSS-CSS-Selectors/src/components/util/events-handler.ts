@@ -80,10 +80,10 @@ export class EventHandler {
     });
   }
 
-  addLevelHandler(): void {
+  addNavButtonsHandler(): void {
+    const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
     const btnNext = ElementGenerator.elementLinks[Elements.BTN_NEXT];
     const btnPrev = ElementGenerator.elementLinks[Elements.BTN_PREV];
-    const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
 
     btnNext.addEventListener('click', this.this.nextLevel.bind(this.this));
 
@@ -96,6 +96,10 @@ export class EventHandler {
         input.value = '';
       }
     });
+  }
+
+  addLevelBtnHandler(): void {
+    const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
 
     this.this.aside.getElement().addEventListener('click', (event) => {
       const levelBtn = event.target;
@@ -120,9 +124,11 @@ export class EventHandler {
     const CHILD_WITH_HELP_PROP = 0;
 
     const helpHandler = (): void => {
-      helpBtn.removeEventListener('click', helpHandler);
       const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.this.currentLevel}`];
       const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
+
+      helpBtn.removeEventListener('click', helpHandler);
+
       if (!currentLevelBtn.classList.contains('done')) {
         unshiftCssClass(currentLevelBtn, 'helped');
         this.this.asideState[`LI.${this.this.currentLevel}`] = currentLevelBtn.className;
@@ -131,8 +137,8 @@ export class EventHandler {
       input.value = '';
       const text = levels[this.this.currentLevel][CHILD_WITH_HELP_PROP].help;
       const splittedText = text?.split('');
-      if (splittedText === undefined) throw new Error('no help text');
 
+      if (splittedText === undefined) throw new Error('no help text');
       splittedText.forEach((letter, index) => {
         setTimeout(() => {
           input.value += letter;

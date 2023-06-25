@@ -45,7 +45,8 @@ export class App {
     this.startGame(this.currentLevel);
     this.eventHandler.addKeydownHandler();
     this.eventHandler.addClickHandler();
-    this.eventHandler.addLevelHandler();
+    this.eventHandler.addLevelBtnHandler();
+    this.eventHandler.addNavButtonsHandler();
     this.eventHandler.addHelpHandler();
     this.eventHandler.addAsideStateHandler();
     this.eventHandler.addInvalidSelectorHandler();
