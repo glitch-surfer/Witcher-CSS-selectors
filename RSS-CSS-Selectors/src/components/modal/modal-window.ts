@@ -32,11 +32,13 @@ export class ModalWindow implements IModalWindow {
 
   public appendModal(): void {
     const navBurger = ElementGenerator.elementLinks[Elements.NAV_BURGER];
+    const asideBurger = ElementGenerator.elementLinks[Elements.ASIDE_BURGER];
 
     if (this.modal !== undefined) {
       ModalWindow.disableButtons();
       document.body.append(this?.modal);
       navBurger.classList.remove('burger-active');
+      asideBurger.classList.remove('burger-active');
     }
   }
 

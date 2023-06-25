@@ -176,6 +176,12 @@ export class EventHandler {
       document.body.append(overlay);
       ModalWindow.disableButtons();
 
+      const observer = new MutationObserver(() => {
+        overlay.remove();
+        observer.disconnect();
+      });
+      observer.observe(asideBurger, { attributes: true });
+
       const removeOverlayHandler = (): void => {
         asideBurger.classList.remove('burger-active');
         overlay.remove();
