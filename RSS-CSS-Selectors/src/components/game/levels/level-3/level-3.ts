@@ -6,6 +6,10 @@ export const level3: ILevelParams = {
   task: 'Grab the elixir and the doll',
   story: 'Traveling through Vizima, Geralt saw an advertisement about a striga, which became Ada, the daughter of King Foltest, and who needed to be disenchanted (or killed, at worst). To do this, Geralt needs to hold out with her in the castle until dawn. Geralt believes that there is still a child in her and hopes to distract her with a doll. And also, he needs a special elexit that improves vision in the dark.',
   help: 'elixir, doll[type="toy"]',
+  asideTitle: 'Grouping multiple CSS selectors',
+  asideContent: `You can group multiple CSS selectors with commas. For example: h1, h2 {
+    some rules..
+  }`,
   modal: {
     tag: 'div',
     className: ['modal'],

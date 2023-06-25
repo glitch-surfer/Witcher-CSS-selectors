@@ -6,6 +6,10 @@ export const level2: ILevelParams = {
   task: 'Grab a silver sword!',
   story: 'A steel sword is good against people and animals, but evil spirits, as a rule, are not sensitive to it. For monsters, witchers use a silver sword. Help Geralt get one!',
   help: 'sword[type="silver"]',
+  asideTitle: 'Selector by attribute',
+  asideContent: `You can select elements by any their attributes or attribute value. For example: [type="text"] {
+    some rules...
+  }`,
   modal: {
     tag: 'div',
     className: ['modal'],

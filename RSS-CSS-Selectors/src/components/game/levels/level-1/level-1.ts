@@ -6,6 +6,8 @@ export const level1: ILevelParams = {
   task: 'Grab a sword!',
   story: 'Geralt the witcher. The witcher is a professional monster hunter. In his work, he uses weapons and various elixirs - alchemical potions that make him faster and stronger. Help him get ready for the hunt. For starters, he needs a sword, of course!',
   help: 'sword',
+  asideTitle: 'Selector by tag',
+  asideContent: 'You can select elements by tag name. For example: div { some rules.. }',
   modal: {
     tag: 'div',
     className: ['modal'],

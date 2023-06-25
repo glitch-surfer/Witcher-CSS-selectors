@@ -10,6 +10,8 @@ export const buildLevel = (levelNumber: number): void => {
   const htmlViewer = ElementGenerator.elementLinks[Elements.HTML_VIEWER];
   const story = ElementGenerator.elementLinks[Elements.STORY];
   const navTitle = ElementGenerator.elementLinks[Elements.NAV_TITLE];
+  const asideTitle = ElementGenerator.elementLinks[Elements.ASIDE_TITLE];
+  const asideContent = ElementGenerator.elementLinks[Elements.ASIDE_CONTENT];
 
   task.textContent = levels[levelNumber].task;
 
@@ -25,4 +27,7 @@ export const buildLevel = (levelNumber: number): void => {
   story.append(levels[levelNumber].story);
 
   navTitle.textContent = `Level ${levels[levelNumber].id} of ${levels.length}`;
+
+  asideTitle.textContent = levels[levelNumber].asideTitle;
+  asideContent.textContent = levels[levelNumber].asideContent;
 };

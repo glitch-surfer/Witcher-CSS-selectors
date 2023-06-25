@@ -103,13 +103,11 @@ export const asideParams: IParams = {
     {
       tag: 'h2',
       className: ['title', 'aside__title'],
-      text: 'Content',
       link: true,
     },
     {
       tag: 'p',
       className: ['aside__content'],
-      text: 'ContentCo n tentCon t entConte ntConte ntConten tContent Content Content ContentC ontent Conten tContentC ontentCo ntentCo ntentCont entContentCo ntentCont entContentC ontentCo ntentCon tentCont entConten tConten tContentCo ntentCo ntent',
       link: true,
     },
     {

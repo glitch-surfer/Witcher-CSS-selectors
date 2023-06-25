@@ -23,6 +23,8 @@ export interface ILevelParams {
   story: string
   help: string
   modal: IParams
+  asideTitle: string
+  asideContent: string
   layout: IParams[]
 }
 
@@ -47,4 +49,6 @@ export enum Elements {
   ASIDE_BURGER = 'DIV.aside-burger',
   HAND = 'DIV.header__hand-img',
   TASK = 'P.header__task',
+  ASIDE_TITLE = 'H2.aside__title',
+  ASIDE_CONTENT = 'P.aside__content',
 }
