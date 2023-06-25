@@ -3,8 +3,8 @@ import './level-1.scss';
 
 export const level1: ILevelParams = {
   id: 1,
-  task: 'Some 1 Header',
-  story: 'level1',
+  task: 'Grab a sword!',
+  story: 'Geralt the witcher. The witcher is a professional monster hunter. In his work, he uses weapons and various elixirs - alchemical potions that make him faster and stronger. Help him get ready for the hunt. For starters, he needs a sword, of course!',
   help: 'sword',
   modal: {
     tag: 'div',
@@ -13,7 +13,7 @@ export const level1: ILevelParams = {
       {
         tag: 'h2',
         className: ['title'],
-        text: 'Hoorah! 1 level',
+        text: 'Hoorah! Level 1 done!',
       },
       {
         tag: 'button',
@@ -23,63 +23,29 @@ export const level1: ILevelParams = {
       {
         tag: 'P',
         className: ['modal__text'],
-        text: 'Some story about the game about the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the game',
+        text: 'With a sword Geralt look scary, now onlookers on the street do not spit at his feet, but make way...',
       },
     ],
   },
   layout: [
     {
-      tag: 'plate',
-      className: ['level1'],
+      tag: 'knife',
       attributes: {
         'data-id': '1',
       },
-      children: [
-        {
-          tag: 'bento',
-          className: ['level1_1'],
-          attributes: {
-            'data-id': '2',
-          },
-          children: [
-            {
-              tag: 'sword',
-              className: ['level1_2'],
-              attributes: {
-                'data-id': '3',
-                'data-target': 'true',
-              },
-            },
-          ],
-        },
-      ],
     },
     {
-      tag: 'plate',
-      className: ['level1'],
+      tag: 'sword',
       attributes: {
-        'data-id': '4',
+        'data-id': '2',
+        'data-target': 'true',
       },
-      children: [
-        {
-          tag: 'sword',
-          className: ['level1_3'],
-          attributes: {
-            'data-id': '5',
-            'data-target': 'true',
-          },
-          children: [
-            {
-              tag: 'sword',
-              className: ['level1_4'],
-              attributes: {
-                'data-id': '6',
-                'data-target': 'true',
-              },
-            },
-          ],
-        },
-      ],
+    },
+    {
+      tag: 'stick',
+      attributes: {
+        'data-id': '3',
+      },
     },
   ],
 };

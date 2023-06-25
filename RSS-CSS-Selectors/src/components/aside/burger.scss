@@ -1,5 +1,47 @@
 @import '../styles/variables.scss';
 
+.aside-burger {
+  display: none;
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 25px;
+  height: 22px;
+  cursor: pointer;
+  @extend %transition;
+
+  &::before {
+      @extend %burger__line;
+      top: 0;
+      left: 0;
+  }
+
+  &::after {
+      @extend %burger__line;
+      bottom: 0;
+      left: 0;
+  }
+
+  &.burger-active {
+      display: none;
+  }
+
+  @include media-mobile-big {
+      display: block;
+  }
+
+}
+
+.burger__line {
+  @extend %burger__line;
+  top: calc(50% - 1px);
+  left: 0;
+
+  .aside-burger:hover & {
+    background-color: $main-hover-color;
+  }
+}
+
 .nav__burger {
   position: relative;
   z-index: 11;

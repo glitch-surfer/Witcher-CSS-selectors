@@ -15,48 +15,6 @@
   align-items: center
 }
 
-.aside-burger {
-  display: none;
-  position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
-  width: 25px;
-  height: 22px;
-  cursor: pointer;
-  @extend %transition;
-
-  &::before {
-      @extend %burger__line;
-      top: 0;
-      left: 0;
-  }
-
-  &::after {
-      @extend %burger__line;
-      bottom: 0;
-      left: 0;
-  }
-
-  &.burger-active {
-      display: none;
-  }
-
-  @include media-mobile-big {
-      display: block;
-  }
-
-}
-
-.burger__line {
-  @extend %burger__line;
-  top: calc(50% - 1px);
-  left: 0;
-
-  .aside-burger:hover & {
-    background-color: $main-hover-color;
-  }
-}
-
 .header__title {
   @extend %title;
   margin-bottom: 0;
@@ -75,7 +33,7 @@
   min-width: 8rem;
   min-height: 8rem;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   gap: 1rem;
   background-color: $main-background-color;
@@ -94,5 +52,20 @@
 
   &.grab{
     left: 0;
+  }
+}
+
+.tooltip {
+  position: absolute;
+  right: -40%;
+  top: 110%;
+  z-index: 2;
+  border-radius: $border-radius;
+  background-color: $tooltip-background-color;
+  opacity: 0;
+  pointer-events: none;
+
+  div {
+    padding-left: 1rem;
   }
 }

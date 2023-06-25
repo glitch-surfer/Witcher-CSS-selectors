@@ -2,8 +2,8 @@ import type { ILevelParams } from '../../../../types/types';
 
 export const level4: ILevelParams = {
   id: 4,
-  task: 'Some 4 Header',
-  story: 'level4444444444444',
+  task: 'Grab the horseshoes!',
+  story: 'Geralt did not forget about his favorite horse, Roach, and decided to buy new horseshoes for her with the remaining money from the last order. Who knows when the next opportunity will be. Witchers have less and less work lately... He liked those new ones in the box!',
   help: ' bento',
   modal: {
     tag: 'div',
@@ -12,7 +12,7 @@ export const level4: ILevelParams = {
       {
         tag: 'h2',
         className: ['title'],
-        text: 'Hoorah! 4 level',
+        text: 'Hoorah! Level 4 done',
       },
       {
         tag: 'button',
@@ -22,7 +22,7 @@ export const level4: ILevelParams = {
       {
         tag: 'P',
         className: ['modal__text'],
-        text: 'Some story about the game about the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the game',
+        text: 'Great choice. Roach now snoozes 10% faster and snores happily!',
       },
     ],
   },

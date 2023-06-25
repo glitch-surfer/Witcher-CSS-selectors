@@ -3,8 +3,8 @@ import './level-2.scss';
 
 export const level2: ILevelParams = {
   id: 2,
-  task: 'Some 2 Header',
-  story: 'level222222222222222222',
+  task: 'Grab a silver sword!',
+  story: 'A steel sword is good against people and animals, but evil spirits, as a rule, are not sensitive to it. For monsters, witchers use a silver sword. Help Geralt get one!',
   help: 'plate',
   modal: {
     tag: 'div',
@@ -13,7 +13,7 @@ export const level2: ILevelParams = {
       {
         tag: 'h2',
         className: ['title'],
-        text: 'Hoorah! 2 level',
+        text: 'Hoorah! Level 2 done',
       },
       {
         tag: 'button',
@@ -23,7 +23,7 @@ export const level2: ILevelParams = {
       {
         tag: 'P',
         className: ['modal__text'],
-        text: 'Some story about the game about the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the gameabout the game',
+        text: 'Now every tavern owner recognizes a witcher in Geralt and is ready to offer beer, stew with cracklings and a profitable order!',
       },
     ],
   },
