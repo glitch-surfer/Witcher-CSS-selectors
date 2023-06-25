@@ -9,22 +9,23 @@ export const parsedNodeHtml: HTMLElement[] = [];
 
 export const parseLevelObjToHtmlViewer = (level: IParams): HTMLElement => {
   const result = document.createElement('div');
-  let start;
-  let end;
+  let start = `<${level.tag}`;
+  const end = `</${level.tag}>`;
 
   if (level.attributes === undefined) throw new Error('no data-id');
   const { attributes } = level;
   result.dataset.id = attributes['data-id'];
 
   if (level.className !== undefined) {
-    [start, end] = [`<${level.tag} class="${level.className.toString()}">`, `</${level.tag}>`];
-  } else if (level.attributes.attr !== undefined) {
-    [start, end] = [`<${level.tag} attribute="${level.attributes.attr}">`, `</${level.tag}>`]; // TODO: fix
-  } else if (level.id !== undefined) {
-    [start, end] = [`<${level.tag} id="${level.id}">`, `</${level.tag}>`];
-  } else {
-    [start, end] = [`<${level.tag}>`, `</${level.tag}>`];
+    start += ` class="${level.className.toString()}"`;
   }
+  if (level.attributes.type !== undefined) {
+    start += ` type="${level.attributes.type}"`;
+  }
+  if (level.id !== undefined) {
+    start += ` id="${level.id}"`;
+  }
+  start += '>';
 
   const startElement = document.createElement('span');
   result.append(startElement);
