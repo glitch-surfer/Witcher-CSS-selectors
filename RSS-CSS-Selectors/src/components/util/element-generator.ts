@@ -12,6 +12,7 @@ export class ElementGenerator implements IElementGenerator {
     if (params.text !== undefined) this.setText(params.text);
     if (params.children !== undefined) this.addChild(params.children);
     if (params.link !== undefined) this.setElementLink();
+    if (params.id !== undefined) this.setId(params.id);
   }
 
   private createElement(tag: string): HTMLElement {
@@ -31,6 +32,10 @@ export class ElementGenerator implements IElementGenerator {
 
   private setText(text: string): void {
     this.element.textContent = text;
+  }
+
+  private setId(id: string): void {
+    this.element.setAttribute('id', id);
   }
 
   private addChild(children: IParams[]): void {
