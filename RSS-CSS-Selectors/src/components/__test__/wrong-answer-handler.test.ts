@@ -1,10 +1,10 @@
 import { wrongAnswerHandler } from '../util/wrong-answer-handler';
 
 describe('wrongAnswerHandler', () => {
-  let element: HTMLElement;
+  const element = document.createElement('div');
 
-  beforeEach(() => {
-    element = document.createElement('div');
+  afterAll(() => {
+    element.remove();
   });
 
   it('adds "wrong-answer" class to the element', () => {

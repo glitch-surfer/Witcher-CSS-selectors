@@ -20,8 +20,11 @@ describe('unshiftCssClass', () => {
 
   const startedClasses = element.classList;
 
-  unshiftCssClass(element, 'my-class');
+  afterAll(() => {
+    element.remove();
+  });
 
+  unshiftCssClass(element, 'my-class');
   it('should add class to element', () => {
     expect(element.classList.contains('my-class')).toBe(true);
   });

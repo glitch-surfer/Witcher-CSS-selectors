@@ -4,7 +4,7 @@ import { parseLevelObjToHtmlViewer } from '../util/parce-level-obj-to-html-viewe
 jest.mock('highlight.js/scss/atom-one-dark-reasonable.scss', () => {});
 
 describe('parseLevelObjToHtmlViewer', () => {
-  test('returns a div element with correct innerHTML', () => {
+  it('returns a div element with correct innerHTML', () => {
     const levelObj: IParams = {
       tag: 'box',
       attributes: {
@@ -27,7 +27,7 @@ describe('parseLevelObjToHtmlViewer', () => {
     expect(result.outerHTML).toMatchInlineSnapshot('"<div data-id="4"><span class="hljs-tag">&lt;<span class="hljs-name">box</span>&gt;</span><div data-id="5"><span class="hljs-tag">&lt;<span class="hljs-name">horseshoe</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">horseshoe</span>&gt;</span></div><span class="hljs-tag">&lt;/<span class="hljs-name">box</span>&gt;</span></div>"');
   });
 
-  test('throws an error when attributes are undefined', () => {
+  it('throws an error when attributes are undefined', () => {
     const levelObj = {
       tag: 'h1',
       children: [],
