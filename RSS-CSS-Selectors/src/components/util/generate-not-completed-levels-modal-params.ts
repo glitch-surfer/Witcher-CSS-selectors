@@ -20,6 +20,7 @@ export const generateNotCompletedLevelsModalParams = (
       },
     ],
   };
+
   notCompletedLevels.forEach((level) => {
     const levelBtn = ElementGenerator.elementLinks[`LI.${String(level.id - 1)}`];
     const levelName = levelBtn.firstElementChild?.textContent;
@@ -30,5 +31,6 @@ export const generateNotCompletedLevelsModalParams = (
       text: levelName,
     });
   });
+
   return result;
 };

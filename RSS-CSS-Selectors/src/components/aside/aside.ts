@@ -66,7 +66,6 @@ export class Aside {
 
   addHelpHandler(): void {
     const helpBtn = ElementGenerator.elementLinks[Elements.BTN_HELP];
-    // const CHILD_WITH_HELP_PROP = 0;
 
     const helpHandler = (): void => {
       const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.stateManager.currentLevel}`];
