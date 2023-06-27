@@ -80,7 +80,7 @@ export class App {
   }
 
   public nextLevel(): void {
-    const notCompletedLevels = getNotCompletedLevelsList();
+    const notCompletedLevels = getNotCompletedLevelsList(levels);
 
     if (this.currentLevel < levels.length - 1) {
       if (notCompletedLevels.length === 0 && !this.isWin) {
