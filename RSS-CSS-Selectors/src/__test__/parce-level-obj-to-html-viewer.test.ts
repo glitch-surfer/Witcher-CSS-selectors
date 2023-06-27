@@ -1,5 +1,5 @@
-import type { IParams } from '../../types/types';
-import { parseLevelObjToHtmlViewer } from '../util/parce-level-obj-to-html-viewer';
+import type { IParams } from '../types/types';
+import { parseLevelObjToHtmlViewer } from '../components/util/parce-level-obj-to-html-viewer';
 
 jest.mock('highlight.js/scss/atom-one-dark-reasonable.scss', () => {});
 

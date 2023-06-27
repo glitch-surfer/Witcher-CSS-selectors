@@ -1,4 +1,4 @@
-import { cleanElement } from '../util/clean-element';
+import { cleanElement } from '../components/util/clean-element';
 
 describe('cleanElement', () => {
   let elementParent: HTMLElement;

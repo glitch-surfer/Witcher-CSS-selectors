@@ -1,5 +1,5 @@
-import { addToolTips } from '../util/add-tooltip';
-import { ElementGenerator } from '../util/element-generator';
+import { addToolTips } from '../components/util/add-tooltip';
+import { ElementGenerator } from '../components/util/element-generator';
 
 jest.mock('highlight.js/scss/atom-one-dark-reasonable.scss', () => {});
 

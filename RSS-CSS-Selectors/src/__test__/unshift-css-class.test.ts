@@ -1,5 +1,5 @@
-import { ElementGenerator } from '../util/element-generator';
-import { unshiftCssClass } from '../util/unshift-css-class';
+import { ElementGenerator } from '../components/util/element-generator';
+import { unshiftCssClass } from '../components/util/unshift-css-class';
 
 describe('unshiftCssClass', () => {
   const element = new ElementGenerator({

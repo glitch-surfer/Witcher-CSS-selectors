@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { ElementGenerator } from '../util/element-generator';
+import { ElementGenerator } from '../components/util/element-generator';
 
 describe('ElementGenerator', () => {
   let elementGenerator: ElementGenerator;

@@ -1,4 +1,4 @@
-import { wrongAnswerHandler } from '../util/wrong-answer-handler';
+import { wrongAnswerHandler } from '../components/util/wrong-answer-handler';
 
 describe('wrongAnswerHandler', () => {
   const element = document.createElement('div');
