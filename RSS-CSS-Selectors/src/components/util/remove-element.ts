@@ -1,7 +1,7 @@
 import { Elements } from '../../types/types';
 import { ElementGenerator } from './element-generator';
 
-const isEqual = (listA: NodeListOf<Element>, listB: NodeListOf<Element>): boolean => {
+export const isEqual = (listA: NodeListOf<Element>, listB: NodeListOf<Element>): boolean => {
   if (listA.length !== listB.length || listA.length === 0) return false;
   for (let i = 0; i < listA.length; i += 1) {
     if (listA[i] !== listB[i]) return false;
