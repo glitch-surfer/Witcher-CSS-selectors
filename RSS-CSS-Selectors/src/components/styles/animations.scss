@@ -1,5 +1,5 @@
 [data-target] {
-  animation: 3s ease-in-out 0s infinite blink,
+  animation: 3s ease-in-out infinite blink alternate,
     4s ease-in-out 0s infinite uroboros;
 
   // & > * {
@@ -12,12 +12,8 @@
     filter: drop-shadow(0 0 0.8rem rgb(236, 210, 162));
   }
 
-  50% {
-    filter: drop-shadow(0 0 0.5rem orange);
-  }
-
   100% {
-    filter: drop-shadow(0 0 0.8rem rgb(236, 210, 162));
+    filter: drop-shadow(0 0 0.5rem orange);
   }
 }
 
