@@ -1,14 +1,14 @@
 box {
-  width: 6rem;
-  height: 6rem;
+  min-width: 5rem;
+  min-height: 5rem;
   background: url(./img/box.png) center no-repeat transparent;
   background-size: contain;
 }
 
 horseshoe {
   display: block;
-  width: 4rem;
-  height: 4rem;
+  min-width: 3.5rem;
+  min-height: 3.5rem;
   background: url(./img/horseshoe.png) center no-repeat transparent;
   background-size: contain;
 }
