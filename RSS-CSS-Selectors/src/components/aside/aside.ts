@@ -1,4 +1,5 @@
 import { Elements } from '../../types/types';
+import type { IComponent } from '../../types/types';
 import { levels } from '../game/levels';
 import { ModalWindow } from '../modal/modal-window';
 import { ElementGenerator } from '../util/element-generator';
@@ -7,11 +8,11 @@ import { StateManager } from '../util/state-manager';
 import { unshiftCssClass } from '../util/unshift-css-class';
 import { asideParams } from './aside-view';
 
-export class Aside {
+export class Aside implements IComponent {
   constructor(
-    readonly element = new ElementGenerator(asideParams).getElement(),
-    readonly stateManager = StateManager.getInstance(),
-    readonly gameController = new GameController(),
+    public readonly element = new ElementGenerator(asideParams).getElement(),
+    private readonly stateManager = StateManager.getInstance(),
+    private readonly gameController = new GameController(),
   ) {
     this.addNavButtonsHandler();
     this.addHelpHandler();
@@ -21,7 +22,7 @@ export class Aside {
     Aside.addAsideBurgerHandler();
   }
 
-  addNavButtonsHandler(): void {
+  private addNavButtonsHandler(): void {
     const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
     const btnNext = ElementGenerator.elementLinks[Elements.BTN_NEXT];
     const btnPrev = ElementGenerator.elementLinks[Elements.BTN_PREV];
@@ -39,7 +40,7 @@ export class Aside {
     });
   }
 
-  addLevelBtnHandler(): void {
+  private addLevelBtnHandler(): void {
     const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
     const navBurger = ElementGenerator.elementLinks[Elements.NAV_BURGER];
 
@@ -64,7 +65,7 @@ export class Aside {
     this.element.addEventListener('click', levelHandler.bind(this));
   }
 
-  addHelpHandler(): void {
+  private addHelpHandler(): void {
     const helpBtn = ElementGenerator.elementLinks[Elements.BTN_HELP];
 
     const helpHandler = (): void => {
@@ -97,7 +98,7 @@ export class Aside {
     helpBtn.addEventListener('click', helpHandler);
   }
 
-  addAsideStateHandler(): void {
+  private addAsideStateHandler(): void {
     window.addEventListener('beforeunload', () => {
       const sereilizedAside = JSON.stringify(this.stateManager.asideState);
       localStorage.setItem('asideState', sereilizedAside);

@@ -1,4 +1,5 @@
 import { Elements } from '../../types/types';
+import type { IComponent } from '../../types/types';
 import { ElementGenerator } from '../util/element-generator';
 import { GameController } from '../util/game-controller';
 import { rigthAnswerHandler } from '../util/right-answer-handler';
@@ -6,18 +7,18 @@ import { StateManager } from '../util/state-manager';
 import { wrongAnswerHandler } from '../util/wrong-answer-handler';
 import { mainParams } from './main-view';
 
-export class Main {
+export class Main implements IComponent {
   constructor(
-    readonly stateManager = StateManager.getInstance(),
-    readonly gameConttoller = new GameController(),
-    readonly element = new ElementGenerator(mainParams).getElement(),
+    private readonly stateManager = StateManager.getInstance(),
+    private readonly gameConttoller = new GameController(),
+    public readonly element = new ElementGenerator(mainParams).getElement(),
   ) {
     this.addKeydownHandler();
     this.addClickHandler();
     this.addInvalidSelectorHandler();
   }
 
-  addKeydownHandler(): void {
+  private addKeydownHandler(): void {
     const asideBurger = ElementGenerator.elementLinks[Elements.ASIDE_BURGER];
 
     const keydownHandler = (event: KeyboardEvent): void => {
@@ -28,7 +29,7 @@ export class Main {
     document.addEventListener('keydown', keydownHandler);
   }
 
-  addClickHandler(): void {
+  private addClickHandler(): void {
     const submitButton = ElementGenerator.elementLinks[Elements.BTN_SUBMIT];
 
     submitButton.addEventListener('click', () => {
@@ -36,7 +37,7 @@ export class Main {
     });
   }
 
-  addInvalidSelectorHandler(): void {
+  private addInvalidSelectorHandler(): void {
     window.addEventListener('error', (e) => {
       e.preventDefault();
       wrongAnswerHandler(this.element);

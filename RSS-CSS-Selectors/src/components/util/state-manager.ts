@@ -1,7 +1,7 @@
+import type { IStateManager } from '../../types/types';
 import { ElementGenerator } from './element-generator';
-// import { getAsideState } from './get-aside-state';
 
-export class StateManager {
+export class StateManager implements IStateManager {
   private static instance: StateManager;
 
   public currentLevel: number = 0;

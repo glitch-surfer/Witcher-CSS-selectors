@@ -6,26 +6,19 @@ import { StateManager } from './util/state-manager';
 import { GameController } from './util/game-controller';
 import { Aside } from './aside/aside';
 import { Main } from './main/main';
+import type { IApp } from '../types/types';
 
-export class App {
-  readonly header: HTMLElement;
+export class App implements IApp {
+  private readonly stateManager = StateManager.getInstance();
 
-  readonly main: HTMLElement;
+  private readonly gameConttoller = new GameController();
 
-  readonly aside: HTMLElement;
-
-  readonly footer: HTMLElement;
-
-  readonly stateManager = StateManager.getInstance();
-
-  readonly gameConttoller = new GameController();
-
-  constructor() {
-    this.gameConttoller = new GameController();
-    this.header = new ElementGenerator(headerParams).getElement();
-    this.main = new Main().element;
-    this.footer = new ElementGenerator(footerParams).getElement();
-    this.aside = new Aside().element;
+  constructor(
+    private readonly header = new ElementGenerator(headerParams).getElement(),
+    private readonly main = new Main().element,
+    private readonly footer = new ElementGenerator(footerParams).getElement(),
+    private readonly aside = new Aside().element,
+  ) {
     this.stateManager.getState();
     this.gameConttoller.startGame(this.stateManager.currentLevel);
   }

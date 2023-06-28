@@ -1,4 +1,5 @@
 import { Elements } from '../../types/types';
+import type { IGameController } from '../../types/types';
 import { levels } from '../game/levels';
 import { winModalParams } from '../modal/modal-view';
 import { ModalWindow } from '../modal/modal-window';
@@ -11,7 +12,7 @@ import { getNotCompletedLevelsList } from './get-not-completed-levels-list';
 import { parsedNodeHtml } from './parce-level-obj-to-html-viewer';
 import { StateManager } from './state-manager';
 
-export class GameController {
+export class GameController implements IGameController {
   constructor(readonly stateManager = StateManager.getInstance()) {}
 
   public startGame(levelNumber: number = 0): void {

@@ -13,8 +13,26 @@ export interface IElementGenerator {
   getElement: () => HTMLElement
 }
 
-export interface IView {
-  getHtmlElement: () => HTMLElement
+export interface IApp {
+  createView: () => void
+}
+
+export interface IGameController {
+  startGame: (levelNumber: number) => void
+  nextLevel: () => void
+  toggleBtnDataActiveStatus: () => void
+}
+
+export interface IStateManager {
+  currentLevel: number
+  isWin: boolean
+  asideState: Record<string, string>
+  setState: () => void
+  getState: () => void
+}
+
+export interface IComponent {
+  element: HTMLElement
 }
 
 export interface ILevelParams {
