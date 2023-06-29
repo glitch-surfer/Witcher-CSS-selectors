@@ -4,13 +4,15 @@ import { ElementGenerator } from './element-generator';
 export class StateManager implements IStateManager {
   private static instance: StateManager | null = null;
 
-  public currentLevel: number = 0;
+  public currentLevel: number;
 
-  public asideState: Record<string, string> = StateManager.getAsideState();
+  public asideState: Record<string, string>;
 
   public isWin: boolean;
 
   private constructor() {
+    this.currentLevel = 0;
+    this.asideState = StateManager.getAsideState();
     this.isWin = Boolean(Number(localStorage.getItem('isWin')));
   }
 
@@ -50,8 +52,10 @@ export class StateManager implements IStateManager {
     return {};
   }
 
-  static resetState(): void {
-    StateManager.instance = null;
+  public resetState(): void {
     localStorage.clear();
+    this.currentLevel = 0;
+    this.asideState = StateManager.getAsideState();
+    this.isWin = Boolean(Number(localStorage.getItem('isWin')));
   }
 }
