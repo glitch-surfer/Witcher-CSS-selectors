@@ -2,7 +2,7 @@ import type { IStateManager } from '../../types/types';
 import { ElementGenerator } from './element-generator';
 
 export class StateManager implements IStateManager {
-  private static instance: StateManager;
+  private static instance: StateManager | null = null;
 
   public currentLevel: number = 0;
 
@@ -15,7 +15,7 @@ export class StateManager implements IStateManager {
   }
 
   public static getInstance(): StateManager {
-    if (StateManager.instance === undefined) {
+    if (StateManager.instance === null) {
       StateManager.instance = new StateManager();
     }
 
@@ -48,5 +48,10 @@ export class StateManager implements IStateManager {
       return JSON.parse(asideState);
     }
     return {};
+  }
+
+  static resetState(): void {
+    StateManager.instance = null;
+    localStorage.clear();
   }
 }
