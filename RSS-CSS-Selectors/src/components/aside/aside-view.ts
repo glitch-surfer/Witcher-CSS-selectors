@@ -88,6 +88,18 @@ export const asideParams: IParams = {
                     },
                   ],
                 },
+                {
+                  tag: 'li',
+                  className: ['nav__item', '4'],
+                  link: true,
+                  children: [
+                    {
+                      tag: 'div',
+                      className: ['nav__level'],
+                      text: "5. Dandelion's love story",
+                    },
+                  ],
+                },
               ],
             },
             {

@@ -14,6 +14,11 @@ export const generateNotCompletedLevelsModalParams = (
         text: 'It was last challenge, but you can try levels, that you don`t complete yet:',
       },
       {
+        tag: 'button',
+        className: ['btn-modal'],
+        text: '✖',
+      },
+      {
         tag: 'ul',
         className: ['not-completed-levels'],
         children: [],
