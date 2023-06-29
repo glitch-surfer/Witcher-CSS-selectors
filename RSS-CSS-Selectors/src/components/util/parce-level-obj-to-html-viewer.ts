@@ -22,8 +22,8 @@ export const parseLevelObjToHtmlViewer = (level: IParams): HTMLElement => {
   if (level.attributes.type !== undefined) {
     start += ` type="${level.attributes.type}"`;
   }
-  if (level.id !== undefined) {
-    start += ` id="${level.id}"`;
+  if (level.attributes.id !== undefined) {
+    start += ` id="${level.attributes.id}"`;
   }
   start += '>';
 

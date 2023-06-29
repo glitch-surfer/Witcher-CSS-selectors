@@ -1,0 +1,28 @@
+wallet {
+  min-width: 7rem;
+  min-height: 7rem;
+  background: url(./img/wallet.png) center no-repeat transparent;
+  background-size: contain;
+}
+
+bottle {
+  min-width: 5rem;
+  min-height: 6rem;
+  background: url(./img/bottle.png) center no-repeat transparent;
+  background-size: contain;
+}
+
+#ring {
+  display: block;
+  min-width: 4rem;
+  min-height: 4rem;
+  background: url(./img/ring.png) center no-repeat transparent;
+  background-size: contain;
+}
+
+#letter {
+  min-width: 6rem;
+  min-height: 6rem;
+  background: url(./img/letter.png) center no-repeat transparent;
+  background-size: contain;
+}

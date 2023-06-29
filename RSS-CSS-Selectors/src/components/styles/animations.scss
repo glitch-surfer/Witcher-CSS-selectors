@@ -94,7 +94,7 @@
 }
 
 .nav__item {
-  animation: 2s ease-in 0.7s nav-item-blink;
+  animation: 2s ease-in 0s nav-item-blink infinite;
 }
 
 @keyframes nav-item-blink {
@@ -102,12 +102,8 @@
     filter: none;
   }
 
-  33% {
-    filter: brightness(0.6);
-  }
-
-  66% {
-    filter: brightness(1.1);
+  50% {
+    filter: brightness(0.7);
   }
 
   100% {

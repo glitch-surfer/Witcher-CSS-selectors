@@ -100,6 +100,18 @@ export const asideParams: IParams = {
                     },
                   ],
                 },
+                {
+                  tag: 'li',
+                  className: ['nav__item', '5'],
+                  link: true,
+                  children: [
+                    {
+                      tag: 'div',
+                      className: ['nav__level'],
+                      text: '6. Ambush',
+                    },
+                  ],
+                },
               ],
             },
             {
