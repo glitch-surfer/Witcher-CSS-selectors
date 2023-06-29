@@ -92,3 +92,25 @@
     transform: translate(-550px, 50px);
   }
 }
+
+.nav__item {
+  animation: 2s ease-in 0.7s nav-item-blink;
+}
+
+@keyframes nav-item-blink {
+  0% {
+    filter: none;
+  }
+
+  33% {
+    filter: brightness(0.6);
+  }
+
+  66% {
+    filter: brightness(1.1);
+  }
+
+  100% {
+    filter: none;
+  }
+}

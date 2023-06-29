@@ -22,15 +22,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // gap: 0.7rem;
   background-color: $tooltip-background-color;
   border-radius: $border-radius;
-}
 
-.modal-title {
-  margin: 0;
-  font-size: 2rem;
-  color: $main-title-color;
+  & .title {
+    text-align: center;
+  }
 }
 
 .btn-modal {
@@ -51,7 +48,11 @@
   }
 }
 
-.nav__item_not-completed {
+.not-completed {
+  margin-top: 0;
+}
+
+.not-completed_item {
   padding: 0.5rem 0;
   width: 100%;
   list-style: none;

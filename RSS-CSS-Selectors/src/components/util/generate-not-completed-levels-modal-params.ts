@@ -20,7 +20,7 @@ export const generateNotCompletedLevelsModalParams = (
       },
       {
         tag: 'ul',
-        className: ['not-completed-levels'],
+        className: ['not-completed'],
         children: [],
       },
     ],
@@ -32,7 +32,7 @@ export const generateNotCompletedLevelsModalParams = (
     if (levelName === undefined || levelName === null) throw new Error();
     result.children?.push({
       tag: 'li',
-      className: ['nav__item', 'nav__item_not-completed'],
+      className: ['nav__item', 'not-completed_item'],
       text: levelName,
       attributes: {
         'data-level': String(level.id - 1),
