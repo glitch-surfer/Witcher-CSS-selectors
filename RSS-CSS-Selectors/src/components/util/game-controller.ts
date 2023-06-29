@@ -63,6 +63,7 @@ export class GameController implements IGameController {
         modal.getElement().addEventListener('click', (event: MouseEvent): void => {
           const level = event.target;
           if (level instanceof HTMLElement && level.classList.contains('nav__item')) {
+            const navBurger = ElementGenerator.elementLinks[Elements.NAV_BURGER];
             this.toggleBtnDataActiveStatus();
             this.stateManager.currentLevel = Number(level.dataset.level);
             this.startGame(this.stateManager.currentLevel);
@@ -70,6 +71,7 @@ export class GameController implements IGameController {
             input.value = '';
             modal.getElement().remove();
             ModalWindow.enableButtons();
+            navBurger.style.zIndex = '11';
           }
         });
       }

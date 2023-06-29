@@ -24,7 +24,6 @@ export class ModalWindow implements IModalWindow {
       || (event instanceof KeyboardEvent && event.code === 'Enter')) {
       this.message.remove();
       this.modal?.remove();
-      document.removeEventListener('keydown', this.removeModal.bind(this));
       delete this.modal;
       ModalWindow.enableButtons();
       navBurger.style.zIndex = '11';
