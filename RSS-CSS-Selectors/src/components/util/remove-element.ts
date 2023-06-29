@@ -26,7 +26,7 @@ const grabbingHandHandler = (): void => {
   });
 };
 
-const isInvalidSelector = (selector: string): boolean => selector === '' || Number.isFinite(Number(selector));
+export const isInvalidSelector = (selector: string): boolean => selector === '' || Number.isFinite(Number(selector));
 
 export const removeElement = (area: HTMLElement, selector: string): boolean => {
   if (isInvalidSelector(selector)) return false;
