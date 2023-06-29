@@ -27,8 +27,11 @@ export const generateNotCompletedLevelsModalParams = (
     if (levelName === undefined || levelName === null) throw new Error();
     result.children?.push({
       tag: 'li',
-      className: ['not-completed-level__item'],
+      className: ['nav__item', 'nav__item_not-completed'],
       text: levelName,
+      attributes: {
+        'data-level': String(level.id - 1),
+      },
     });
   });
 

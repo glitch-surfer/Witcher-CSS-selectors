@@ -76,6 +76,8 @@ body:has(.aside-burger.burger-active) .aside {
 }
 
 .nav__item {
+  cursor: pointer;
+  
   &:hover {
     background-color: lighten($burger-background-color, 10%);
   }

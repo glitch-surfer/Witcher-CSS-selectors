@@ -15,6 +15,7 @@ export class ModalWindow implements IModalWindow {
   }
 
   private removeModal(event: KeyboardEvent | MouseEvent): void {
+    const navBurger = ElementGenerator.elementLinks[Elements.NAV_BURGER];
     const modalOuter = event.target;
     if ((event instanceof MouseEvent
       && modalOuter !== null
@@ -26,6 +27,7 @@ export class ModalWindow implements IModalWindow {
       document.removeEventListener('keydown', this.removeModal.bind(this));
       delete this.modal;
       ModalWindow.enableButtons();
+      navBurger.style.zIndex = '11';
     }
   }
 
@@ -38,6 +40,8 @@ export class ModalWindow implements IModalWindow {
       document.body.append(this?.modal);
       navBurger.classList.remove('burger-active');
       asideBurger.classList.remove('burger-active');
+
+      navBurger.style.zIndex = '1';
     }
   }
 

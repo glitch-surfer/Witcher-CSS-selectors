@@ -13,7 +13,7 @@ import { parsedNodeHtml } from './parce-level-obj-to-html-viewer';
 import { StateManager } from './state-manager';
 
 export class GameController implements IGameController {
-  constructor(readonly stateManager = StateManager.getInstance()) {}
+  constructor(readonly stateManager = StateManager.getInstance()) { }
 
   public startGame(levelNumber: number = 0): void {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
@@ -34,6 +34,7 @@ export class GameController implements IGameController {
 
   public nextLevel(): void {
     const notCompletedLevels = getNotCompletedLevelsList(levels);
+    const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
 
     if (this.stateManager.currentLevel < levels.length - 1) {
       if (notCompletedLevels.length === 0 && !this.stateManager.isWin) {
@@ -48,7 +49,6 @@ export class GameController implements IGameController {
       this.startGame(this.stateManager.currentLevel);
       this.stateManager.setState();
 
-      const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
       input.value = '';
     } else if (this.stateManager.currentLevel === levels.length - 1) {
       if (notCompletedLevels.length === 0 && !this.stateManager.isWin) {
@@ -59,6 +59,19 @@ export class GameController implements IGameController {
         const notCompletedModalParams = generateNotCompletedLevelsModalParams(notCompletedLevels);
         const modal: ModalWindow | null = new ModalWindow(notCompletedModalParams);
         modal.appendModal();
+
+        modal.getElement().addEventListener('click', (event: MouseEvent): void => {
+          const level = event.target;
+          if (level instanceof HTMLElement && level.classList.contains('nav__item')) {
+            this.toggleBtnDataActiveStatus();
+            this.stateManager.currentLevel = Number(level.dataset.level);
+            this.startGame(this.stateManager.currentLevel);
+            this.stateManager.setState();
+            input.value = '';
+            modal.getElement().remove();
+            ModalWindow.enableButtons();
+          }
+        });
       }
     }
   }
