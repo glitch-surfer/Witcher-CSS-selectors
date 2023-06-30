@@ -97,9 +97,11 @@
 
 .story {
   min-width: 15rem;
+  max-height: 20rem;
   padding: 0.5rem;
   border: 1px solid $main-title-color;
   border-radius: $border-radius;
+  overflow: auto;
 
   @include media-mobile-small {
     max-width: 19rem;
