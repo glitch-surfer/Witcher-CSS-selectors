@@ -7,7 +7,6 @@ describe('addToolTips', () => {
   let rootElement: HTMLElement;
 
   beforeEach(() => {
-    // Create a root element with some child elements to use in the tests
     rootElement = new ElementGenerator({
       tag: 'div',
       className: ['my-class'],

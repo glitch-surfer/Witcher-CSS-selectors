@@ -6,7 +6,6 @@ describe('addHighlightedTag', () => {
   let area: HTMLElement;
 
   beforeEach(() => {
-    // Create an area element to use in the tests
     area = document.createElement('div');
   });
 
