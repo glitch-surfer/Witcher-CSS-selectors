@@ -26,7 +26,7 @@ export const buildLevel = (levelNumber: number): void => {
 
   story.append(levels[levelNumber].story);
 
-  navTitle.textContent = `Level ${levels[levelNumber].id} of ${levels.length}`;
+  navTitle.textContent = `Level ${levels[levelNumber].id + 1} of ${levels.length}`;
 
   asideTitle.textContent = levels[levelNumber].asideTitle;
   asideContent.textContent = levels[levelNumber].asideContent;

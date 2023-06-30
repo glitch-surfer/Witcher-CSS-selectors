@@ -2,7 +2,7 @@ import type { ILevelParams } from '../../../../types/types';
 import './level-2.scss';
 
 export const level2: ILevelParams = {
-  id: 2,
+  id: 1,
   task: 'Grab a silver sword!',
   story: 'A steel sword is good against people and animals, but evil spirits, as a rule, are not sensitive to it. For monsters, witchers use a silver sword. Help Geralt get one!',
   help: 'sword[type="silver"]',

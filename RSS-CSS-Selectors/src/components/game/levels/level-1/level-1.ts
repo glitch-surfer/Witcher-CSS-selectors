@@ -2,7 +2,7 @@ import type { ILevelParams } from '../../../../types/types';
 import './level-1.scss';
 
 export const level1: ILevelParams = {
-  id: 1,
+  id: 0,
   task: 'Grab a sword!',
   story: 'In this game, you will need to enter a valid CSS selector to get the desired item from the table. Geralt the witcher. The witcher is a professional monster hunter. In his work, he uses weapons and various elixirs - alchemical potions that make him faster and stronger. Help him get ready for the hunt. For starters, he needs a sword, of course!',
   help: 'sword',

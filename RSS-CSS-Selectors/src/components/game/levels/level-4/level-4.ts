@@ -2,7 +2,7 @@ import type { ILevelParams } from '../../../../types/types';
 import './level-4.scss';
 
 export const level4: ILevelParams = {
-  id: 4,
+  id: 3,
   task: 'Grab the horseshoes!',
   story: 'Geralt did not forget about his favorite horse, Roach, and decided to buy new horseshoes for her with the remaining money from the last order. Who knows when the next opportunity will be. Witchers have less and less work lately... He liked those new ones in the box!',
   help: 'box horseshoe',

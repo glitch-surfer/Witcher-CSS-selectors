@@ -27,7 +27,7 @@ export const generateNotCompletedLevelsModalParams = (
   };
 
   notCompletedLevels.forEach((level) => {
-    const levelBtn = ElementGenerator.elementLinks[`LI.${String(level.id - 1)}`];
+    const levelBtn = ElementGenerator.elementLinks[`LI.${String(level.id)}`];
     const levelName = levelBtn.firstElementChild?.textContent;
     if (levelName === undefined || levelName === null) throw new Error();
     result.children?.push({
@@ -35,7 +35,7 @@ export const generateNotCompletedLevelsModalParams = (
       className: ['nav__item', 'not-completed_item'],
       text: levelName,
       attributes: {
-        'data-level': String(level.id - 1),
+        'data-level': String(level.id),
       },
     });
   });
