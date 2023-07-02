@@ -3,9 +3,9 @@ import './level-6.scss';
 
 export const level6: ILevelParams = {
   id: 5,
-  task: 'Grab the letter and jewelry!',
-  story: 'From Vizima, friends went on, but 6 bandits were waiting for them on the highway. They introduced themselves as border guards and demanded a fee. Their clothes were of different sizes and styles, obviously belonging to different people. There was blood on the sword of one of the bandits. Geralt and Dandelion did not have as much money as the "border guards" demanded, and apparently they were not going to stop there. The fight was so short. In the pocket of one of the attackers, Geralt found a letter...',
-  help: '#letter, #ring',
+  task: 'Select path!',
+  story: 'The friends split up, Dandelion went to look for a larger city where they could appreciate his talent as a bard, and the witcher went to the wilderness, where he could find work for him. And on the highway, he discovers the corpses of travelers, obviously with traces of a monster attack. Not far from the road, there was a path deep into the forest, Geralt decided to follow it...',
+  help: '#into-the-forest',
   asideTitle: 'Selector by id',
   asideContent: `You can select elements by their id, marked by ' # ' . For example: #form {
     some rules..
@@ -27,40 +27,31 @@ export const level6: ILevelParams = {
       {
         tag: 'P',
         className: ['modal__text'],
-        text: "The letter bore the seal of a certain merchant Hanfrey. In a letter, he complains that because of the warlike dryads, who do not let anyone near their forest of Brokilon, his goods have to make a long detour, which is bad for trade. He's contemplating how to end this problem...",
+        text: 'The road led Geralt to an old mansion. He went into the yard, but a bear-like creature in human clothes jumped out of the house and demanded that he clean up. The witcher prepared to defend himself, but the owner of the house relented and invited him to spend the night, because it was late....',
       },
     ],
   },
   layout: [
     {
-      tag: 'wallet',
+      tag: 'path',
       attributes: {
+        id: 'main-road',
         'data-id': '1',
       },
-      children: [
-        {
-          tag: 'ring',
-          attributes: {
-            id: 'ring',
-            'data-id': '2',
-            'data-target': 'true',
-          },
-        },
-      ],
     },
     {
-      tag: 'letter',
+      tag: 'path',
+      className: ['go-back'],
       attributes: {
-        id: 'letter',
-        'data-id': '3',
-        'data-target': 'true',
+        'data-id': '2',
       },
     },
     {
-      tag: 'bottle',
-      className: ['firewater'],
+      tag: 'path',
       attributes: {
-        'data-id': '4',
+        id: 'into-the-forest',
+        'data-id': '3',
+        'data-target': 'true',
       },
     },
   ],

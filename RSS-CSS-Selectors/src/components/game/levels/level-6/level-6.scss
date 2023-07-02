@@ -1,28 +1,21 @@
-wallet {
+path {
   min-width: 7rem;
   min-height: 7rem;
-  background: url(./img/wallet.png) center no-repeat transparent;
+  background: url(./img/go-back.png) center no-repeat transparent;
   background-size: contain;
 }
 
-bottle {
+#main-road {
   min-width: 5rem;
   min-height: 6rem;
-  background: url(./img/bottle.png) center no-repeat transparent;
+  background: url(./img/road-main.png) center no-repeat transparent;
   background-size: contain;
 }
 
-#ring {
+#into-the-forest {
   display: block;
-  min-width: 4rem;
-  min-height: 4rem;
-  background: url(./img/ring.png) center no-repeat transparent;
-  background-size: contain;
-}
-
-#letter {
   min-width: 6rem;
-  min-height: 6rem;
-  background: url(./img/letter.png) center no-repeat transparent;
+  min-height: 5rem;
+  background: url(./img/road-right.png) center no-repeat transparent;
   background-size: contain;
 }

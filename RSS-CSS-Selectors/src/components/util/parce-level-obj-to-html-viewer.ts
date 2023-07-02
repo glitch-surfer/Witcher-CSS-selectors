@@ -17,7 +17,7 @@ export const parseLevelObjToHtmlViewer = (level: IParams): HTMLElement => {
   result.dataset.id = attributes['data-id'];
 
   if (level.className !== undefined) {
-    start += ` class="${level.className.toString()}"`;
+    start += ` class="${level.className.join(' ')}"`;
   }
   if (level.attributes.type !== undefined) {
     start += ` type="${level.attributes.type}"`;
