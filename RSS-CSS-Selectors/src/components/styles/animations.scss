@@ -1,10 +1,6 @@
-[data-target] {
+[data-target]:not(choice) {
   animation: 3s ease-in-out infinite blink alternate,
     4s ease-in-out 0s infinite uroboros;
-
-  // & > * {
-  //   animation: none;
-  // }
 }
 
 @keyframes blink {

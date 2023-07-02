@@ -160,6 +160,18 @@ export const asideParams: IParams = {
                     },
                   ],
                 },
+                {
+                  tag: 'li',
+                  className: ['nav__item', '10'],
+                  link: true,
+                  children: [
+                    {
+                      tag: 'div',
+                      className: ['nav__level'],
+                      text: '11. The bounds of possible',
+                    },
+                  ],
+                },
               ],
             },
             {

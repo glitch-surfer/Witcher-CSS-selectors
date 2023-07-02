@@ -4,7 +4,7 @@ import './level-10.scss';
 export const level10: ILevelParams = {
   id: 9,
   task: 'Grab bag!',
-  story: 'The witcher heard that a dragon appeared and was wounded in a nearby town. The king announced the gathering of a detachment to find and finish off the dragon, and divide the dragon`s treasures. To get into the squad, Geralt needs to prove his strength and courage. It will be enough to show the witcher`s medallion...',
+  story: 'The witcher heard that a dragon appeared and was wounded in a nearby town. The king announced the gathering of a detachment to find and finish off the dragon, and divide the dragon`s treasures and boost their egos. To get into the squad, Geralt needs to prove his strength and courage. It will be enough to show the witcher`s medallion...',
   help: 'bag:has(medallion):not(:first-child)',
   asideTitle: 'Pseudo-class :first-child',
   asideContent: `You can select first fit among all (or not first!). For example: div:first-child {
