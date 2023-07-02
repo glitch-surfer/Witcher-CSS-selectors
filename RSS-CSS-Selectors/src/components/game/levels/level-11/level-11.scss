@@ -25,3 +25,7 @@ choice {
   background: url(./img/duty.png) center no-repeat transparent;
   background-size: contain;
 }
+
+choice:has([type="duty"]) {
+  animation: none;
+}

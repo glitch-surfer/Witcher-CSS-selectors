@@ -1,4 +1,4 @@
-[data-target]:not(choice) {
+[data-target] {
   animation: 3s ease-in-out infinite blink alternate,
     4s ease-in-out 0s infinite uroboros;
 }
@@ -71,7 +71,7 @@
   }
 }
 
-.right-answer {
+.header .right-answer {
   animation: 1s ease-in 0s right-answer;
 }
 
