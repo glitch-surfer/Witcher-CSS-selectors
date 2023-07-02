@@ -5,6 +5,7 @@ import { level4 } from './levels/level-4/level-4';
 import { level5 } from './levels/level-5/level-5';
 import { level6 } from './levels/level-6/level-6';
 import { level7 } from './levels/level-7/level-7';
+import { level8 } from './levels/level-8/level-8';
 
 export const levels = [
   level1,
@@ -14,4 +15,5 @@ export const levels = [
   level5,
   level6,
   level7,
+  level8,
 ];
