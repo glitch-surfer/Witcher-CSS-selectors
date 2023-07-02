@@ -17,7 +17,7 @@ export const level9: ILevelParams = {
       {
         tag: 'h2',
         className: ['title'],
-        text: 'Hoorah! Level 8 done',
+        text: 'Hoorah! Level 9 done',
       },
       {
         tag: 'button',

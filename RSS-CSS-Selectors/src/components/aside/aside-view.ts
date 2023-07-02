@@ -148,6 +148,18 @@ export const asideParams: IParams = {
                     },
                   ],
                 },
+                {
+                  tag: 'li',
+                  className: ['nav__item', '9'],
+                  link: true,
+                  children: [
+                    {
+                      tag: 'div',
+                      className: ['nav__level'],
+                      text: '10. Dragon hunt',
+                    },
+                  ],
+                },
               ],
             },
             {
