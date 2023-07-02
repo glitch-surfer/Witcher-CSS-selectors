@@ -13,6 +13,8 @@ export const buildLevel = (levelNumber: number): void => {
   const asideTitle = ElementGenerator.elementLinks[Elements.ASIDE_TITLE];
   const asideContent = ElementGenerator.elementLinks[Elements.ASIDE_CONTENT];
 
+  document.body.className = `level-${levelNumber}`;
+
   task.textContent = levels[levelNumber].task;
 
   levels[levelNumber].layout.forEach((element) => {

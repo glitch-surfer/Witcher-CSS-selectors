@@ -33,22 +33,51 @@ body {
   justify-items: center;
   align-items: flex-start;
   gap: 0.5rem;
-  background: url(../../img/bacjgroung.jpg) center no-repeat;
-  background-size: cover;
   color: $main-text-color;
 
   @include media-mobile-big {
     // grid-template-columns: 1fr;
     // grid-template-rows: repeat(3, auto);
     grid-template:
-    "header" auto
-    "main" auto
-    "footer" auto
-    /auto;
+      "header" auto
+      "main" auto
+      "footer" auto
+      /auto;
     gap: 0.5rem 0;
   }
 }
 
-// [data-id] {
-//   position: relative;
-// }
+.level-0 {
+  background: url(../../img/background-0.jpg) center no-repeat;
+  background-size: cover;
+}
+
+.level-1 {
+  background: url(../../img/background-1.jpg) center no-repeat;
+  background-size: cover;
+}
+
+.level-2 {
+  background: url(../../img/background-2.webp) center no-repeat;
+  background-size: cover;
+}
+
+.level-3 {
+  background: url(../../img/background-3.jpg) center no-repeat;
+  background-size: cover;
+}
+
+.level-4 {
+  background: url(../../img/background-4.jpg) center no-repeat;
+  background-size: cover;
+}
+
+.level-5 {
+  background: url(../../img/background-5.avif) center no-repeat;
+  background-size: cover;
+}
+
+.level-6 {
+  background: url(../../img/background-6.jpg) center no-repeat;
+  background-size: cover;
+}
