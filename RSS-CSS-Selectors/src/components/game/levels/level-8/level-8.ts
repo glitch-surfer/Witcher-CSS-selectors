@@ -3,7 +3,7 @@ import './level-8.scss';
 
 export const level8: ILevelParams = {
   id: 7,
-  task: 'Select vessel with genie!',
+  task: 'Grab vessel with genie!',
   story: 'One day, Geralt and Dandelion were traveling and stopped by a river. To eat, they decided to go fishing, but the catch was meager until Dandelion fished out a strange vessel. Opening the vessel, a genie appeared, attempting to kill the bard. Geralt urgently put the genie back in the bottle...',
   help: 'vessel:has(.genie)',
   asideTitle: 'Pseudo-class :has()',
