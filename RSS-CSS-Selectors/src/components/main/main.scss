@@ -32,13 +32,21 @@
   padding: 0.5rem 1rem 0.5rem 0.5rem;
   border: 1px solid $main-title-color;
   border-radius: $border-radius;
+
+  @include media-mobile-small {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 0.2rem;
+  }
 }
 
 .editor__description {
   justify-self: center;
 }
 
-.editor__input, .cm-s-monokai.CodeMirror {
+.editor__input,
+.cm-s-monokai.CodeMirror {
   align-self: stretch;
   border: 1px solid $main-btn-color;
   border-radius: $border-radius;
@@ -46,6 +54,10 @@
   white-space: nowrap;
   font-size: 1.1rem;
   animation: animated-background 700ms steps(29, end) infinite;
+
+  @include media-mobile-small {
+    width: 70% !important;
+  }
 }
 
 @keyframes animated-background {

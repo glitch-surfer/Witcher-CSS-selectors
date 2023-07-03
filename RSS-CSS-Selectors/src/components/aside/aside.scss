@@ -26,10 +26,9 @@ body:has(.aside-burger.burger-active) .aside {
 }
 
 .nav {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: space-between;
   padding-left: 1rem;
   border-bottom: 1px solid darken($main-text-color, 30%);
 }
