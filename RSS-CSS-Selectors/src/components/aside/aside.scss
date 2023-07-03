@@ -27,7 +27,7 @@ body:has(.aside-burger.burger-active) .aside {
 
 .nav {
   display: grid;
-  grid-template-columns: 1fr repeat(3, auto);
+  grid-template-columns: 1fr repeat(3, 15%);
   align-items: center;
   padding-left: 1rem;
   border-bottom: 1px solid darken($main-text-color, 30%);
