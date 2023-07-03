@@ -40,6 +40,7 @@
 
   & > * {
     flex: 1 1 auto;
+    position: relative;
   }
 }
 
@@ -60,7 +61,7 @@
 }
 
 .tooltip {
-  position: fixed;
+  position: absolute;
   left: -20%;
   top: 110%;
   z-index: 2;
