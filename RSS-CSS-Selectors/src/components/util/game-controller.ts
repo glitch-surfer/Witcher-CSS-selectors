@@ -6,7 +6,7 @@ import { ModalWindow } from '../modal/modal-window';
 import { addHighlightedTag } from './add-highlighted-tag';
 import { buildLevel } from './build-level';
 import { cleanElement } from './clean-element';
-import { editor } from '../../index';
+import { CssEditor } from './css-editor';
 import { ElementGenerator } from './element-generator';
 import { generateNotCompletedLevelsModalParams } from './generate-not-completed-levels-modal-params';
 import { getNotCompletedLevelsList } from './get-not-completed-levels-list';
@@ -35,6 +35,7 @@ export class GameController implements IGameController {
 
   public nextLevel(): void {
     const notCompletedLevels = getNotCompletedLevelsList(levels);
+    const editor = CssEditor.getInstance();
 
     if (this.stateManager.currentLevel < levels.length - 1) {
       if (notCompletedLevels.length === 0 && !this.stateManager.isWin) {

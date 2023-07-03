@@ -2,7 +2,7 @@ import { Elements } from '../../types/types';
 import type { IComponent } from '../../types/types';
 import { levels } from '../game/levels';
 import { ModalWindow } from '../modal/modal-window';
-import { editor } from '../../index';
+import { CssEditor } from '../util/css-editor';
 import { ElementGenerator } from '../util/element-generator';
 import { GameController } from '../util/game-controller';
 import { StateManager } from '../util/state-manager';
@@ -26,6 +26,7 @@ export class Aside implements IComponent {
   private addNavButtonsHandler(): void {
     const btnNext = ElementGenerator.elementLinks[Elements.BTN_NEXT];
     const btnPrev = ElementGenerator.elementLinks[Elements.BTN_PREV];
+    const editor = CssEditor.getInstance();
 
     btnNext.addEventListener('click', this.gameController.nextLevel.bind(this.gameController));
 
@@ -42,6 +43,7 @@ export class Aside implements IComponent {
 
   private addLevelBtnHandler(): void {
     const navBurger = ElementGenerator.elementLinks[Elements.NAV_BURGER];
+    const editor = CssEditor.getInstance();
 
     const levelHandler = (event: MouseEvent): void => {
       const levelBtn = event.target;
@@ -66,6 +68,7 @@ export class Aside implements IComponent {
 
   private addHelpHandler(): void {
     const helpBtn = ElementGenerator.elementLinks[Elements.BTN_HELP];
+    const editor = CssEditor.getInstance();
 
     const helpHandler = (): void => {
       const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.stateManager.currentLevel}`];

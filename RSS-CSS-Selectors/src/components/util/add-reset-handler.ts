@@ -1,5 +1,6 @@
 import { App } from '../app';
 import { cleanElement } from './clean-element';
+import { CssEditor } from './css-editor';
 import { StateManager } from './state-manager';
 
 export const addResetHandler = (event: Event): void => {
@@ -7,6 +8,7 @@ export const addResetHandler = (event: Event): void => {
     cleanElement(document.body);
     const stateManager = StateManager.getInstance();
     stateManager.resetState();
+    CssEditor.resetEditor();
 
     const newApp = new App();
     newApp.createView();

@@ -1,7 +1,7 @@
 import { Elements } from '../../types/types';
 import { levels } from '../game/levels';
 import { ModalWindow } from '../modal/modal-window';
-import { editor } from '../../index';
+import { CssEditor } from './css-editor';
 import { ElementGenerator } from './element-generator';
 import type { GameController } from './game-controller';
 import { removeElement } from './remove-element';
@@ -16,6 +16,7 @@ export const rigthAnswerHandler = (
 ): void => {
   const table = ElementGenerator.elementLinks[Elements.TABLE];
   const gameState = state;
+  const editor = CssEditor.getInstance();
 
   const isRightSelector = removeElement(table, editor.getValue());
   ModalWindow.disableButtons();
