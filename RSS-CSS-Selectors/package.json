@@ -46,6 +46,8 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "@types/codemirror": "^5.60.8",
+    "codemirror": "^5.65.13",
     "highlight.js": "^11.8.0"
   }
 }

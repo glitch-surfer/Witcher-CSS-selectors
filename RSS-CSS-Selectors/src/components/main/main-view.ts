@@ -25,13 +25,8 @@ export const mainParams: IParams = {
               text: 'style.css',
             },
             {
-              tag: 'input',
+              tag: 'textarea',
               className: ['editor__input'],
-              attributes: {
-                type: 'text',
-                autofocus: '',
-                placeholder: 'Type your CSS selector here',
-              },
               link: true,
             },
             {

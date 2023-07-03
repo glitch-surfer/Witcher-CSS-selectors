@@ -1,6 +1,7 @@
 import { Elements } from '../../types/types';
 import { levels } from '../game/levels';
 import { ModalWindow } from '../modal/modal-window';
+import { editor } from '../../index';
 import { ElementGenerator } from './element-generator';
 import type { GameController } from './game-controller';
 import { removeElement } from './remove-element';
@@ -14,12 +15,11 @@ export const rigthAnswerHandler = (
   main: HTMLElement,
 ): void => {
   const table = ElementGenerator.elementLinks[Elements.TABLE];
-  const selectorsInput = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
   const gameState = state;
 
-  const isRightSelector = removeElement(table, selectorsInput.value);
+  const isRightSelector = removeElement(table, editor.getValue());
   ModalWindow.disableButtons();
-  selectorsInput.value = '';
+  editor.setValue('');
   if (isRightSelector) {
     const currentLevelBtn = ElementGenerator.elementLinks[`LI.${state.currentLevel}`];
     if (!currentLevelBtn.classList.contains('helped')) {

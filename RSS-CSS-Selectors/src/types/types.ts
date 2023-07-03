@@ -55,7 +55,7 @@ export interface IModalWindow {
 export enum Elements {
   TABLE = 'DIV.header__table',
   HTML_VIEWER = 'DIV.html-viewer__content',
-  INPUT = 'INPUT.editor__input',
+  INPUT = 'TEXTAREA.editor__input',
   BTN_SUBMIT = 'BUTTON.editor__button',
   STORY = 'P.story__text',
   BTN_NEXT = 'BUTTON.nav__button_next',

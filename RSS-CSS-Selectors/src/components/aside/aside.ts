@@ -2,6 +2,7 @@ import { Elements } from '../../types/types';
 import type { IComponent } from '../../types/types';
 import { levels } from '../game/levels';
 import { ModalWindow } from '../modal/modal-window';
+import { editor } from '../../index';
 import { ElementGenerator } from '../util/element-generator';
 import { GameController } from '../util/game-controller';
 import { StateManager } from '../util/state-manager';
@@ -23,7 +24,6 @@ export class Aside implements IComponent {
   }
 
   private addNavButtonsHandler(): void {
-    const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
     const btnNext = ElementGenerator.elementLinks[Elements.BTN_NEXT];
     const btnPrev = ElementGenerator.elementLinks[Elements.BTN_PREV];
 
@@ -35,13 +35,12 @@ export class Aside implements IComponent {
         this.stateManager.currentLevel -= 1;
         this.gameController.startGame(this.stateManager.currentLevel);
         this.stateManager.setState();
-        input.value = '';
+        editor.setValue('');
       }
     });
   }
 
   private addLevelBtnHandler(): void {
-    const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
     const navBurger = ElementGenerator.elementLinks[Elements.NAV_BURGER];
 
     const levelHandler = (event: MouseEvent): void => {
@@ -57,7 +56,7 @@ export class Aside implements IComponent {
         this.stateManager.currentLevel = Number(levelBtnIndex);
         this.gameController.startGame(this.stateManager.currentLevel);
         this.stateManager.setState();
-        input.value = '';
+        editor.setValue('');
         navBurger.classList.remove('burger-active');
       }
     };
@@ -70,7 +69,6 @@ export class Aside implements IComponent {
 
     const helpHandler = (): void => {
       const currentLevelBtn = ElementGenerator.elementLinks[`LI.${this.stateManager.currentLevel}`];
-      const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
 
       helpBtn.removeEventListener('click', helpHandler);
 
@@ -79,14 +77,16 @@ export class Aside implements IComponent {
         this.stateManager.asideState[`LI.${this.stateManager.currentLevel}`] = currentLevelBtn.className;
       }
 
-      input.value = '';
+      editor.setValue('');
       const text = levels[this.stateManager.currentLevel].help;
       const splittedText = text?.split('');
 
+      let answer: string = '';
       if (splittedText === undefined) throw new Error('no help text');
       splittedText.forEach((letter, index) => {
         setTimeout(() => {
-          input.value += letter;
+          answer += letter;
+          editor.setValue(answer);
         }, 100 * index);
       });
 

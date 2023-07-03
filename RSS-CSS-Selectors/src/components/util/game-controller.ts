@@ -6,6 +6,7 @@ import { ModalWindow } from '../modal/modal-window';
 import { addHighlightedTag } from './add-highlighted-tag';
 import { buildLevel } from './build-level';
 import { cleanElement } from './clean-element';
+import { editor } from '../../index';
 import { ElementGenerator } from './element-generator';
 import { generateNotCompletedLevelsModalParams } from './generate-not-completed-levels-modal-params';
 import { getNotCompletedLevelsList } from './get-not-completed-levels-list';
@@ -34,7 +35,6 @@ export class GameController implements IGameController {
 
   public nextLevel(): void {
     const notCompletedLevels = getNotCompletedLevelsList(levels);
-    const input = ElementGenerator.elementLinks[Elements.INPUT] as HTMLInputElement;
 
     if (this.stateManager.currentLevel < levels.length - 1) {
       if (notCompletedLevels.length === 0 && !this.stateManager.isWin) {
@@ -49,7 +49,7 @@ export class GameController implements IGameController {
       this.startGame(this.stateManager.currentLevel);
       this.stateManager.setState();
 
-      input.value = '';
+      editor.setValue('');
     } else if (this.stateManager.currentLevel === levels.length - 1) {
       if (notCompletedLevels.length === 0 && !this.stateManager.isWin) {
         const modal: ModalWindow | null = new ModalWindow(winModalParams);
@@ -68,7 +68,7 @@ export class GameController implements IGameController {
             this.stateManager.currentLevel = Number(level.dataset.level);
             this.startGame(this.stateManager.currentLevel);
             this.stateManager.setState();
-            input.value = '';
+            editor.setValue('');
             modal.getElement().remove();
             ModalWindow.enableButtons();
             navBurger.style.zIndex = '11';

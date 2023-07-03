@@ -13,7 +13,7 @@
   @include media-mobile-small {
     align-items: center;
     flex-direction: column;
-    max-width: 40rem;
+    max-width: 25rem;
   }
 }
 
@@ -38,7 +38,7 @@
   justify-self: center;
 }
 
-.editor__input {
+.editor__input, .cm-s-monokai.CodeMirror {
   align-self: stretch;
   border: 1px solid $main-btn-color;
   border-radius: $border-radius;
@@ -46,13 +46,6 @@
   white-space: nowrap;
   font-size: 1.1rem;
   animation: animated-background 700ms steps(29, end) infinite;
-
-  &:active,
-  &:focus,
-  &:hover {
-    outline: none;
-    box-shadow: $main-box-shadow;
-  }
 }
 
 @keyframes animated-background {
@@ -70,6 +63,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  @include media-mobile-small {
+    width: 100%;
+  }
 }
 
 .html-viewer {
@@ -96,14 +93,9 @@
 }
 
 .story {
-  min-width: 15rem;
   max-height: 20rem;
   padding: 0.5rem;
   border: 1px solid $main-title-color;
   border-radius: $border-radius;
   overflow: auto;
-
-  @include media-mobile-small {
-    max-width: 19rem;
-  }
 }
