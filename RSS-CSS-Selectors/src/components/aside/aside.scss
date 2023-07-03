@@ -35,6 +35,7 @@ body:has(.aside-burger.burger-active) .aside {
 
 .nav__title {
   position: relative;
+  white-space: nowrap;
 
   &::before {
     content: '';

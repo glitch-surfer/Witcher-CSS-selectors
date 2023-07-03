@@ -16,14 +16,15 @@
 .modal {
   position: absolute;
   z-index: 12;
-  width: 30rem;
   max-width: 85%;
+  max-height: 90%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: $tooltip-background-color;
   border-radius: $border-radius;
+  overflow: auto;
 
   & .title {
     text-align: center;

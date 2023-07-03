@@ -28,10 +28,8 @@
 }
 
 .header__table {
-  transform: perspective(800px) rotateX(25deg);
   padding: 1rem;
   min-width: 8rem;
-  width: 100%;
   min-height: 8rem;
   display: flex;
   align-items: center;
@@ -62,7 +60,7 @@
 }
 
 .tooltip {
-  position: absolute;
+  position: fixed;
   left: -20%;
   top: 110%;
   z-index: 2;
