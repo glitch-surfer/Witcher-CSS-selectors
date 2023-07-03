@@ -1,12 +1,15 @@
 import { Elements } from '../../types/types';
 import { ElementGenerator } from './element-generator';
 
-export const isEqual = (listA: NodeListOf<Element>, listB: NodeListOf<Element>): boolean => {
-  if (listA.length !== listB.length || listA.length === 0) return false;
-  for (let i = 0; i < listA.length; i += 1) {
-    if (listA[i] !== listB[i]) return false;
+export const isEqual = <T>(listA: T, listB: T): boolean => {
+  if (listA instanceof NodeList && listB instanceof NodeList) {
+    if (listA.length !== listB.length || listA.length === 0) return false;
+    for (let i = 0; i < listA.length; i += 1) {
+      if (listA[i] !== listB[i]) return false;
+    }
+    return true;
   }
-  return true;
+  return false;
 };
 
 const removeTargetWithAnimation = (element: Element, index: number): void => {
