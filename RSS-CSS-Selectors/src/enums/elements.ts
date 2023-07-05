@@ -15,4 +15,5 @@ export enum Elements {
   TASK = 'P.header__task',
   ASIDE_TITLE = 'H2.aside__title',
   ASIDE_CONTENT = 'P.aside__content',
+  PROGRESS_BAR = 'DIV.progress-bar__progress',
 }

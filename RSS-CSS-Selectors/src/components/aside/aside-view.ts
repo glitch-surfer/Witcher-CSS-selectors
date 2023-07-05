@@ -185,6 +185,17 @@ export const asideParams: IParams = {
       ],
     },
     {
+      tag: 'div',
+      className: ['progress-bar'],
+      children: [
+        {
+          tag: 'div',
+          className: ['progress-bar__progress'],
+          link: true,
+        },
+      ],
+    },
+    {
       tag: 'h2',
       className: ['title', 'aside__title'],
       link: true,

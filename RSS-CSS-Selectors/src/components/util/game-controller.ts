@@ -11,6 +11,7 @@ import { ElementGenerator } from './element-generator';
 import { generateNotCompletedLevelsModalParams } from './generate-not-completed-levels-modal-params';
 import { getNotCompletedLevelsList } from './get-not-completed-levels-list';
 import { parsedNodeHtml } from './parce-level-obj-to-html-viewer';
+import { setProgressBar } from './set-progress-bar';
 import { StateManager } from './state-manager';
 
 export class GameController implements IGameController {
@@ -20,6 +21,7 @@ export class GameController implements IGameController {
     const table = ElementGenerator.elementLinks[Elements.TABLE];
     const htmlViewer = ElementGenerator.elementLinks[Elements.HTML_VIEWER];
     const story = ElementGenerator.elementLinks[Elements.STORY];
+    const progressBar = ElementGenerator.elementLinks[Elements.PROGRESS_BAR];
 
     cleanElement(table, htmlViewer, story);
     parsedNodeHtml.length = 0;
@@ -29,6 +31,8 @@ export class GameController implements IGameController {
     addHighlightedTag(htmlViewer, 'table');
 
     this.toggleBtnDataActiveStatus();
+
+    setProgressBar(levelNumber, levels.length, progressBar);
 
     StateManager.setAsideState();
   }

@@ -28,11 +28,11 @@ body:has(.aside-burger.burger-active) .aside {
 .nav {
   width: 100%;
   max-width: 16rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
   align-items: center;
   justify-content: space-between;
   padding-left: 1rem;
-  border-bottom: 1px solid darken($main-text-color, 30%);
 }
 
 .nav__title {
@@ -89,4 +89,21 @@ body:has(.aside-burger.burger-active) .aside {
 
 [data-active] {
   box-shadow: $main-box-shadow;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 0.2rem;
+  margin-bottom: 0.5rem;
+  background-color: darken($main-text-color, 30%);
+  border-radius: $border-radius;
+}
+
+.progress-bar__progress {
+  height: 100%;
+  border-right-width: 3px;
+  border-right-style: solid;
+  border-right-color: lighten($main-title-color, 30%);
+  background-color: lighten($main-title-color, 10%);
+  border-radius: $border-radius;
 }
