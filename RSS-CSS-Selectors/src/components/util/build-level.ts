@@ -1,4 +1,4 @@
-import { Elements } from '../../types/types';
+import { Elements } from '../../enums/elements';
 import { levels } from '../game/levels';
 import { addToolTips } from './add-tooltip';
 import { ElementGenerator } from './element-generator';

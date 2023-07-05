@@ -5,7 +5,7 @@ import 'codemirror/mode/css/css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 import { ElementGenerator } from './element-generator';
-import { Elements } from '../../types/types';
+import { Elements } from '../../enums/elements';
 
 export class CssEditor {
   private static instance: CodeMirror.Editor | null = null;

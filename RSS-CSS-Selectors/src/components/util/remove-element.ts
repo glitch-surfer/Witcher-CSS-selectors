@@ -1,4 +1,4 @@
-import { Elements } from '../../types/types';
+import { Elements } from '../../enums/elements';
 import { ElementGenerator } from './element-generator';
 
 export const isEqual = <T>(listA: T, listB: T): boolean => {

@@ -1,4 +1,4 @@
-import { Elements } from '../../types/types';
+import { Elements } from '../../enums/elements';
 import type { IComponent } from '../../types/types';
 import { levels } from '../game/levels';
 import { ModalWindow } from '../modal/modal-window';

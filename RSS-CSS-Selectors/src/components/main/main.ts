@@ -1,4 +1,4 @@
-import { Elements } from '../../types/types';
+import { Elements } from '../../enums/elements';
 import type { IComponent } from '../../types/types';
 import { ElementGenerator } from '../util/element-generator';
 import { GameController } from '../util/game-controller';

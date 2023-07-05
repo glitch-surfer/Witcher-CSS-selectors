@@ -1,4 +1,4 @@
-import { Elements } from '../../types/types';
+import { Elements } from '../../enums/elements';
 import type { IGameController } from '../../types/types';
 import { levels } from '../game/levels';
 import { winModalParams } from '../modal/modal-view';

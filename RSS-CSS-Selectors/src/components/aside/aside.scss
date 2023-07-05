@@ -41,7 +41,7 @@ body:has(.aside-burger.burger-active) .aside {
 
   &::before {
     content: '';
-    background: url(../../img/mark-grey.png) no-repeat center transparent;
+    background: url(./img/mark-grey.png) no-repeat center transparent;
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -50,12 +50,12 @@ body:has(.aside-burger.burger-active) .aside {
     bottom: 0.2rem;
 
     .aside:has([data-active].helped) & {
-      background: url(../../img/mark-yellow.png) no-repeat center transparent;
+      background: url(./img/mark-yellow.png) no-repeat center transparent;
       background-size: contain;
     }
 
     .aside:has([data-active].done) & {
-      background: url(../../img/mark-green.png) no-repeat center transparent;
+      background: url(./img/mark-green.png) no-repeat center transparent;
       background-size: contain;
     }
   }

@@ -47,13 +47,13 @@
   z-index: 11;
   width: 1.8rem;
   height: 1.8rem;
-  background: url(../../img/levels-menu.svg) no-repeat center transparent;
+  background: url(./img/levels-menu.svg) no-repeat center transparent;
   background-size: contain;
   @extend %transition;
   cursor: pointer;
 
   &:hover {
-    background: url(../../img/levels-menu-hover.svg) no-repeat center transparent;
+    background: url(./img/levels-menu-hover.svg) no-repeat center transparent;
     background-size: contain;
     transform: translateX(-0.2rem);
   }
@@ -82,7 +82,7 @@
 
   &::before {
     content: '';
-    background: url(../../img/mark-grey.png) no-repeat center transparent;
+    background: url(./img/mark-grey.png) no-repeat center transparent;
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -91,12 +91,12 @@
     bottom: 0.5rem;
 
     .helped & {
-      background: url(../../img/mark-yellow.png) no-repeat center transparent;
+      background: url(./img/mark-yellow.png) no-repeat center transparent;
       background-size: contain;
     }
     
     .done & {
-      background: url(../../img/mark-green.png) no-repeat center transparent;
+      background: url(./img/mark-green.png) no-repeat center transparent;
       background-size: contain;
     }
   }
