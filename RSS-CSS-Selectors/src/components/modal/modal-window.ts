@@ -11,7 +11,7 @@ export class ModalWindow implements IModalWindow {
     this.modal = ModalWindow.generateOverlay();
     this.message = new ElementGenerator(messageParams).getElement();
     this.modal.append(this.message);
-    this.modal.addEventListener('click', this.removeModal.bind(this));
+    this.modal.addEventListener('click', (event) => { this.removeModal(event); });
   }
 
   private removeModal(event: KeyboardEvent | MouseEvent): void {

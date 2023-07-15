@@ -28,7 +28,7 @@ export class Aside implements IComponent {
     const btnPrev = ElementGenerator.elementLinks[Elements.BTN_PREV];
     const editor = CssEditor.getInstance();
 
-    btnNext.addEventListener('click', this.gameController.nextLevel.bind(this.gameController));
+    btnNext.addEventListener('click', () => { this.gameController.nextLevel(); });
 
     btnPrev.addEventListener('click', () => {
       if (this.stateManager.currentLevel > 0) {
@@ -63,7 +63,7 @@ export class Aside implements IComponent {
       }
     };
 
-    this.element.addEventListener('click', levelHandler.bind(this));
+    this.element.addEventListener('click', (event) => { levelHandler(event); });
   }
 
   private addHelpHandler(): void {

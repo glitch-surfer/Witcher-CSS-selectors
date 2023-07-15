@@ -30,7 +30,7 @@ export const rigthAnswerHandler = (
     let modal: ModalWindow | null = new ModalWindow(
       levels[state.currentLevel].modal,
     );
-    table.addEventListener('animationend', modal.appendModal.bind(modal));
+    table.addEventListener('animationend', () => { modal?.appendModal(); });
 
     const observer = new MutationObserver(() => {
       modal = null;
