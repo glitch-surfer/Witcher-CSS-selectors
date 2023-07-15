@@ -53,8 +53,8 @@ export class Aside implements IComponent {
       if (parent === null || !(parent instanceof HTMLElement)) throw new Error();
 
       if (parent.classList.contains('nav__item')) {
-        this.gameController.toggleBtnDataActiveStatus();
         const levelBtnIndex = parent.classList[parent.classList.length - 1];
+        this.gameController.toggleBtnDataActiveStatus();
         this.stateManager.currentLevel = Number(levelBtnIndex);
         this.gameController.startGame(this.stateManager.currentLevel);
         this.stateManager.setState();
