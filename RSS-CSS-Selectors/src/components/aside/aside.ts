@@ -83,6 +83,7 @@ export class Aside implements IComponent {
       editor.setValue('');
       const text = levels[this.stateManager.currentLevel].help;
       const splittedText = text?.split('');
+      const TYPING_EFFECT_DELAY = 100;
 
       let answer: string = '';
       if (splittedText === undefined) throw new Error('no help text');
@@ -90,12 +91,12 @@ export class Aside implements IComponent {
         setTimeout(() => {
           answer += letter;
           editor.setValue(answer);
-        }, 100 * index);
+        }, TYPING_EFFECT_DELAY * index);
       });
 
       setTimeout(() => {
         helpBtn.addEventListener('click', helpHandler);
-      }, 100 * splittedText.length);
+      }, TYPING_EFFECT_DELAY * splittedText.length);
     };
 
     helpBtn.addEventListener('click', helpHandler);

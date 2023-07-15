@@ -13,12 +13,14 @@ export const isEqual = <T>(listA: T, listB: T): boolean => {
 };
 
 const removeTargetWithAnimation = (element: Element, index: number): void => {
+  const ANIMATION_DELAY = 300;
+
   element.addEventListener('animationend', () => {
     element.remove();
   });
   setTimeout(() => {
     element.classList.add('right-answer');
-  }, 300 * index);
+  }, ANIMATION_DELAY * index);
 };
 
 const grabbingHandHandler = (): void => {
