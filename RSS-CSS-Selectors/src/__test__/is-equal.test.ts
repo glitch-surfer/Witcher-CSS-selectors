@@ -1,15 +1,18 @@
 import { isEqual } from '../components/util/remove-element';
 
 describe('isEqual', () => {
+  const RANDOM_NUMBER_OF_CHILD_NODES = 10;
   let parent: HTMLElement;
-  let nodeList: NodeListOf<Element>;
+  let firstNodeList: NodeListOf<Element>;
+  let secondNodeList: NodeListOf<Element>;
   let emptyNodeList: NodeListOf<Element>;
   beforeEach(() => {
     parent = document.createElement('div');
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = 0; i < RANDOM_NUMBER_OF_CHILD_NODES; i += 1) {
       parent.append(document.createElement('div'));
     }
-    nodeList = parent.querySelectorAll('div');
+    firstNodeList = parent.querySelectorAll('div');
+    secondNodeList = parent.querySelectorAll('div');
     emptyNodeList = parent.querySelectorAll('p');
   });
 
@@ -18,10 +21,10 @@ describe('isEqual', () => {
   });
 
   it('should return true', () => {
-    expect(isEqual(nodeList, nodeList)).toBe(true);
+    expect(isEqual(firstNodeList, secondNodeList)).toBe(true);
   });
 
   it('should return false', () => {
-    expect(isEqual(nodeList, emptyNodeList)).toBe(false);
+    expect(isEqual(firstNodeList, emptyNodeList)).toBe(false);
   });
 });
