@@ -1,6 +1,3 @@
-/**
- * @jest-environment jsdom
- */
 import { ElementGenerator } from '../components/util/element-generator';
 
 describe('ElementGenerator', () => {
