@@ -2,7 +2,7 @@
 
 * Game, where you can learn css selectors with fun!
 
-[deploy](https://glitch-surfer.github.io/Witcher-CSS-Selectors/deploy/)
+[deploy](https://glitch-surfer.github.io/Witcher-CSS-selectors/deploy/)
 
 ## used:
 - TS (strict)
